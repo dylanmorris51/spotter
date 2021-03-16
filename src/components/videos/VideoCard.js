@@ -12,11 +12,14 @@ export const VideoCard = ({ video }) => (
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
             <Card.Title>{ video.name }</Card.Title>
+            <Card.Subtitle>{ video.exerciseType?.type }</Card.Subtitle>
             <Card.Text>
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
     </Card.Text>
-            <Button variant="primary">{ video.link }</Button>
+            <Button variant="primary">
+                <Card.Link href={video.link}>Go To Video</Card.Link>
+            </Button>
         </Card.Body>
     </Card>
 )
