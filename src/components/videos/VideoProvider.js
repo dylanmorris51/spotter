@@ -11,7 +11,7 @@ export const VideoProvider = (props) => {
 
     //fetch
     const getVideos = () => {
-        return fetch("http://localhost:8088/videos")
+        return fetch("http://localhost:8088/videos?_expand=exerciseType")
             .then(res => res.json)
             .then(setVideos)
     }
