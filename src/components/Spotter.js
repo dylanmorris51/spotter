@@ -5,11 +5,12 @@ import { userStorageKey } from "./auth/authSettings"
 
 export const Spotter = () => {
 
-    <>
+    return  <>
         <Route render={() => {
             if (sessionStorage.getItem(userStorageKey)) {
                 return (
                     <>
+                        ze landing page
                         //Components that are rendered when the user is authenticated go inside this React fragment
                     </>
                 )
