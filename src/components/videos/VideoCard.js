@@ -4,7 +4,9 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 
-//TODO: expand videos on painType and exerciseType
+//TODO: import thumbnails from youtube
+//! descriptions
+//! embed videos in app on a details page
 
 
 export const VideoCard = ({ video }) => (
