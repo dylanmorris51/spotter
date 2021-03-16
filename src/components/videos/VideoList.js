@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react"
 import { VideoContext } from "./VideoProvider"
 import { useHistory } from "react-router-dom"
+import { VideoCard } from "./VideoCard"
+import "./Video.css"
 
 export const VideoList = () => {
 
