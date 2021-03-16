@@ -1,5 +1,7 @@
 import React from "react"
 import "./Video.css"
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 
 //TODO: expand videos on painType and exerciseType
