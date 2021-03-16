@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { VideoContext } from "./videos/VideoProvider"
+import { VideoContext } from "./VideoProvider"
 import { useHistory } from "react-router-dom"
 
 export const VideoList = () => {
