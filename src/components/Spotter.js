@@ -2,6 +2,8 @@ import { Route, Redirect } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { userStorageKey } from "./auth/authSettings"
+import { NavBar } from "./nav/NavBar"
+import { Home } from "./Home"
 
 export const Spotter = () => {
 
@@ -11,7 +13,8 @@ export const Spotter = () => {
                 return (
                     <>
                         ze landing page
-                        //Components that are rendered when the user is authenticated go inside this React fragment
+                        <NavBar />
+                        <Home />
                     </>
                 )
             } else {
