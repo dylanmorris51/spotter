@@ -4,7 +4,7 @@ import "./Video.css"
 
 //TODO: expand videos on painType and exerciseType
 
-debugger
+
 export const VideoCard = ({ video }) => (
     <section className="video">
         <h3 className="video--name">{video.name}</h3>

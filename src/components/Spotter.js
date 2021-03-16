@@ -4,6 +4,7 @@ import { Register } from "./auth/Register"
 import { userStorageKey } from "./auth/authSettings"
 import { NavBar } from "./nav/NavBar"
 import { Home } from "./Home"
+import { ApplicationViews } from "./ApplicationViews"
 
 export const Spotter = () => {
 
@@ -14,6 +15,7 @@ export const Spotter = () => {
                     <>
                         ze landing page
                         <NavBar />
+                        <ApplicationViews />
                         <Home />
                     </>
                 )

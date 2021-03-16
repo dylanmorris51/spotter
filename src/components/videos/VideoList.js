@@ -8,6 +8,7 @@ export const VideoList = () => {
 
     //use context
     const { videos, getVideos } = useContext(VideoContext)
+    console.log('videos: ', videos);
 
     const history = useHistory()
 
@@ -17,12 +18,14 @@ export const VideoList = () => {
 
     //TODO: add search and sort
 
+    
+
     return (
         <>
             <h2>Videos</h2>
 
             <div className="video--list">
-                {videos.map(video => {
+                {videos?.map(video => {
                     return <VideoCard key={video.id} video={video} />
                 })}
             </div>
