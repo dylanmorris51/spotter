@@ -5,6 +5,7 @@ import { userStorageKey } from "./auth/authSettings"
 import { NavBar } from "./nav/NavBar"
 import { Home } from "./Home"
 import { ApplicationViews } from "./ApplicationViews"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const Spotter = () => {
 

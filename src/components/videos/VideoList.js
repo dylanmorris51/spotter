@@ -8,8 +8,6 @@ export const VideoList = () => {
 
     //use context
     const { videos, getVideos } = useContext(VideoContext)
-    console.log('videos: ', videos);
-
     const history = useHistory()
 
     useEffect(() => {
