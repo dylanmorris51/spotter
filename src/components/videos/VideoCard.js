@@ -6,10 +6,15 @@ import "./Video.css"
 
 
 export const VideoCard = ({ video }) => (
-    <section className="video">
-        <h3 className="video--name">{video.name}</h3>
-        <div className="video--link">
-            <a href={video.link}>Go to video</a>
-        </div>
-    </section>
+    <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Body>
+            <Card.Title>{ video.name }</Card.Title>
+            <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+    </Card.Text>
+            <Button variant="primary">{ video.link }</Button>
+        </Card.Body>
+    </Card>
 )
