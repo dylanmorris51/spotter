@@ -35,7 +35,7 @@ export const VideoProvider = (props) => {
     }
 
     //delete
-    const releaseVideo = videoId => {
+    const deleteVideo = videoId => {
         return fetch (`http://localhost:8088/videos/${videoId}`, {
             method: "DELETE"
         })
@@ -53,4 +53,11 @@ export const VideoProvider = (props) => {
         .then(getVideos)
     }
 
+    return (
+        <VideoContext.Provider value={{
+            videos, getVideos, addVideo, deleteVideo, updateVideo, getVideoById
+        }}>
+            {props.children}
+        </VideoContext.Provider>
+    )
 }
