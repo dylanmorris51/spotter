@@ -14,17 +14,19 @@ import YoutubeEmbed from './YoutubeEmbed'
 
 export const VideoCard = ({ video }) => (
     <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <div>
+        <Card.Header>{ video.exerciseType?.type }</Card.Header>
+        <Button>
+            <Card.Img variant="top" src={video.img} />
+
+        </Button>
+        {/*<div>
             <YoutubeEmbed embedId={ video.embed }/>
-        </div>
+        </div>*/}
         <Card.Body>
             <Card.Title>{ video.name }</Card.Title>
-            <Card.Subtitle>{ video.exerciseType?.type }</Card.Subtitle>
+            <Card.Subtitle>{ `Helps with ${video.painType?.type} pain` } </Card.Subtitle>
             <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-    </Card.Text>
+            </Card.Text>
             <Button variant="primary">
                 Add to Workout
             </Button>
