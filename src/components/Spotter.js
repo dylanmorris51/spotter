@@ -9,15 +9,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const Spotter = () => {
 
+    //! Add NavBar Styling
     return  <>
         <Route render={() => {
             if (sessionStorage.getItem(userStorageKey)) {
                 return (
                     <>
-                        ze landing page
                         <NavBar />
                         <ApplicationViews />
-                        <Home />
                     </>
                 )
             } else {
