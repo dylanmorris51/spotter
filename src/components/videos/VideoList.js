@@ -3,6 +3,7 @@ import { VideoContext } from "./VideoProvider"
 import { useHistory } from "react-router-dom"
 import { VideoCard } from "./VideoCard"
 import "./Video.css"
+import "./YoutubeEmbed.css"
 
 export const VideoList = () => {
 
