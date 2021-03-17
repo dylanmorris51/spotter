@@ -43,49 +43,49 @@ export const Login = () => {
 
     return (
         <>
-            <Carousel>
-                <Carousel.Item interval={1000}>
+            <Carousel fade>
+                <Carousel.Item interval={4000}>
                     <img
                         className="d-block w-100"
                         src="https://i.imgur.com/OgJw4Ux.jpg/800x400?text=First slide&bg=373940"
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Welcome!</h3>
+                        <p>Your fitness resource on the go - just like you.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={500}>
+                <Carousel.Item interval={4000}>
                     <img
                         className="d-block w-100"
-                        src="https://i.imgur.com/9vKh9f5.jpg/800x400?text=Second slide&bg=282c34"
+                        src="https://i.imgur.com/1WPMllM.jpg/800x400?text=Second slide&bg=282c34"
                         alt="Second slide"
                     />
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Safety</h3>
+                        <p>We help you train safely so you can stay moving.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item interval={4000}>
                     <img
                         className="d-block w-100"
                         src="https://i.imgur.com/4ekzUMy.jpg/800x400?text=Third slide&bg=20232a"
                         alt="Third slide"
                     />
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Curated Library</h3>
+                        <p>Browse our hand-picked instructional videos to find what works for you.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item interval={4000}>
                     <img
                         className="d-block w-100"
-                        src="https://i.imgur.com/1WPMllM.jpg/800x400?text=Fourth slide&bg=20232a"
+                        src="https://i.imgur.com/wiPS7X3.jpg/800x400?text=Fourth slide&bg=20232a"
                         alt="Third slide"
                     />
                     <Carousel.Caption>
-                        <h3>Fourth slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Get Started</h3>
+                        <p>Register to start building your personalized workouts</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
