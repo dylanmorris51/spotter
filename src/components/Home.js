@@ -1,7 +1,12 @@
 import React from "react";
+import { Button } from "react-bootstrap"
 
+
+//! Create logout component and import
 export const Home = () => {
     return <>
-        Fill this out with home page styling for cards create, browse, collections
+        <Button variant="light" onClick={() => {
+            sessionStorage.clear()
+        }} href="/login">Logout</Button>
     </>
 }
