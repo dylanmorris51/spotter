@@ -6,10 +6,8 @@ import Button from 'react-bootstrap/Button'
 import YoutubeEmbed from './YoutubeEmbed'
 
 
-//TODO: import thumbnails from youtube
-//! descriptions
-//! embed videos in app on a details page
-//TODO: add embed links to the database for each video and dynamically pass them into the cards
+
+//! add links to a details page
 
 
 export const VideoCard = ({ video }) => (
