@@ -4,6 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom"
 import { Spotter } from './components/Spotter';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 ReactDOM.render(

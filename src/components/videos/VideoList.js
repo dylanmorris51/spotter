@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react"
-import { VideoContext } from "./videos/VideoProvider"
+import { VideoContext } from "./VideoProvider"
 import { useHistory } from "react-router-dom"
+import { VideoCard } from "./VideoCard"
+import "./Video.css"
+import "./YoutubeEmbed.css"
 
 export const VideoList = () => {
 
     //use context
     const { videos, getVideos } = useContext(VideoContext)
-
     const history = useHistory()
 
     useEffect(() => {
@@ -15,12 +17,14 @@ export const VideoList = () => {
 
     //TODO: add search and sort
 
+    
+
     return (
         <>
             <h2>Videos</h2>
 
             <div className="video--list">
-                {videos.map(video => {
+                {videos?.map(video => {
                     return <VideoCard key={video.id} video={video} />
                 })}
             </div>
