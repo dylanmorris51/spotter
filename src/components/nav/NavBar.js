@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Nav, Form, FormControl, Button } from "react-bootstrap"
 
 //TODO: Add Logo
-//TODO: Add search
+
 export const NavBar = (props) => {
     return (
         
@@ -33,10 +33,6 @@ export const NavBar = (props) => {
                 <Nav.Link href="/collections">Collections</Nav.Link>
                 <Nav.Link href="/planner">Planner</Nav.Link>
             </Nav>
-            <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-info">Search</Button>
-            </Form>
         </Navbar>
         </>
     )
