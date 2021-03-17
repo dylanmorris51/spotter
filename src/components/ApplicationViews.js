@@ -4,6 +4,7 @@ import { Home } from "./Home"
 
 import { VideoList } from "./videos/VideoList"
 import { VideoProvider } from "./videos/VideoProvider"
+import { VideoDetail } from "./videos/VideoDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -13,8 +14,12 @@ export const ApplicationViews = () => {
             </Route>
 
             <VideoProvider>
-                <Route path="/videos">
+                <Route exact path="/videos">
                     <VideoList />
+                </Route>
+
+                <Route path="/videos/detail/:videoId(\d+)">
+                    <VideoDetail />
                 </Route>
             </VideoProvider>
         </>
