@@ -1,10 +1,16 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
+import Navbar from 'react-bootstrap/Navbar'
+import { Nav, Form, FormControl, Button } from "react-bootstrap"
+
+//TODO: Add Logo
 
 export const NavBar = (props) => {
     return (
-        <ul className="navBar">
+        
+        <>
+        {/*<ul className="navBar">
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">Home</Link>
         </li>
@@ -18,6 +24,16 @@ export const NavBar = (props) => {
                 <Link className="navbar__link" to="/planner">Planner</Link>
             </li>
             
-        </ul>    
+        </ul> */}
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="/">Spotter</Navbar.Brand>
+            <Nav className="mr-auto">
+                <Nav.Link href="/workout">Workout</Nav.Link>
+                <Nav.Link href="/videos">Videos</Nav.Link>
+                <Nav.Link href="/collections">Collections</Nav.Link>
+                <Nav.Link href="/planner">Planner</Nav.Link>
+            </Nav>
+        </Navbar>
+        </>
     )
 }
