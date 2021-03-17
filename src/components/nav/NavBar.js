@@ -8,9 +8,9 @@ import { Nav, Form, FormControl, Button } from "react-bootstrap"
 
 export const NavBar = (props) => {
     return (
-        
+
         <>
-        {/*<ul className="navBar">
+            {/*<ul className="navBar">
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">Home</Link>
         </li>
@@ -25,22 +25,22 @@ export const NavBar = (props) => {
             </li>
             
         </ul> */}
-        <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="/">
-            <img
-        src="https://i.imgur.com/dbQP5ZD.png"
-        width="80"
-        height="80"
-        className="d-inline-block align-top"
-        alt="Spotter logo" />
-            </Navbar.Brand>
-            <Nav className="mr-auto">
-                <Nav.Link href="/workout">Workout</Nav.Link>
-                <Nav.Link href="/videos">Videos</Nav.Link>
-                <Nav.Link href="/collections">Collections</Nav.Link>
-                <Nav.Link href="/planner">Planner</Nav.Link>
-            </Nav>
-        </Navbar>
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="/">
+                    <img
+                        src="https://i.imgur.com/dbQP5ZD.png"
+                        width="80"
+                        height="80"
+                        className="d-inline-block align-top"
+                        alt="Spotter logo" />
+                </Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/workout">Workout</Nav.Link>
+                    <Nav.Link href="/videos">Videos</Nav.Link>
+                    <Nav.Link href="/collections">Collections</Nav.Link>
+                    <Nav.Link href="/planner">Planner</Nav.Link>
+                </Nav>
+            </Navbar>
         </>
     )
 }

@@ -5,6 +5,7 @@ import "./Login.css"
 import Form from 'react-bootstrap/Form'
 import Button from "react-bootstrap/Button"
 import Carousel from 'react-bootstrap/Carousel'
+import Navbar from "react-bootstrap/Navbar"
 
 
 
@@ -43,6 +44,20 @@ export const Login = () => {
 
     return (
         <>
+            
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="/">
+                    <img
+                        src="https://i.imgur.com/dbQP5ZD.png"
+                        width="80"
+                        height="80"
+                        className="d-inline-block align-top"
+                        alt="Spotter logo" />
+                </Navbar.Brand>
+            </Navbar>
+            
+            
+            
             <Carousel fade>
                 <Carousel.Item interval={4000}>
                     <img
