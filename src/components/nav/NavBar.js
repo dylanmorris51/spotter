@@ -26,7 +26,14 @@ export const NavBar = (props) => {
             
         </ul> */}
         <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="/">Spotter</Navbar.Brand>
+            <Navbar.Brand href="/">
+            <img
+        src="https://i.imgur.com/dbQP5ZD.png"
+        width="80"
+        height="80"
+        className="d-inline-block align-top"
+        alt="Spotter logo" />
+            </Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/workout">Workout</Nav.Link>
                 <Nav.Link href="/videos">Videos</Nav.Link>
