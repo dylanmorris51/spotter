@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom"
 import { authApi, userStorageKey } from "./authSettings"
 import "./Login.css"
 import Button from "react-bootstrap/Button"
+import Navbar from "react-bootstrap/Navbar"
 
 export const Register = () => {
 
@@ -56,32 +57,46 @@ export const Register = () => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
 
-            <dialog className="dialog dialog--password" open={conflictDialog}>
-                <div>Account with that email address already exists</div>
-                <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
-            </dialog>
+        <>
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="/">
+                    <img
+                        src="https://i.imgur.com/dbQP5ZD.png"
+                        width="80"
+                        height="80"
+                        className="d-inline-block align-top"
+                        alt="Spotter logo" />
+                </Navbar.Brand>
+            </Navbar>
+            
+            <main style={{ textAlign: "center" }}>
 
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Application Name</h1>
-                <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input type="text" name="firstName" id="firstName" className="form-control" placeholder="First name" required autoFocus value={registerUser.firstName} onChange={handleInputChange} />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input type="text" name="lastName" id="lastName" className="form-control" placeholder="Last name" required value={registerUser.lastName} onChange={handleInputChange} />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputEmail"> Email address </label>
-                    <input type="email" name="email" id="email" className="form-control" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
-                </fieldset>
-                <fieldset>
-                    <Button type="submit"> Sign in </Button>
-                </fieldset>
-            </form>
-        </main>
+                <dialog className="dialog dialog--password" open={conflictDialog}>
+                    <div>Account with that email address already exists</div>
+                    <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
+                </dialog>
+
+                <form className="form--login" onSubmit={handleRegister}>
+                    <h1 className="h3 mb-3 font-weight-normal">Please Register for Application Name</h1>
+                    <fieldset>
+                        <label htmlFor="firstName"> First Name </label>
+                        <input type="text" name="firstName" id="firstName" className="form-control" placeholder="First name" required autoFocus value={registerUser.firstName} onChange={handleInputChange} />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="lastName"> Last Name </label>
+                        <input type="text" name="lastName" id="lastName" className="form-control" placeholder="Last name" required value={registerUser.lastName} onChange={handleInputChange} />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="inputEmail"> Email address </label>
+                        <input type="email" name="email" id="email" className="form-control" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
+                    </fieldset>
+                    <fieldset>
+                        <Button type="submit"> Sign in </Button>
+                    </fieldset>
+                </form>
+            </main>
+        </>
     )
 }
 
