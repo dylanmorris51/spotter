@@ -14,7 +14,7 @@ export const ApplicationViews = () => {
             </Route>
 
             <VideoProvider>
-                <Route path="/videos">
+                <Route exact path="/videos">
                     <VideoList />
                 </Route>
 

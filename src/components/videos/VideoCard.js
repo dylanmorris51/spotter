@@ -4,7 +4,10 @@ import "./YoutubeEmbed.css"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import YoutubeEmbed from './YoutubeEmbed'
+import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 
+const history = useHistory
 
 
 //! add links to a details page
@@ -13,10 +16,11 @@ import YoutubeEmbed from './YoutubeEmbed'
 export const VideoCard = ({ video }) => (
     <Card style={{ width: '18rem' }}>
         <Card.Header>{ video.exerciseType?.type }</Card.Header>
-        <Button>
-            <Card.Img variant="top" src={video.img} />
+            <Link to={`/videos/detail/${video.id}`}>
+                <Card.Img variant="top" src={video.img} />
+            </Link>
 
-        </Button>
+        
         {/*<div>
             <YoutubeEmbed embedId={ video.embed }/>
         </div>*/}
