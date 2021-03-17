@@ -2,6 +2,11 @@ import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom";
 import { authApi, userStorageKey } from "./authSettings"
 import "./Login.css"
+import Form from 'react-bootstrap/Form'
+import Button from "react-bootstrap/Button"
+import Carousel from 'react-bootstrap/Carousel'
+import Navbar from "react-bootstrap/Navbar"
+
 
 
 export const Login = () => {
@@ -38,36 +43,105 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
-            <dialog className="dialog dialog--auth" open={existDialog}>
-                <div>User does not exist</div>
-                <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
-            </dialog>
-            <section>
-                <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Nutshell</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input type="email"
-                            id="email"
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus
-                            value={loginUser.email}
-                            onChange={handleInputChange} />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
-                    </fieldset>
-                </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Register for an account</Link>
-            </section>
-        </main>
+        <>
+            
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="/">
+                    <img
+                        src="https://i.imgur.com/dbQP5ZD.png"
+                        width="80"
+                        height="80"
+                        className="d-inline-block align-top"
+                        alt="Spotter logo" />
+                </Navbar.Brand>
+            </Navbar>
+            
+            
+            
+            <Carousel fade>
+                <Carousel.Item interval={4000}>
+                    <img
+                        className="d-block w-100"
+                        src="https://i.imgur.com/OgJw4Ux.jpg/800x400?text=First slide&bg=373940"
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h3>Welcome!</h3>
+                        <p>Your fitness resource on the go - just like you.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={4000}>
+                    <img
+                        className="d-block w-100"
+                        src="https://i.imgur.com/1WPMllM.jpg/800x400?text=Second slide&bg=282c34"
+                        alt="Second slide"
+                    />
+                    <Carousel.Caption>
+                        <h3>Safety</h3>
+                        <p>We help you train safely so you can stay moving.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={4000}>
+                    <img
+                        className="d-block w-100"
+                        src="https://i.imgur.com/4ekzUMy.jpg/800x400?text=Third slide&bg=20232a"
+                        alt="Third slide"
+                    />
+                    <Carousel.Caption>
+                        <h3>Curated Library</h3>
+                        <p>Browse our hand-picked instructional videos to find what works for you.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={4000}>
+                    <img
+                        className="d-block w-100"
+                        src="https://i.imgur.com/wiPS7X3.jpg/800x400?text=Fourth slide&bg=20232a"
+                        alt="Third slide"
+                    />
+                    <Carousel.Caption>
+                        <h3>Get Started</h3>
+                        <p>Register to start building your personalized workouts</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
+
+            <main className="container--login">
+                <dialog className="dialog dialog--auth" open={existDialog}>
+                    <div>User does not exist</div>
+                    <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
+                </dialog>
+                <section>
+                    <form className="form--login" onSubmit={handleLogin}>
+                        <h1>Spotter</h1>
+                        <h2>Please sign in</h2>
+                        <fieldset>
+                            <label htmlFor="inputEmail"> Email address </label>
+                            <input type="email"
+                                id="email"
+                                className="form-control"
+                                placeholder="Email address"
+                                required autoFocus
+                                value={loginUser.email}
+                                onChange={handleInputChange} />
+                        </fieldset>
+                        <fieldset>
+                            <Button type="submit">
+                                Sign in
+                            </Button>
+                        </fieldset>
+                    </form>
+                </section>
+                <section className="link--register">
+                    <Link to="/register">
+                        <Button>
+                            Register for an account
+                        </Button>
+                    </Link>
+                </section>
+            </main>
+
+
+        </>
     )
 }
 
