@@ -12,7 +12,7 @@ export const ExerciseTypeProvider = (props) => {
     const getExerciseTypes = () => {
         return fetch("http://localhost:8088/exerciseTypes")
             .then(res => res.json())
-            .then(setexerciseTypes)
+            .then(setExerciseTypes)
     }
 
     return (
