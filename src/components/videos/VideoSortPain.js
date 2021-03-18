@@ -58,29 +58,21 @@ export const VideoSortPain = () => {
                 <Dropdown.Item id="0" onClick={e => {handlePainSort(e)}} as="button">Everything Hurts</Dropdown.Item>
             </DropdownButton>
 
-
-            {/*render videos*/}
-            <h2>Videos</h2>
-
-            <div className="video--list">
-                {filteredVideos?.map(video => {
-                    return <VideoCard key={video.id} video={video} />
-                })}
-            </div>
-            
-            {/* button sort by exercise */}
-            <Button onClick={() => {
-                history.push(`/videos/exerciseTypes`)
-            }}>
-                Sort By Exercise Types
-            </Button>
-
             {/* button return to all videos */}
             <Button onClick={() => {
                 history.push(`/videos`)
             }}>
                 Return To All Videos
             </Button>
+
+            {/*render videos*/}
+            <div className="video--list">
+                {filteredVideos?.map(video => {
+                    return <VideoCard key={video.id} video={video} />
+                })}
+            </div>
+            
+
         </>
     )
 

@@ -51,28 +51,23 @@ export const VideoSortExercise = () => {
                 <Dropdown.Item id="2" onClick={e => {handleExerciseSort(e)}} as="button">Core</Dropdown.Item>
                 <Dropdown.Item id="3" onClick={e => {handleExerciseSort(e)}} as="button">Lower Body</Dropdown.Item>
                 <Dropdown.Item id="4" onClick={e => {handleExerciseSort(e)}} as="button">Upper Body</Dropdown.Item>                
+                <Dropdown.Item id="0" onClick={e => {handleExerciseSort(e)}} as="button">View All</Dropdown.Item>                
             </DropdownButton>
 
+            {/* button return to all videos */}
+            <Button onClick={() => {
+                history.push(`/videos`)
+            }}>
+                Return To All Videos
+            </Button>
 
             {/*rendering component*/}
-            <h2>Videos</h2>
-
             <div className="video--list">
                 {filteredVideos?.map(video => {
                     return <VideoCard key={video.id} video={video} />
                 })}
             </div>
             
-            <Button onClick={() => {
-                history.push(`/videos/painTypes`)
-            }}>
-                Sort By Body Pain
-            </Button>
-            <Button onClick={() => {
-                history.push(`/videos`)
-            }}>
-                Return To All Videos
-            </Button>
         </>
     )
 

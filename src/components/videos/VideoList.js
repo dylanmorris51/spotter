@@ -54,8 +54,6 @@ export const VideoList = () => {
             
 
             {/*render videos*/}
-            <h2>Videos</h2>
-
             <div className="video--list">
                 {videos?.map(video => {
                     return <VideoCard key={video.id} video={video} />
