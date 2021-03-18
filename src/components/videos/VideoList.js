@@ -33,13 +33,19 @@ export const VideoList = () => {
     // sort pains
     const handlePainSort = (e) => {
 
-        let painType = painTypes.find(type => type.id === +e.target.id)
-        console.log('painType: ', painType);
-        
-        let matchingVideosByPainType = videos.filter(videoObj => videoObj.painType.id === painType.id)
-        console.log('matchingVideosByPainType: ', matchingVideosByPainType);
+        if (+e.target.id !== 0) {
 
-        setVideos(matchingVideosByPainType)
+            let painType = painTypes.find(type => type.id === +e.target.id)
+            console.log('painType: ', painType);
+            
+            let matchingVideosByPainType = videos.filter(videoObj => videoObj.painType.id === painType.id)
+            console.log('matchingVideosByPainType: ', matchingVideosByPainType);
+    
+            setFilteredVideos(matchingVideosByPainType)
+        } else {
+            setFilteredVideos(videos)
+        }
+        
     }
 
 
@@ -53,6 +59,7 @@ export const VideoList = () => {
                 <Dropdown.Item id="1" onClick={e => {handlePainSort(e)}} as="button">Hip</Dropdown.Item>
                 <Dropdown.Item id="4" onClick={e => {handlePainSort(e)}} as="button">Leg</Dropdown.Item>
                 <Dropdown.Item id="5" onClick={e => {handlePainSort(e)}} as="button">Foot & Ankle</Dropdown.Item>
+                <Dropdown.Item id="0" onClick={e => {handlePainSort(e)}} as="button">Everything Hurts</Dropdown.Item>
             </DropdownButton>
 
             <h2>Videos</h2>
