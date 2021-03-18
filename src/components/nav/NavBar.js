@@ -35,7 +35,7 @@ export const NavBar = (props) => {
                         alt="Spotter logo" />
                 </Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link href="/workout">Workout</Nav.Link>
+                    <Nav.Link href="/workouts">Workouts</Nav.Link>
                     <Nav.Link href="/videos">Videos</Nav.Link>
                     <Nav.Link href="/collections">Collections</Nav.Link>
                     <Nav.Link href="/planner">Planner</Nav.Link>
