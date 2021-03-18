@@ -5,6 +5,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
+import { WorkoutCard } from "./WorkoutCard"
 
 export const WorkoutList = () => {
 
@@ -26,7 +27,7 @@ export const WorkoutList = () => {
 
             <div className="workouts--list">
                 {workouts.length = 0 ? alert("create a new workout!") : workouts.map(workout => {
-                    return //workout card component
+                    return <WorkoutCard key={workout.id} workout={workout}/>
                 })}
             </div>
 
