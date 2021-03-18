@@ -3,9 +3,13 @@ import React, { useState, createContext } from "react"
 // context
 export const WorkoutContext = createContext()
 
+
+
 //provider
 export const WorkoutProvider = (props) => {
 
+    
+    
     //state
     const [workouts, setWorkouts] = useState([])
 
@@ -42,6 +46,7 @@ export const WorkoutProvider = (props) => {
         .then(getWorkouts)
     }
 
+    // update
     const updateWorkout = workout => {
         return fetch(`http://localhost:8088/videos/${workout.id}`, {
             method: "PUT",
