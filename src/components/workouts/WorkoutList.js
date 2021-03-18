@@ -12,12 +12,15 @@ export const WorkoutList = () => {
     const history = useHistory()
 
     //workout context
-    const { workouts, getWorkouts } = useContext(WorkoutContext)
+    const { workouts, getWorkoutsByUserId } = useContext(WorkoutContext)
 
     
+    //userId
+    const userId = sessionStorage.getItem("app_user_id")
+
     //render page-load
     useEffect(() => {
-        getWorkouts()
+        getWorkoutsByUserId(userId)
     }, [])
 
 

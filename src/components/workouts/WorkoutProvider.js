@@ -38,6 +38,13 @@ export const WorkoutProvider = (props) => {
             .then(res => res.json())
     }
 
+    //get by userId
+    const getWorkoutsByUserId = (userId) => {
+        return fetch(`http://localhost:8088/workouts?userId=${userId}`)
+        .then(res => res.json())
+        .then(setWorkouts)
+    }
+
     //delete
     const deleteWorkout = workoutId => {
         return fetch (`http://localhost:8088/workouts/${workoutId}`, {
@@ -60,7 +67,7 @@ export const WorkoutProvider = (props) => {
 
     return (
         <WorkoutContext.Provider value={{
-            workouts, getWorkouts, addWorkout, getWorkoutById, deleteWorkout, updateWorkout
+            workouts, getWorkouts, addWorkout, getWorkoutById, getWorkoutsByUserId, deleteWorkout, updateWorkout
         }}>
             {props.children}
         </WorkoutContext.Provider>
