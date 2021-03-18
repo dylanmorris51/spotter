@@ -13,7 +13,7 @@ export const VideoSortPain = () => {
     const history = useHistory()
 
     //video context
-    const { videos, getVideos, setVideos } = useContext(VideoContext)
+    const { videos, getVideos } = useContext(VideoContext)
     //pain context
     const { painTypes, getPainTypes } = useContext(PainTypeContext)
 
@@ -36,10 +36,8 @@ export const VideoSortPain = () => {
         if (+e.target.id !== 0) {
 
             let painType = painTypes.find(type => type.id === +e.target.id)
-            console.log('painType: ', painType);
-            
+        
             let matchingVideosByPainType = videos.filter(videoObj => videoObj.painType.id === painType.id)
-            console.log('matchingVideosByPainType: ', matchingVideosByPainType);
     
             setFilteredVideos(matchingVideosByPainType)
         } else {

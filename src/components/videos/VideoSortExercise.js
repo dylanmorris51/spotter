@@ -13,7 +13,7 @@ export const VideoSortExercise = () => {
     const history = useHistory()
 
     //video context
-    const { videos, getVideos, setVideos } = useContext(VideoContext)
+    const { videos, getVideos } = useContext(VideoContext)
     //exercise context
     const { exerciseTypes, getExerciseTypes } = useContext(ExerciseTypeContext)
 
