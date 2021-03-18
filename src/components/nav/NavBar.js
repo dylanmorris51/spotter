@@ -28,7 +28,7 @@ export const NavBar = (props) => {
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="/">
                     <img
-                        src="https://i.imgur.com/dbQP5ZD.png"
+                        src="https://i.imgur.com/lWKMaoG.png"
                         width="80"
                         height="80"
                         className="d-inline-block align-top"

@@ -3,26 +3,42 @@ import { VideoContext } from "./VideoProvider"
 import { useHistory } from "react-router-dom"
 import { VideoCard } from "./VideoCard"
 import "./Video.css"
-import "./YoutubeEmbed.css"
+import Button from "react-bootstrap/Button"
 
 export const VideoList = () => {
 
-    //use context
-    const { videos, getVideos } = useContext(VideoContext)
     const history = useHistory()
 
+    //video context
+    const { videos, getVideos } = useContext(VideoContext)
+    //pain context
+    
+    
+    //render page-load
     useEffect(() => {
         getVideos()
     }, [])
-
-    //TODO: add search and sort
-
     
 
     return (
         <>
-            <h2>Videos</h2>
+            
+            {/* button sort by exercise */}
+            <Button onClick={() => {
+                history.push(`/videos/exerciseTypes`)
+            }}>
+                Sort By Exercise Types
+            </Button>
+            
+            {/* button sort by pain */}
+            <Button onClick={() => {
+                history.push(`/videos/painTypes`)
+            }}>
+                Sort By Body Pain
+            </Button>
+            
 
+            {/*render videos*/}
             <div className="video--list">
                 {videos?.map(video => {
                     return <VideoCard key={video.id} video={video} />

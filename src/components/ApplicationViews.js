@@ -5,6 +5,10 @@ import { Home } from "./Home"
 import { VideoList } from "./videos/VideoList"
 import { VideoProvider } from "./videos/VideoProvider"
 import { VideoDetail } from "./videos/VideoDetail"
+import { VideoSortPain } from "./videos/VideoSortPain"
+import { VideoSortExercise } from "./videos/VideoSortExercise"
+import { PainTypeProvider } from "./pains/PainProvider"
+import { ExerciseTypeProvider } from "./exerciseTypes/ExerciseTypeProvider"
 
 export const ApplicationViews = () => {
     return (
@@ -13,15 +17,28 @@ export const ApplicationViews = () => {
                 <Home />
             </Route>
 
-            <VideoProvider>
-                <Route exact path="/videos">
-                    <VideoList />
-                </Route>
+            <ExerciseTypeProvider>
+                <PainTypeProvider>
+                    <VideoProvider>
+                        <Route exact path="/videos">
+                            <VideoList />
+                        </Route>
 
-                <Route path="/videos/detail/:videoId(\d+)">
-                    <VideoDetail />
-                </Route>
-            </VideoProvider>
+                        <Route path="/videos/detail/:videoId(\d+)">
+                            <VideoDetail />
+                        </Route>
+
+                        <Route path="/videos/painTypes">
+                            <VideoSortPain />
+                        </Route>
+
+                        <Route path="/videos/exerciseTypes">
+                            <VideoSortExercise />
+                        </Route>
+
+                    </VideoProvider>
+                </PainTypeProvider>
+            </ExerciseTypeProvider>
         </>
     )
 }

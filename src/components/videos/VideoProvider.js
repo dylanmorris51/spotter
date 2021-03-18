@@ -1,4 +1,6 @@
 import React, { useState, createContext } from "react"
+//! reference Kennels to be able to sort videos by type and pain type
+//TODO: sort videos by pain and exercise type
 
 // context
 export const VideoContext = createContext()
@@ -52,6 +54,8 @@ export const VideoProvider = (props) => {
         })
         .then(getVideos)
     }
+
+
 
     return (
         <VideoContext.Provider value={{
