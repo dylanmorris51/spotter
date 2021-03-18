@@ -17,7 +17,7 @@ export const WorkoutList = () => {
     
     //render page-load
     useEffect(() => {
-        getWorkouts
+        getWorkouts()
     }, [])
 
 
@@ -26,7 +26,7 @@ export const WorkoutList = () => {
             <h2>Workouts</h2>
 
             <div className="workouts--list">
-                {workouts.length = 0 ? alert("create a new workout!") : workouts.map(workout => {
+                {workouts.length === 0 ? "create a new workout!" : workouts.map(workout => {
                     return <WorkoutCard key={workout.id} workout={workout}/>
                 })}
             </div>
