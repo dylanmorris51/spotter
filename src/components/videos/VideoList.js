@@ -8,6 +8,7 @@ import { PainTypeContext } from "../pains/PainProvider"
 import { ExerciseTypeContext } from "../exerciseTypes/ExerciseTypeProvider"
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from "react-bootstrap/Dropdown"
+import Button from "react-bootstrap/Button"
 
 export const VideoList = () => {
 
@@ -21,7 +22,7 @@ export const VideoList = () => {
     const { exerciseTypes, getExerciseTypes } = useContext(ExerciseTypeContext)
     
     //video state for filtering
-    const [filteredVideos, setFilteredVideos] = useState([])
+    // const [filteredVideos, setFilteredVideos] = useState([])
     
     
     
@@ -30,29 +31,29 @@ export const VideoList = () => {
         getPainTypes()
         .then(getExerciseTypes)
             .then(getVideos)
-                .then(setFilteredVideos(videos))
+                // .then(setFilteredVideos(videos))
     }, [])
     
     
     
     
     // sort by pain types
-    const handlePainSort = (e) => {
+    // const handlePainSort = (e) => {
 
-        if (+e.target.id !== 0) {
+    //     if (+e.target.id !== 0) {
 
-            let painType = painTypes.find(type => type.id === +e.target.id)
-            console.log('painType: ', painType);
+    //         let painType = painTypes.find(type => type.id === +e.target.id)
+    //         console.log('painType: ', painType);
             
-            let matchingVideosByPainType = videos.filter(videoObj => videoObj.painType.id === painType.id)
-            console.log('matchingVideosByPainType: ', matchingVideosByPainType);
+    //         let matchingVideosByPainType = videos.filter(videoObj => videoObj.painType.id === painType.id)
+    //         console.log('matchingVideosByPainType: ', matchingVideosByPainType);
     
-            setFilteredVideos(matchingVideosByPainType)
-        } else {
-            setFilteredVideos(videos)
-        }
+    //         setFilteredVideos(matchingVideosByPainType)
+    //     } else {
+    //         setFilteredVideos(videos)
+    //     }
         
-    }
+    // }
 
     // sort by exercise types
     // const handleExerciseSort = (e) => {
@@ -74,38 +75,27 @@ export const VideoList = () => {
 //! Present a single button to sort which activates a modal which renders a specific dropdown
 //! would need to store return in a variable which can be changed and called in the return
 
-let PageReturn = () => {
-    return (
-        <h1> I CAN SEE THIS</h1>
-    )
-}
+
     return (
         <>
             
-            {/*Exercise type dropdown*/}
-            {/* <DropdownButton id="dropdown-item-button" title="Sort By Body Pain">
-                <Dropdown.Item id="1" onClick={e => {handleExerciseSort(e)}} as="button">Stretching & Mobility</Dropdown.Item>
-                <Dropdown.Item id="2" onClick={e => {handleExerciseSort(e)}} as="button">Core</Dropdown.Item>
-                <Dropdown.Item id="3" onClick={e => {handleExerciseSort(e)}} as="button">Lower Body</Dropdown.Item>
-                <Dropdown.Item id="4" onClick={e => {handleExerciseSort(e)}} as="button">Upper Body</Dropdown.Item>
-            </DropdownButton> */}
+            <Button onClick={() => {
+                history.push(`/exerciseTypes`)
+            }}>
+                Sort By Exercise Types
+            </Button>
+            <Button onClick={() => {
+                history.push(`/videos/painTypes`)
+            }}>
+                Sort By Body Pain
+            </Button>
             
-            
-            {/*Pain type dropdown*/}
-            <DropdownButton id="dropdown-item-button" title="Sort By Body Pain">
-                <Dropdown.Item id="2" onClick={e => {handlePainSort(e)}} as="button">Shoulder</Dropdown.Item>
-                <Dropdown.Item id="3" onClick={e => {handlePainSort(e)}} as="button">Back</Dropdown.Item>
-                <Dropdown.Item id="1" onClick={e => {handlePainSort(e)}} as="button">Hip</Dropdown.Item>
-                <Dropdown.Item id="4" onClick={e => {handlePainSort(e)}} as="button">Leg</Dropdown.Item>
-                <Dropdown.Item id="5" onClick={e => {handlePainSort(e)}} as="button">Foot & Ankle</Dropdown.Item>
-                <Dropdown.Item id="0" onClick={e => {handlePainSort(e)}} as="button">Everything Hurts</Dropdown.Item>
-            </DropdownButton>
 
             {/*rendering component*/}
             <h2>Videos</h2>
 
             <div className="video--list">
-                {filteredVideos?.map(video => {
+                {videos?.map(video => {
                     return <VideoCard key={video.id} video={video} />
                 })}
             </div>
