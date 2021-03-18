@@ -13,15 +13,19 @@ export const VideoList = () => {
     const history = useHistory()
 
     //video context
-    const { videos, getVideos } = useContext(VideoContext)
+    const { videos, getVideos, setVideos } = useContext(VideoContext)
 
     //pain context
     const { painTypes, getPainTypes } = useContext(PainTypeContext)
+
+    //filtered video state
+    const [filteredVideos, setFilteredVideos] = useState([])
     
     //render page-load
     useEffect(() => {
         getPainTypes()
         .then(getVideos)
+            .then(setFilteredVideos(videos))
     }, [])
     
     //TODO: add search and sort
@@ -34,6 +38,8 @@ export const VideoList = () => {
         
         let matchingVideosByPainType = videos.filter(videoObj => videoObj.painType.id === painType.id)
         console.log('matchingVideosByPainType: ', matchingVideosByPainType);
+
+        setVideos(matchingVideosByPainType)
     }
 
 
@@ -52,7 +58,7 @@ export const VideoList = () => {
             <h2>Videos</h2>
 
             <div className="video--list">
-                {videos?.map(video => {
+                {filteredVideos?.map(video => {
                     return <VideoCard key={video.id} video={video} />
                 })}
             </div>
