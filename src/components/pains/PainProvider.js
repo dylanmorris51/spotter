@@ -6,7 +6,7 @@ export const PainTypeContext = createContext()
 //provider
 export const PainTypeProvider = (props) => {
 
-    const [painsTypes, setPainTypes] = useState([])
+    const [painTypes, setPainTypes] = useState([])
 
     //fetch
     const getPainTypes = () => {
@@ -17,7 +17,7 @@ export const PainTypeProvider = (props) => {
 
     return (
         <PainTypeContext.Provider value={{
-            getPainTypes
+            painTypes, getPainTypes
         }}>
             {props.children}
         </PainTypeContext.Provider>
