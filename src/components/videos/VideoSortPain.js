@@ -59,7 +59,7 @@ export const VideoSortPain = () => {
             </DropdownButton>
 
 
-            {/*rendering component*/}
+            {/*render videos*/}
             <h2>Videos</h2>
 
             <div className="video--list">
@@ -68,11 +68,14 @@ export const VideoSortPain = () => {
                 })}
             </div>
             
+            {/* button sort by exercise */}
             <Button onClick={() => {
-                history.push(`/exerciseTypes`)
+                history.push(`/videos/exerciseTypes`)
             }}>
                 Sort By Exercise Types
             </Button>
+
+            {/* button return to all videos */}
             <Button onClick={() => {
                 history.push(`/videos`)
             }}>

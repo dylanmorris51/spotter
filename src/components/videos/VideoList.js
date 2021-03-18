@@ -34,56 +34,18 @@ export const VideoList = () => {
                 // .then(setFilteredVideos(videos))
     }, [])
     
-    
-    
-    
-    // sort by pain types
-    // const handlePainSort = (e) => {
-
-    //     if (+e.target.id !== 0) {
-
-    //         let painType = painTypes.find(type => type.id === +e.target.id)
-    //         console.log('painType: ', painType);
-            
-    //         let matchingVideosByPainType = videos.filter(videoObj => videoObj.painType.id === painType.id)
-    //         console.log('matchingVideosByPainType: ', matchingVideosByPainType);
-    
-    //         setFilteredVideos(matchingVideosByPainType)
-    //     } else {
-    //         setFilteredVideos(videos)
-    //     }
-        
-    // }
-
-    // sort by exercise types
-    // const handleExerciseSort = (e) => {
-        
-    //     if (+e.target.id !== 0) {
-
-    //         let exerciseType = exerciseTypes.find(type> type.id === +e.target.id)
-    //         let matchingVideosByExerciseType = videos.filter(videoObj => videoObj.exerciseType.id === exerciseType.id)
-
-    //         setFilteredVideos(matchingVideosByExerciseType)
-    //     } else {
-    //         setFilteredVideos(videos)
-    //     }
-    // }
-
-
-//! Problem: matching IDs between pain and exercise types
-//! Solution: move the dropdowns to separate components then render each as context so only one renders at a time.
-//! Present a single button to sort which activates a modal which renders a specific dropdown
-//! would need to store return in a variable which can be changed and called in the return
-
 
     return (
         <>
             
+            {/* button sort by exercise */}
             <Button onClick={() => {
-                history.push(`/exerciseTypes`)
+                history.push(`/videos/exerciseTypes`)
             }}>
                 Sort By Exercise Types
             </Button>
+            
+            {/* button sort by pain */}
             <Button onClick={() => {
                 history.push(`/videos/painTypes`)
             }}>
@@ -91,7 +53,7 @@ export const VideoList = () => {
             </Button>
             
 
-            {/*rendering component*/}
+            {/*render videos*/}
             <h2>Videos</h2>
 
             <div className="video--list">
