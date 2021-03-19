@@ -55,7 +55,7 @@ export const WorkoutProvider = (props) => {
 
     // update
     const updateWorkout = workout => {
-        return fetch(`http://localhost:8088/videos/${workout.id}`, {
+        return fetch(`http://localhost:8088/workouts/${workout.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
