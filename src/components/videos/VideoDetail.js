@@ -61,7 +61,10 @@ export const VideoDetail = () => {
     //dropdown select handler
     // handle dropdown option select
     const handleSelect = (e) => {
-        setWorkoutId(e)
+        let parseIntify = +e
+        setWorkoutId(parseIntify)
+        console.log("dropdown select", e)
+        console.log("video params", videoId)
     }
 
      // add workoutVideoObj
@@ -88,7 +91,7 @@ export const VideoDetail = () => {
                     </Button>
                     <DropdownButton
                     alignRight
-                    title="Select Workout"
+                    title="Select Workout To Add This Exercise"
                     id="dropdown-menu-align-right"
                     onSelect={handleSelect}
                     >
@@ -101,6 +104,9 @@ export const VideoDetail = () => {
                         })
                     }
                 </DropdownButton>
+                {workoutId !== 0 ? <Button onClick={handleAddVideo} href={`/videos`}>Save</Button> : <div className="empty"></div>}
+                
+                
 
 
 
