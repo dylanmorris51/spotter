@@ -4,13 +4,23 @@ import "./YoutubeEmbed.css"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link } from "react-router-dom"
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { WorkoutDropdown } from "../workouts/WorkoutDropdown"
+import { VideoContext } from "./VideoProvider"
+import { useParams, useHistory } from "react-router-dom"
 
 
 export const VideoCard = ({ video }) => {
 
-    
+    //context
+    const { getVideoById } = useContext(VideoContext)
+
+    const [videoObj, setVideoObj] = useState([])
+
+    useEffect(() => {
+        getVideoById()
+            .then(setVideoObj)
+    }, [])
     
     
     
@@ -26,9 +36,9 @@ export const VideoCard = ({ video }) => {
                 <Card.Subtitle>{ `Helps with ${video.painType?.type} pain` } </Card.Subtitle>
                 <Card.Text>
                 </Card.Text>
-                <Button variant="primary" onClick={() => {
+                <Button id={video.id} variant="primary" onClick={event => {
                     //! Add this workout to the join table
-
+                    console.log(event.target.id)
 
                 }}>
                     Add to Workout
