@@ -48,7 +48,7 @@ export const WorkoutVideoProvider = (props) => {
 
     // update
     const updateWorkoutVideo = workoutVideo => {
-        return fetch(`http://localhost:8088/videos/${workoutVideo.id}`, {
+        return fetch(`http://localhost:8088/workoutVideos/${workoutVideo.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
