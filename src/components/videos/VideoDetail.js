@@ -10,8 +10,6 @@ import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
 import DropdownButton from "react-bootstrap/DropdownButton"
 import Dropdown from "react-bootstrap/Dropdown"
 
-//! Add workoutVideo table entry from a button
-//! select workout to add from dropdown
 
 // Detail page
 export const VideoDetail = () => {
@@ -63,8 +61,6 @@ export const VideoDetail = () => {
     const handleSelect = (e) => {
         let parseIntify = +e
         setWorkoutId(parseIntify)
-        console.log("dropdown select", e)
-        console.log("video params", videoId)
     }
 
      // add workoutVideoObj
@@ -73,8 +69,7 @@ export const VideoDetail = () => {
             workoutId: +workoutId,
             videoId: +videoId
         }
-
-        console.log("new workoutVideoObj", workoutVideoObj)
+        
         addWorkoutVideo(workoutVideoObj)
     }
     
