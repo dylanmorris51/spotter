@@ -25,7 +25,10 @@ export const VideoCard = ({ video }) => {
     const { workouts, getWorkoutsByUserId } = useContext(WorkoutContext)
     const { addWorkoutVideo } = useContext(WorkoutVideoContext)
 
+    // gets workoutId from dropdown select
     const [workoutId, setWorkoutId] = useState(0)
+
+
 
     // const [workoutVideo, setWorkoutVideo] = useState({
     //     workoutId: 0,
@@ -38,7 +41,6 @@ export const VideoCard = ({ video }) => {
 
     // handle dropdown option select
     const handleSelect = (e) => {
-        console.log("selected value", e)
         setWorkoutId(e)
     }
 
