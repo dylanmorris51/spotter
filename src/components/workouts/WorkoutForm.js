@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { WorkoutContext } from "./WorkoutProvider"
+import Button from "react-bootstrap/Button"
 
 //! Create workouts here, then have a list which lists all videos from the join table in the workouts. Add to the join table from video library. Delete from the join table from workout video list
-
+//! Import delete funciton
 export const WorkoutForm = () => {
 
     //context
-    const { getWorkouts, addWorkout, getWorkoutById, updateWorkout } = useContext(WorkoutContext)
+    const { getWorkouts, addWorkout, getWorkoutById, updateWorkout, deleteWorkout } = useContext(WorkoutContext)
 
     //state
     const [workout, setWorkout] = useState({
@@ -18,9 +19,10 @@ export const WorkoutForm = () => {
     //enable save
     const [isLoading, setIsLoading] = useState(true)
 
-    //workoutId + navigation
+    //workoutId + navigation + currentUserId
     const { workoutId } = useParams()
-    const history = useHistory() 
+    const history = useHistory()
+    const currentUserId = +sessionStorage.getItem("app_user_id") 
 
 
     //check for edit or add
@@ -59,8 +61,6 @@ export const WorkoutForm = () => {
     const handleSaveWorkout = (event) => {
         
         setIsLoading(true)
-            
-        const currentUserId = +sessionStorage.getItem("app_user_id")
 
         if (workoutId) {
             updateWorkout({
@@ -76,12 +76,21 @@ export const WorkoutForm = () => {
         }
     }
 
+
+    //delete handler
+    const handleDelete = () => {
+        deleteWorkout(workoutId)
+            .then(() => {
+                history.push("/workouts")
+            })
+    }
+
     return (
         <form className="workoutForm">
             <h2 className="workoutFormTitle">{workoutId ? "Edit Workout" : "Add Workout"}</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Workout Name: </label>
+                    <label htmlFor="title">Name Your Workout:</label>
                     <input type="name" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="workout name?" value={workout.name} />
                 </div>
             </fieldset>
@@ -95,6 +104,7 @@ export const WorkoutForm = () => {
                 }}>
                 {workoutId ? "Save Workout" : "Create New Workout"}
             </button>
+            {+currentUserId === workout.userId? <Button onClick={handleDelete}>Delete Workout</Button> : ""}
             <button className="btn btn-primary" onClick={() => history.push(`/workouts`)}>
                 Cancel
             </button>
