@@ -18,7 +18,11 @@ export const VideoCard = ({ video }) => (
             <Card.Subtitle>{ `Helps with ${video.painType?.type} pain` } </Card.Subtitle>
             <Card.Text>
             </Card.Text>
-            <Button variant="primary">
+            <Button variant="primary" onClick={() => {
+                //! Add this workout to the join table
+
+                
+            }}>
                 Add to Workout
             </Button>
         </Card.Body>
