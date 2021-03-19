@@ -7,7 +7,7 @@ import { WorkoutContext } from "./WorkoutProvider"
 export const WorkoutForm = () => {
 
     //context
-    const { getWorkouts, addWorkout, getWorkoutbyId, updateWorkout } = useContext(WorkoutContext)
+    const { getWorkouts, addWorkout, getWorkoutById, updateWorkout } = useContext(WorkoutContext)
 
     //state
     const [workout, setWorkout] = useState({
@@ -28,7 +28,7 @@ export const WorkoutForm = () => {
         getWorkouts()
             .then(() => {
                 if (workoutId) {
-                    getWorkoutbyId(workoutId)
+                    getWorkoutById(workoutId)
                         .then(res => {
                             setWorkout(res)
                             setIsLoading(false)

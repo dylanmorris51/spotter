@@ -14,6 +14,9 @@ export const WorkoutCard = ({ workout }) => (
             <Button variant="primary" href={`/workouts/detail/${workout.id}`}>
                 Start Workout
             </Button>
+            <Button variant="primary" href={`/workouts/edit/${workout.id}`}>
+                Edit Workout
+            </Button>
         </Card.Body>
     </Card>
 

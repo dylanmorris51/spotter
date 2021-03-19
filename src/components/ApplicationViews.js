@@ -48,6 +48,9 @@ export const ApplicationViews = () => {
                                 <WorkoutForm />
                             </Route>
 
+                            <Route path="/workouts/edit/:workoutId(\d+)">
+                                <WorkoutForm />
+                            </Route>
 
                         </VideoProvider>
                     </PainTypeProvider>
