@@ -15,7 +15,7 @@ export const WorkoutVideoProvider = (props) => {
 
     //fetch
     const getWorkoutVideos = () => {
-        return fetch("http://localhost:8088/workoutVideos")
+        return fetch("http://localhost:8088/workoutVideos?_expand=video&_expand=workout")
             .then(_ => _.json())
             .then(setWorkoutVideos)
     }
@@ -59,10 +59,10 @@ export const WorkoutVideoProvider = (props) => {
     }
 
     return (
-        <WorkoutContext.Provider value={{
+        <WorkoutVideoContext.Provider value={{
             workoutVideos, getWorkoutVideos, addWorkoutVideo, getWorkoutVideoById, deleteWorkoutVideo, updateWorkoutVideo
         }}>
             {props.children}
-        </WorkoutContext.Provider>
+        </WorkoutVideoContext.Provider>
     )
 }
