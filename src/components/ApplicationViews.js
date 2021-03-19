@@ -11,6 +11,7 @@ import { PainTypeProvider } from "./pains/PainProvider"
 import { ExerciseTypeProvider } from "./exerciseTypes/ExerciseTypeProvider"
 import { WorkoutProvider } from "./workouts/WorkoutProvider"
 import { WorkoutList } from "./workouts/WorkoutList"
+import { WorkoutForm } from "./workouts/WorkoutForm"
 
 export const ApplicationViews = () => {
     return (
@@ -42,6 +43,11 @@ export const ApplicationViews = () => {
                             <Route exact path="/workouts">
                                 <WorkoutList />
                             </Route>
+
+                            <Route path="/workouts/create">
+                                <WorkoutForm />
+                            </Route>
+
 
                         </VideoProvider>
                     </PainTypeProvider>

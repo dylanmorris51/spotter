@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { WorkoutContext } from "./WorkoutProvider"
 
-//! Reference Kennels to create a workout form to add/edit workouts
+//! Create workouts here, then have a list which lists all videos from the join table in the workouts. Add to the join table from video library. Delete from the join table from workout video list
 
 export const WorkoutForm = () => {
 
@@ -45,8 +45,8 @@ export const WorkoutForm = () => {
         
         const newWorkout = { ...workout}
 
-        let selectedVal = e.target.value
-        if (e.target.id.includes("Id")) {
+        let selectedVal = event.target.value
+        if (event.target.id.includes("Id")) {
             selectedVal = +selectedVal
         }
 
@@ -91,9 +91,9 @@ export const WorkoutForm = () => {
                 disabled={isLoading}
                 onClick={event => {
                     event.preventDefault()
-                    handleSaveEvent()
+                    handleSaveWorkout()
                 }}>
-                {eventId ? "Save Workout" : "Add Workout"}
+                {workoutId ? "Save Workout" : "Create New Workout"}
             </button>
         </form>
     )
