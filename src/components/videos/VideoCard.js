@@ -25,20 +25,38 @@ export const VideoCard = ({ video }) => {
     const { workouts, getWorkoutsByUserId } = useContext(WorkoutContext)
     const { addWorkoutVideo } = useContext(WorkoutVideoContext)
 
-    const [workoutVideo, setWorkoutVideo] = useState({
-        workoutId: 0,
-        videoId: 0
-    })
+    const [workoutId, setWorkoutId] = useState(0)
+
+    // const [workoutVideo, setWorkoutVideo] = useState({
+    //     workoutId: 0,
+    //     videoId: 0
+    // })
 
     useEffect(() => {
         getWorkoutsByUserId(currentUserId)
     }, [])
 
-    //! Function with conditional that handles the save/post
+    // handle dropdown option select
     const handleSelect = (e) => {
-        console.log(e)
+        console.log("selected value", e)
+        setWorkoutId(e)
     }
 
+    //watches for state change of workoutId
+    useEffect(() => {
+        console.log("new sate", workoutId)
+    }, [workoutId])
+
+    // add workoutVideoObj
+    const handleAddVideo = (id) => {
+        const workoutVideoObj = {
+            workoutId: +workoutId,
+            videoId: +id
+        }
+
+        console.log("new workoutVideoObj", workoutVideoObj)
+        addWorkoutVideo(workoutVideoObj)
+    }
 
     return (
         <Card style={{ width: '18rem' }}>
@@ -53,7 +71,8 @@ export const VideoCard = ({ video }) => {
                 <Card.Text>
                 </Card.Text>
                 <Button id={video.id} variant="primary" onClick={event => {
-                    //! Add this workout to the join table
+                    console.log(event.target.id)
+                    handleAddVideo(event.target.id)
 
                 }}>
                     Add To Workout
