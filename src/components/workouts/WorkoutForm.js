@@ -82,7 +82,7 @@ export const WorkoutForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Workout Name: </label>
-                    <input type="name" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="name?" value={workout.name} />
+                    <input type="name" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="workout name?" value={workout.name} />
                 </div>
             </fieldset>
             <fieldset>
@@ -94,6 +94,9 @@ export const WorkoutForm = () => {
                     handleSaveWorkout()
                 }}>
                 {workoutId ? "Save Workout" : "Create New Workout"}
+            </button>
+            <button className="btn btn-primary" onClick={() => history.push(`/workouts`)}>
+                Cancel
             </button>
         </form>
     )
