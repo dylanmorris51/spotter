@@ -6,6 +6,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
 import { WorkoutCard } from "./WorkoutCard"
+import  Button  from "react-bootstrap/Button"
 
 export const WorkoutList = () => {
 
@@ -26,6 +27,10 @@ export const WorkoutList = () => {
 
     return (
         <>
+            <Button onClick={() => history.push(`/workouts/create`)}>
+                Create New Workout
+            </Button>
+
             <h2>Workouts</h2>
 
             <div className="workouts--list">
