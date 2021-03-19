@@ -18,7 +18,7 @@ export const VideoCard = ({ video }) => (
             <Card.Subtitle>{ `Helps with ${video.painType?.type} pain` } </Card.Subtitle>
             <Card.Text>
             </Card.Text>
-            <Button variant="primary">
+            <Button variant="primary" href={`/videos/detail/${video.id}`}>
                 Add to Workout
             </Button>
         </Card.Body>

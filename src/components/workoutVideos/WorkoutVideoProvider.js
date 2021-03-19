@@ -59,10 +59,10 @@ export const WorkoutVideoProvider = (props) => {
     }
 
     return (
-        <WorkoutContext.Provider value={{
+        <WorkoutVideoContext.Provider value={{
             workoutVideos, getWorkoutVideos, addWorkoutVideo, getWorkoutVideoById, deleteWorkoutVideo, updateWorkoutVideo
         }}>
             {props.children}
-        </WorkoutContext.Provider>
+        </WorkoutVideoContext.Provider>
     )
 }
