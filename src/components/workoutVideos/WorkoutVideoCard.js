@@ -4,16 +4,18 @@ import YoutubeEmbed from "../videos/YoutubeEmbed"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
-//! refactor objects to match props on this card, embed youtube video like detail page
+
 export const WorkoutVideoCard = ({ workoutVideo }) => (
     <Card style={{ width: '18rem' }}>
+        {console.log("workout video", workoutVideo)}
         <Card.Header>{ workoutVideo.workout?.name }</Card.Header>
 
         <Card.Body>
             <Card.Title>{ workoutVideo.video?.name }</Card.Title>
             <Card.Text>
-                <YoutubeEmbed key={workoutVideo.id} embedId={ workoutVideo.video?.embed} />
+                <YoutubeEmbed embedId={ workoutVideo.video?.embed} />
             </Card.Text>
+            {console.log("workout video", workoutVideo)}
         </Card.Body>
     </Card>
 )

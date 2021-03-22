@@ -20,36 +20,45 @@ export const WorkoutDetail = () => {
     
     //workoutVideo context
     const { workoutVideos, getWorkoutVideos } = useContext(WorkoutVideoContext)
-
+    
     //workout state
-    const [ workout, setWorkout ] = useState([])
-
+    const [ workout, setWorkout ] = useState({
+        id: 0,
+        name: "",
+        userId: 0
+    })
+    
     //filtered video state
     const [ filteredVideos, setFilteredVideos ] = useState([])
-    //filtered video state
-
-    //fetch data on page load
+    
+    
+    //fetch workout data on page load
     useEffect(() => {
-
         getWorkoutById(workoutId)
-            .then(res => {
-                    setWorkout(res)
-                })
-                .then(getWorkoutVideos)
+        .then(res => {
+            
+            console.log('res: ', res);
+            setWorkout(res)
+        })
+            .then(getWorkoutVideos)
     }, [])
-
+    
+    
     //filter videos
     useEffect(() => {
         const matchingVideos = workoutVideos.filter(video => video.workoutId === workout.id)
+        console.log('matchingVideos: ', matchingVideos);
         setFilteredVideos(matchingVideos)
-    }, [workout])
+    }, [workoutVideos])
 
     
     return (
         <>
             <div className="workoutVideo--list">
                 {filteredVideos.map(video => {
+                    // debugger
                     <WorkoutVideoCard key={video.id} workoutVideo={video} />
+                    
                 })}
             </div>
             
