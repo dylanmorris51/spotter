@@ -3,6 +3,8 @@ import { VideoContext } from "./VideoProvider"
 import { useParams, useHistory } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
 import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
+import YoutubeEmbed from "./YoutubeEmbed"
+import { WorkoutVideoCard } from "../workoutVideos/WorkoutVideoCard"
 
 export const WorkoutDetail = () => {
 
@@ -37,5 +39,15 @@ export const WorkoutDetail = () => {
         setFilteredVideos(matchingVideos)
     }, [workout])
 
-    
+    //! render cards here with embed 
+    return (
+        <>
+            <div className="workoutVideo--list">
+                {filteredVideos.map(video => {
+                    <WorkoutVideoCard key={video.id} workoutVideo={video} />
+                })}
+            </div>
+        </>
+
+    )
 }
