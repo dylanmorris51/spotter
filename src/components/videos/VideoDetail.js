@@ -79,10 +79,15 @@ export const VideoDetail = () => {
                 <Container>
                     <h4>{video.name}</h4>
                     <YoutubeEmbed embedId={video.embed} />
-                    <Button onClick={() => {
+                    {/* <Button onClick={() => {
                         history.push(`/videos`)
                     }}>
-                        Back To Videos
+                        All Videos
+                    </Button> */}
+                    <Button onClick={() => {
+                        history.goBack()
+                    }}>
+                        Back
                     </Button>
                     <DropdownButton
                     alignRight
