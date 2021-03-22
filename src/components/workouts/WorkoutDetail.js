@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react"
-import { VideoContext } from "./VideoProvider"
+import { VideoContext } from "../videos/VideoProvider"
 import { useParams, useHistory } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
 import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
-import YoutubeEmbed from "./YoutubeEmbed"
+import YoutubeEmbed from "../videos/YoutubeEmbed"
 import { WorkoutVideoCard } from "../workoutVideos/WorkoutVideoCard"
 
 export const WorkoutDetail = () => {
@@ -30,11 +30,14 @@ export const WorkoutDetail = () => {
     useEffect(() => {
         getWorkoutVideos()
             .then(getWorkoutById(workoutId))
-                .then(setWorkout)
+                .then(res => {
+                    setWorkout(res)
+                })
     }, [])
 
     //filter videos
     useEffect(() => {
+        console.log("workout array", workout)
         const matchingVideos = workoutVideos.filter(video => video.workoutId === workout.id)
         setFilteredVideos(matchingVideos)
     }, [workout])

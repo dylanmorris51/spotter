@@ -1,5 +1,5 @@
 import React from "react"
-import "./YoutubeEmbed.css"
+import "../videos/YoutubeEmbed.css"
 import YoutubeEmbed from "../videos/YoutubeEmbed"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'

@@ -13,6 +13,7 @@ import { WorkoutProvider } from "./workouts/WorkoutProvider"
 import { WorkoutList } from "./workouts/WorkoutList"
 import { WorkoutForm } from "./workouts/WorkoutForm"
 import { WorkoutVideoProvider } from "./workoutVideos/WorkoutVideoProvider"
+import { WorkoutDetail } from "./workouts/WorkoutDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -26,10 +27,12 @@ export const ApplicationViews = () => {
                     <ExerciseTypeProvider>
                         <PainTypeProvider>
                             <VideoProvider>
+                                {/* video list */}
                                 <Route exact path="/videos">
                                     <VideoList />
                                 </Route>
 
+                                {/* video detail */}
                                 <Route path="/videos/detail/:videoId(\d+)">
                                     <VideoDetail />
                                 </Route>
@@ -52,6 +55,10 @@ export const ApplicationViews = () => {
 
                                 <Route path="/workouts/edit/:workoutId(\d+)">
                                     <WorkoutForm />
+                                </Route>
+
+                                <Route path="workouts/detail/:workoutId(\d+)">
+                                    <WorkoutDetail />
                                 </Route>
 
                             </VideoProvider>
