@@ -22,6 +22,9 @@ export const WorkoutVideoCard = ({ workoutVideo }) => {
                     </Card.Text>
                 </Card.Body>
 
+                <Button href={`/videos/detail/${workoutVideo.video?.id}`}>
+                    Full Screen
+                </Button>
                 <Button onClick={() => (
                     deleteWorkoutVideo(workoutVideo.id)
                 )}>
