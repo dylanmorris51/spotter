@@ -57,7 +57,7 @@ export const ApplicationViews = () => {
                                     <WorkoutForm />
                                 </Route>
 
-                                <Route path="workouts/detail/:workoutId(\d+)">
+                                <Route path="/workouts/detail/:workoutId(\d+)">
                                     <WorkoutDetail />
                                 </Route>
 

@@ -30,22 +30,21 @@ export const WorkoutDetail = () => {
 
     //fetch data on page load
     useEffect(() => {
-        getWorkoutVideos()
-            .then(getWorkoutById(workoutId))
-                .then(res => {
+
+        getWorkoutById(workoutId)
+            .then(res => {
                     setWorkout(res)
                 })
+                .then(getWorkoutVideos)
     }, [])
 
     //filter videos
     useEffect(() => {
-        console.log("workout array", workout)
         const matchingVideos = workoutVideos.filter(video => video.workoutId === workout.id)
-        console.log('matchingVideos: ', matchingVideos);
         setFilteredVideos(matchingVideos)
     }, [workout])
 
-    //! render cards here with embed 
+    
     return (
         <>
             <div className="workoutVideo--list">
