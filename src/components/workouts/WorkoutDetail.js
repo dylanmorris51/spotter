@@ -45,7 +45,6 @@ export const WorkoutDetail = () => {
     //filter videos
     useEffect(() => {
         const matchingVideos = workoutVideos.filter(video => video.workoutId === workout.id)
-        console.log('matchingVideos: ', matchingVideos);
         setFilteredVideos(matchingVideos)
     }, [workoutVideos])
 
@@ -59,12 +58,6 @@ export const WorkoutDetail = () => {
                     
                 })}
             </div>
-            
-            <Button onClick={() => {
-                console.log("workouts array", workout)
-                console.log("filtered video array", filteredVideos)
-            }}>Check Array</Button>
-            <h3> Anything? Hello?</h3>
         </>
 
     )
