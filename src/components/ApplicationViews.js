@@ -14,6 +14,8 @@ import { WorkoutList } from "./workouts/WorkoutList"
 import { WorkoutForm } from "./workouts/WorkoutForm"
 import { WorkoutVideoProvider } from "./workoutVideos/WorkoutVideoProvider"
 import { WorkoutDetail } from "./workouts/WorkoutDetail"
+import { PlannerProvider } from "./planner/PlannerProvider"
+import { PlannerList } from "./planner/PlannerList"
 
 export const ApplicationViews = () => {
     return (
@@ -22,50 +24,56 @@ export const ApplicationViews = () => {
                 <Home />
             </Route>
 
-            <WorkoutVideoProvider>
-                <WorkoutProvider>
-                    <ExerciseTypeProvider>
-                        <PainTypeProvider>
-                            <VideoProvider>
-                                {/* video list */}
-                                <Route exact path="/videos">
-                                    <VideoList />
-                                </Route>
+            <PlannerProvider>
+                <WorkoutVideoProvider>
+                    <WorkoutProvider>
+                        <ExerciseTypeProvider>
+                            <PainTypeProvider>
+                                <VideoProvider>
+                                    {/* video list */}
+                                    <Route exact path="/videos">
+                                        <VideoList />
+                                    </Route>
 
-                                {/* video detail */}
-                                <Route path="/videos/detail/:videoId(\d+)">
-                                    <VideoDetail />
-                                </Route>
+                                    {/* video detail */}
+                                    <Route path="/videos/detail/:videoId(\d+)">
+                                        <VideoDetail />
+                                    </Route>
 
-                                <Route path="/videos/painTypes">
-                                    <VideoSortPain />
-                                </Route>
+                                    <Route path="/videos/painTypes">
+                                        <VideoSortPain />
+                                    </Route>
 
-                                <Route path="/videos/exerciseTypes">
-                                    <VideoSortExercise />
-                                </Route>
+                                    <Route path="/videos/exerciseTypes">
+                                        <VideoSortExercise />
+                                    </Route>
 
-                                <Route exact path="/workouts">
-                                    <WorkoutList />
-                                </Route>
+                                    <Route exact path="/workouts">
+                                        <WorkoutList />
+                                    </Route>
 
-                                <Route path="/workouts/create">
-                                    <WorkoutForm />
-                                </Route>
+                                    <Route path="/workouts/create">
+                                        <WorkoutForm />
+                                    </Route>
 
-                                <Route path="/workouts/edit/:workoutId(\d+)">
-                                    <WorkoutForm />
-                                </Route>
+                                    <Route path="/workouts/edit/:workoutId(\d+)">
+                                        <WorkoutForm />
+                                    </Route>
 
-                                <Route path="/workouts/detail/:workoutId(\d+)">
-                                    <WorkoutDetail />
-                                </Route>
+                                    <Route path="/workouts/detail/:workoutId(\d+)">
+                                        <WorkoutDetail />
+                                    </Route>
 
-                            </VideoProvider>
-                        </PainTypeProvider>
-                    </ExerciseTypeProvider>
-                </WorkoutProvider>
-            </WorkoutVideoProvider>
+                                    <Route exact path="/planner">
+                                        <PlannerList />
+                                    </Route>
+
+                                </VideoProvider>
+                            </PainTypeProvider>
+                        </ExerciseTypeProvider>
+                    </WorkoutProvider>
+                </WorkoutVideoProvider>
+            </PlannerProvider>
 
 
 
