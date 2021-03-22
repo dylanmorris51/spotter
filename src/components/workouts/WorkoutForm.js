@@ -66,8 +66,8 @@ export const WorkoutForm = () => {
             updateWorkout({
                 id: workout.id,
                 name: workout.name,
-                userId: workout.currentUserId
-            }).then(() => history.push(`/workouts/detail/${workout.id}`))
+                userId: currentUserId
+            }).then(() => history.push(`/workouts`))
         } else {
             addWorkout({
                 name: workout.name,
