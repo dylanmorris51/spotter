@@ -5,6 +5,8 @@ import { WorkoutContext } from "./WorkoutProvider"
 import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
 import YoutubeEmbed from "../videos/YoutubeEmbed"
 import { WorkoutVideoCard } from "../workoutVideos/WorkoutVideoCard"
+import Button from "react-bootstrap/Button"
+
 
 export const WorkoutDetail = () => {
 
@@ -39,6 +41,7 @@ export const WorkoutDetail = () => {
     useEffect(() => {
         console.log("workout array", workout)
         const matchingVideos = workoutVideos.filter(video => video.workoutId === workout.id)
+        console.log('matchingVideos: ', matchingVideos);
         setFilteredVideos(matchingVideos)
     }, [workout])
 
@@ -50,6 +53,12 @@ export const WorkoutDetail = () => {
                     <WorkoutVideoCard key={video.id} workoutVideo={video} />
                 })}
             </div>
+            
+            <Button onClick={() => {
+                console.log("workouts array", workout)
+                console.log("filtered video array", filteredVideos)
+            }}>Check Array</Button>
+            <h3> Anything? Hello?</h3>
         </>
 
     )
