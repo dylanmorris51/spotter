@@ -40,7 +40,7 @@ export const VideoList = () => {
 
             {/*render videos*/}
             <div className="video--list">
-                {videos?.map(video => {
+                {videos.map(video => {
                     return <VideoCard key={video.id} video={video} />
                 })}
             </div>
