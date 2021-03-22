@@ -36,8 +36,6 @@ export const WorkoutDetail = () => {
     useEffect(() => {
         getWorkoutById(workoutId)
         .then(res => {
-            
-            console.log('res: ', res);
             setWorkout(res)
         })
             .then(getWorkoutVideos)
@@ -56,8 +54,8 @@ export const WorkoutDetail = () => {
         <>
             <div className="workoutVideo--list">
                 {filteredVideos.map(video => {
-                    // debugger
-                    <WorkoutVideoCard key={video.id} workoutVideo={video} />
+                    
+                    return <WorkoutVideoCard key={video.id} workoutVideo={video}/>
                     
                 })}
             </div>

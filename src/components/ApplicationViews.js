@@ -66,6 +66,9 @@ export const ApplicationViews = () => {
                     </ExerciseTypeProvider>
                 </WorkoutProvider>
             </WorkoutVideoProvider>
+
+
+
         </>
     )
 }

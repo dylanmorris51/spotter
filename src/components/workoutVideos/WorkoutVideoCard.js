@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 
 export const WorkoutVideoCard = ({ workoutVideo }) => (
     <Card style={{ width: '18rem' }}>
-        {console.log("workout video", workoutVideo)}
+        
         <Card.Header>{ workoutVideo.workout?.name }</Card.Header>
 
         <Card.Body>
@@ -15,7 +15,6 @@ export const WorkoutVideoCard = ({ workoutVideo }) => (
             <Card.Text>
                 <YoutubeEmbed embedId={ workoutVideo.video?.embed} />
             </Card.Text>
-            {console.log("workout video", workoutVideo)}
         </Card.Body>
     </Card>
 )

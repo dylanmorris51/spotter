@@ -12,7 +12,7 @@ export const WorkoutCard = ({ workout }) => (
 
         <Card.Body>
             <Button variant="primary" href={`/workouts/detail/${workout.id}`}>
-                Start Workout
+                View Workout
             </Button>
             <Button variant="primary" href={`/workouts/edit/${workout.id}`}>
                 Edit Workout
