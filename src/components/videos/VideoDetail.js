@@ -86,7 +86,7 @@ export const VideoDetail = () => {
                     </Button>
                     <DropdownButton
                     alignRight
-                    title="Select Workout To Add This Exercise"
+                    title="Add to Workout..."
                     id="dropdown-menu-align-right"
                     onSelect={handleSelect}
                     >
