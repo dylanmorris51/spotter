@@ -7,45 +7,39 @@ import { WorkoutContext } from "../workouts/WorkoutProvider"
 
 export const PlannerList = () => {
 
+    // history & userID
     const history = useHistory()
     const currentUserId = sessionStorage.getItem("app_user_id")
 
+    // context for planners & workouts
     const { planners, getPlanners } = useContext(PlannerContext)
     const { workouts, getWorkoutsByUserId} = useContext(WorkoutContext)
 
+    // current user planners state variable
     const [filteredPlanners, setFilteredPlanners] = useState([])
     
+    // fetch data on page load
     useEffect(() => {
         getPlanners()
         .then(getWorkoutsByUserId(currentUserId))
         
     }, [])
 
+    // filter planners => set state for current user
     useEffect(() => {
-
-        console.log("workouts on render", workouts)
-        console.log("planners on render", planners)
         const matchingPlanners = workouts.map(workout => {
             return planners.find(planner => {
                 return planner.workoutId === workout.id
             })
         }) 
-        
-        console.log('matchingPlanners: ', matchingPlanners);
+
         setFilteredPlanners(matchingPlanners)
     }, [workouts, planners])
 
-    //TODO: Create a card component to render the objects in the table for this user
-    //TODO: Add a form so users can add workouts to a specific day
     return (
         <>
             <Button onClick={() => history.push(`/planner/create`)}>
                 Plan Your Workouts
-            </Button>
-            <Button onClick={() => {
-                console.log("filtered planners", filteredPlanners)
-            }}>
-                Check filteredPlanners
             </Button>
 
             <div className="planners--list">
@@ -53,10 +47,6 @@ export const PlannerList = () => {
                     return <PlannerCard key={planner.id} planner={planner}/>
                 })}
             </div>
-
-
-
-
 
         </>
     )
