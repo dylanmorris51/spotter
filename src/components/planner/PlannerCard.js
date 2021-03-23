@@ -18,7 +18,7 @@ export const PlannerCard = ({ planner }) => {
                         <Button variant="primary" href={`/planner/edit/${planner.id}`}>
                             Edit
                         </Button>
-
+                        
                     </Card.Body>
                 </Card>
             </>
