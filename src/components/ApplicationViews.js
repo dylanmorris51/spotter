@@ -16,6 +16,7 @@ import { WorkoutVideoProvider } from "./workoutVideos/WorkoutVideoProvider"
 import { WorkoutDetail } from "./workouts/WorkoutDetail"
 import { PlannerProvider } from "./planner/PlannerProvider"
 import { PlannerList } from "./planner/PlannerList"
+import { PlannerForm } from "./planner/PlannerForm"
 
 export const ApplicationViews = () => {
     return (
@@ -67,6 +68,15 @@ export const ApplicationViews = () => {
                                     <Route exact path="/planner">
                                         <PlannerList />
                                     </Route>
+
+                                    <Route path="/planner/edit/:plannerId(\d+)">
+                                        <PlannerForm />
+                                    </Route>
+
+                                    <Route path ="/planner/detail/:plannerId(\d+)">
+                                        <PlannerForm />
+                                    </Route>
+
 
                                 </VideoProvider>
                             </PainTypeProvider>

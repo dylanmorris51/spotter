@@ -56,7 +56,7 @@ export const WorkoutForm = () => {
         setWorkout(newWorkout)
     }
 
-    // save  hndler
+    // save  handler
     const handleSaveWorkout = (event) => {
         
         setIsLoading(true)

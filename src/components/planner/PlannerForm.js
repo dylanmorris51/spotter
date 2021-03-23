@@ -54,6 +54,62 @@ export const PlannerForm = () => {
         setPlanner(newPlanner)
     }
 
+    const handleSavePlanner = (event) => {
 
+        setIsloading(true)
+
+        if(plannerId) {
+            updatePlanner({
+                id: planner.id,
+                day: planner.day,
+                workoutId: planner.workoutId
+            }).then(() => history.push(`/planner`))
+        } else {
+            addPlanner({
+                day: planner.day,
+                workoutId: planner.workoutId
+            }).then(() => history.push("/planner"))
+        }
+    }
+
+    delete handler = () => {
+        const handleDelete = () => {
+            deletePlanner(plannerId)
+                .then(() => {
+                    history.push("/planner")
+                })
+        }
+    }
+
+    //TODO: make the inputs dropdowns for Day and Workout rather than input fields
+    return (
+        <>
+            <form className="plannerForm">
+            <h2 className="plannerFormTitle">{plannerId ? "Edit Planner" : "Add Planner"}</h2>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="title">Name Your Workout:</label>
+                    <input type="name" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="workout name?" value={workout.name} />
+                </div>
+            </fieldset>
+            <fieldset>
+            </fieldset>
+            <button className="btn btn-primary"
+                disabled={isLoading}
+                onClick={event => {
+                    event.preventDefault()
+                    handleSavePlanner()
+                }}>
+                {plannerId ? "Save Planner" : "Create New Planner"}
+            </button>
+            {/* update this stuff for planner */}
+            {+currentUserId === workout.userId? <Button onClick={handleDelete}>Delete Planner</Button> : ""}
+            <button className="btn btn-primary" onClick={() => history.push(`/planner`)}>
+                Cancel
+            </button>
+        </form>
+
+        </>
+    )
 
 }
