@@ -27,6 +27,11 @@ export const PlannerForm = () => {
         selectedWorkout: 0
     })
 
+    //day state from selectedDay
+    const [selectedDay, setSelectedDay] = useState({
+        selectedDay: "",
+    })
+
 
     // planner state
     const [planner, setPlanner] = useState({
@@ -54,45 +59,48 @@ export const PlannerForm = () => {
             })
     }, [])
 
-    // //input handler
-    // const handleControlledInputChange = (event) => {
+    
 
-    //     const newPlanner = {...planner}
+    // days of week for dropdown
+    const daysOfWeek = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+    ]
 
-    //     let selectedVal = event.target.value
-    //     if (event.target.id.includes("Id")) {
-    //         selectedVal = +selectedVal
-    //     }
-
-    //     newPlanner[event.target.id] = selectedVal
-
-    //     setPlanner(newPlanner)
-    // }
-
+    // handle dropdown day select
+    const handleDaySelect = (e) => {
+        
+        
+        setSelectedDay(e)
+    }
     
     
-    // handle dropdown option select
+    // handle dropdown workout select
     const handleWorkoutSelect = (e) => {
         
         let parseIntify = +e
         setSelectedWorkout(parseIntify)
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // set captured inputs
+    useEffect(() => {
+        const newPlanner = {
+            day: selectedDay,
+            workoutId: selectedWorkout
+        }
+
+        setPlanner(newPlanner)
+
+        
+    }, [ selectedDay, selectedWorkout])
+
+
+
     // save handler
     const handleSavePlanner = (event) => {
 
@@ -136,7 +144,7 @@ export const PlannerForm = () => {
             <DropdownButton
                     alignRight
                     title="Choose a Workout..."
-                    id="dropdown-menu-align-right"
+                    id="dropdown-menu-workout"
                     onSelect={handleWorkoutSelect}
                     >
                         {/* <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item> */}
@@ -144,6 +152,21 @@ export const PlannerForm = () => {
                         workouts.map(workout => {
                             
                             return <Dropdown.Item eventKey={workout.id}>{workout.name}</Dropdown.Item>
+
+                        })
+                    }
+                </DropdownButton>
+            <DropdownButton
+                    alignRight
+                    title="Choose a Day..."
+                    id="dropdown-menu-day"
+                    onSelect={handleDaySelect}
+                    >
+                        {/* <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item> */}
+                    {
+                        daysOfWeek.map(day => {
+                            
+                            return <Dropdown.Item eventKey={day}>{day}</Dropdown.Item>
 
                         })
                     }
