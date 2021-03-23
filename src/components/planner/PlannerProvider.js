@@ -51,7 +51,7 @@ export const PlannerProvider = (props) => {
 
     // update
     const updatePlanner = planner => {
-        return fetch(`http://localhost:8088/workouts/${planner.id}`, {
+        return fetch(`http://localhost:8088/planners/${planner.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

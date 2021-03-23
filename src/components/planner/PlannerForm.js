@@ -107,7 +107,7 @@ export const PlannerForm = () => {
 
         if(plannerId) {
             updatePlanner({
-                id: planner.id,
+                id: plannerId,
                 day: planner.day,
                 workoutId: planner.workoutId
             }).then(() => history.push(`/planner`))
