@@ -4,6 +4,7 @@ import { PlannerContext } from "./PlannerProvider"
 import Button from "react-bootstrap/Button"
 
 
+//! userId is absent from planner table, so expand by workoutId, get workouts by the Ids, then render those
 export const PlannerForm = () => {
 
     // params, history, userId
@@ -23,7 +24,7 @@ export const PlannerForm = () => {
     })
 
     //enable save
-    const [isLoading, setIsloading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
 
     //check for edit or add
     useEffect(() => {
@@ -54,9 +55,10 @@ export const PlannerForm = () => {
         setPlanner(newPlanner)
     }
 
+    // save handler
     const handleSavePlanner = (event) => {
 
-        setIsloading(true)
+        setIsLoading(true)
 
         if(plannerId) {
             updatePlanner({
@@ -72,14 +74,14 @@ export const PlannerForm = () => {
         }
     }
 
-    delete handler = () => {
+        // delete handler
         const handleDelete = () => {
             deletePlanner(plannerId)
                 .then(() => {
                     history.push("/planner")
                 })
         }
-    }
+    
 
     //TODO: make the inputs dropdowns for Day and Workout rather than input fields
     return (
@@ -88,8 +90,8 @@ export const PlannerForm = () => {
             <h2 className="plannerFormTitle">{plannerId ? "Edit Planner" : "Add Planner"}</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Name Your Workout:</label>
-                    <input type="name" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="workout name?" value={workout.name} />
+                    <label htmlFor="title">Day of the week?</label>
+                    <input type="name" id="day" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Day of Week?" value={planner.day} />
                 </div>
             </fieldset>
             <fieldset>
@@ -103,7 +105,7 @@ export const PlannerForm = () => {
                 {plannerId ? "Save Planner" : "Create New Planner"}
             </button>
             {/* update this stuff for planner */}
-            {+currentUserId === workout.userId? <Button onClick={handleDelete}>Delete Planner</Button> : ""}
+            {/* {+currentUserId === planner.workout.userId? <Button onClick={handleDelete}>Delete Planner</Button> : ""} */}
             <button className="btn btn-primary" onClick={() => history.push(`/planner`)}>
                 Cancel
             </button>

@@ -69,13 +69,14 @@ export const ApplicationViews = () => {
                                         <PlannerList />
                                     </Route>
 
+                                    <Route path ="/planner/create">
+                                        <PlannerForm />
+                                    </Route>
+                                    
                                     <Route path="/planner/edit/:plannerId(\d+)">
                                         <PlannerForm />
                                     </Route>
 
-                                    <Route path ="/planner/detail/:plannerId(\d+)">
-                                        <PlannerForm />
-                                    </Route>
 
 
                                 </VideoProvider>
