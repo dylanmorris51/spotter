@@ -3,8 +3,6 @@ import { useHistory, useParams } from 'react-router-dom';
 import { WorkoutContext } from "./WorkoutProvider"
 import Button from "react-bootstrap/Button"
 
-//! Create workouts here, then have a list which lists all videos from the join table in the workouts. Add to the join table from video library. Delete from the join table from workout video list
-//! Import delete funciton
 export const WorkoutForm = () => {
 
     //context
@@ -23,6 +21,7 @@ export const WorkoutForm = () => {
     const { workoutId } = useParams()
     const history = useHistory()
     const currentUserId = +sessionStorage.getItem("app_user_id") 
+    
 
 
     //check for edit or add
