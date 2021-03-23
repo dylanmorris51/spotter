@@ -21,7 +21,7 @@ export const PlannerList = () => {
     // fetch data on page load
     useEffect(() => {
         getPlanners()
-        .then(getWorkoutsByUserId(currentUserId))
+            .then(getWorkoutsByUserId(currentUserId))
         
     }, [])
 

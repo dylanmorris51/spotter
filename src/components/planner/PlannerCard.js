@@ -1,9 +1,12 @@
 import React, { useContext } from "react"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { PlannerContext } from "./PlannerProvider"
 
 
 export const PlannerCard = ({ planner }) => {
+
+    const { deletePlanner } = useContext(PlannerContext)
 
     return  <>
                 <Card style={{ width: '18rem' }}>
@@ -16,6 +19,9 @@ export const PlannerCard = ({ planner }) => {
                         </Button>
                         <Button variant="primary" href={`/planner/edit/${planner.id}`}>
                             Edit
+                        </Button>
+                        <Button variant="primary" href={() => {deletePlanner(planner.id)}}>
+                            Delete
                         </Button>
                     </Card.Body>
                 </Card>
