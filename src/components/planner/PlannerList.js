@@ -27,9 +27,14 @@ export const PlannerList = () => {
 
     // filter planners => set state for current user
     useEffect(() => {
-        const matchingPlanners = workouts.map(workout => {
-            return planners.find(planner => {
-                return planner.workoutId === workout.id
+        const matchingPlanners = [] 
+        
+        workouts.map(workout => {
+            
+            planners.filter(planner => {
+                if (planner.workoutId === workout.id) {
+                    matchingPlanners.push(planner)
+                }
             })
         }) 
 

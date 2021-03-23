@@ -175,7 +175,6 @@ export const PlannerForm = () => {
                 }}>
                 {plannerId ? "Update Planner" : "Save New Planner"}
             </button>
-            {/* update this stuff for planner */}
             {/* {+currentUserId === planner.workout.userId? <Button onClick={handleDelete}>Delete Planner</Button> : ""} */}
             <button className="btn btn-primary" onClick={() => history.push(`/planner`)}>
                 Cancel
