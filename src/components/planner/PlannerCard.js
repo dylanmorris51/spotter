@@ -12,18 +12,13 @@ export const PlannerCard = ({ planner }) => {
                         
 
                     <Card.Body>
+                    <Card.Title>{ planner.workout?.name }</Card.Title>
                         <Button variant="primary" href={`/workouts/detail/${workout.id}`}>
                             View Workout
                         </Button>
                         
-                        <Button onClick={() => (
-                            deleteWorkout(workout.id)
-                        )}>
-                            Delete Workout
-                        </Button>
-                        <Button href={`/videos`}>
-                            Add Videos
-                        </Button>
+                        
+                        
                     </Card.Body>
                 </Card>
             </>

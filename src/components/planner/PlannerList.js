@@ -22,11 +22,11 @@ export const PlannerList = () => {
                 Plan Your Workouts
             </Button>
 
-            {/* <div className="planners--list">
-                {planners.length === 0 ? "create a new workout!" : planners.map(planner => {
+            <div className="planners--list">
+                {planners.length === 0 ? "Plan your workouts!" : planners.map(planner => {
                     return <PlannerCard key={planner.id} planner={planner}/>
                 })}
-            </div> */}
+            </div>
 
 
 
