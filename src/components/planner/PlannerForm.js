@@ -1,7 +1,10 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { PlannerContext } from "./PlannerProvider"
+import { WorkoutContext } from "../workouts/WorkoutProvider"
 import Button from "react-bootstrap/Button"
+import DropdownButton from "react-bootstrap/DropdownButton"
+import Dropdown from "react-bootstrap/Dropdown"
 
 
 //! userId is absent from planner table, so expand by workoutId, get workouts by the Ids, then render those
@@ -14,21 +17,32 @@ export const PlannerForm = () => {
 
     
     
-    // context
-    const{ getPlanners, addPlanner, getPlannerById, updatePlanner, deletePlanner } = useContext(PlannerContext)
+    // planner context
+    const{ planners, getPlanners, addPlanner, getPlannerById, updatePlanner, deletePlanner } = useContext(PlannerContext)
+    // workout context 
+    const { workouts, getWorkoutsByUserId } = useContext(WorkoutContext)
 
-    // state
+    // workoutId state from selectedWorkout
+    const [selectedWorkout, setSelectedWorkout] = useState({
+        selectedWorkout: 0
+    })
+
+
+    // planner state
     const [planner, setPlanner] = useState({
         day: "",
         workoutId: 0
     })
 
+    //
+
     //enable save
     const [isLoading, setIsLoading] = useState(true)
 
-    //check for edit or add
+    //check for edit or add; fetch data
     useEffect(() => {
-        getPlanners()
+        getWorkoutsByUserId(currentUserId)
+            .then(getPlanners)
             .then(() => {
                 if (plannerId) {
                     getPlannerById(plannerId)
@@ -40,21 +54,45 @@ export const PlannerForm = () => {
             })
     }, [])
 
-    //input handler
-    const handleControlledInputChange = (event) => {
+    // //input handler
+    // const handleControlledInputChange = (event) => {
 
-        const newPlanner = {...planner}
+    //     const newPlanner = {...planner}
 
-        let selectedVal = event.target.value
-        if (event.target.id.includes("Id")) {
-            selectedVal = +selectedVal
-        }
+    //     let selectedVal = event.target.value
+    //     if (event.target.id.includes("Id")) {
+    //         selectedVal = +selectedVal
+    //     }
 
-        newPlanner[event.target.id] = selectedVal
+    //     newPlanner[event.target.id] = selectedVal
 
-        setPlanner(newPlanner)
+    //     setPlanner(newPlanner)
+    // }
+
+    
+    
+    // handle dropdown option select
+    const handleWorkoutSelect = (e) => {
+        
+        let parseIntify = +e
+        setSelectedWorkout(parseIntify)
     }
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // save handler
     const handleSavePlanner = (event) => {
 
@@ -88,11 +126,28 @@ export const PlannerForm = () => {
         <>
             <form className="plannerForm">
             <h2 className="plannerFormTitle">{plannerId ? "Edit Planner" : "Add Planner"}</h2>
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Day of the week?</label>
                     <input type="name" id="day" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Day of Week?" value={planner.day} />
                 </div>
+            </fieldset> */}
+            <fieldset>
+            <DropdownButton
+                    alignRight
+                    title="Choose a Workout..."
+                    id="dropdown-menu-align-right"
+                    onSelect={handleWorkoutSelect}
+                    >
+                        {/* <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item> */}
+                    {
+                        workouts.map(workout => {
+                            
+                            return <Dropdown.Item eventKey={workout.id}>{workout.name}</Dropdown.Item>
+
+                        })
+                    }
+                </DropdownButton>
             </fieldset>
             <fieldset>
             </fieldset>
