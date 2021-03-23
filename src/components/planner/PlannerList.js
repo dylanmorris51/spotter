@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import { PlannerContext } from "./PlannerProvider"
 import Button from "react-bootstrap/Button"
+import { PlannerCard } from "./PlannerCard"
 
 export const PlannerList = () => {
 

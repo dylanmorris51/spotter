@@ -11,7 +11,7 @@ export const PlannerProvider = (props) => {
 
     //fetch
     const getPlanners = () => {
-        return fetch("http://localhost:8088/planners")
+        return fetch("http://localhost:8088/planners?_expand=workout")
             .then(_ => _.json())
             .then(setPlanners)
     }

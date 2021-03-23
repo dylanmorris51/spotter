@@ -10,15 +10,11 @@ export const PlannerCard = ({ planner }) => {
                 <Card style={{ width: '18rem' }}>
                     <Card.Header>{ planner.day }</Card.Header>
                         
-
                     <Card.Body>
                     <Card.Title>{ planner.workout?.name }</Card.Title>
-                        <Button variant="primary" href={`/workouts/detail/${workout.id}`}>
+                        <Button variant="primary" href={`/workouts/detail/${planner.workoutId}`}>
                             View Workout
                         </Button>
-                        
-                        
-                        
                     </Card.Body>
                 </Card>
             </>
