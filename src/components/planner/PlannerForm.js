@@ -6,8 +6,7 @@ import Button from "react-bootstrap/Button"
 import DropdownButton from "react-bootstrap/DropdownButton"
 import Dropdown from "react-bootstrap/Dropdown"
 
-
-//! userId is absent from planner table, so expand by workoutId, get workouts by the Ids, then render those
+//! Captured input values and set state variable, now check to see the add, save, delete, and edits work and the cards render
 export const PlannerForm = () => {
 
     // params, history, userId
@@ -133,13 +132,7 @@ export const PlannerForm = () => {
     return (
         <>
             <form className="plannerForm">
-            <h2 className="plannerFormTitle">{plannerId ? "Edit Planner" : "Add Planner"}</h2>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="title">Day of the week?</label>
-                    <input type="name" id="day" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Day of Week?" value={planner.day} />
-                </div>
-            </fieldset> */}
+            <h2 className="plannerFormTitle">{plannerId ? "Edit Planner" : "Add Planner"}</h2>       
             <fieldset>
             <DropdownButton
                     alignRight
@@ -156,6 +149,8 @@ export const PlannerForm = () => {
                         })
                     }
                 </DropdownButton>
+            </fieldset>
+            <fieldset>
             <DropdownButton
                     alignRight
                     title="Choose a Day..."
@@ -167,12 +162,10 @@ export const PlannerForm = () => {
                         daysOfWeek.map(day => {
                             
                             return <Dropdown.Item eventKey={day}>{day}</Dropdown.Item>
-
+                            
                         })
                     }
                 </DropdownButton>
-            </fieldset>
-            <fieldset>
             </fieldset>
             <button className="btn btn-primary"
                 disabled={isLoading}
@@ -180,7 +173,7 @@ export const PlannerForm = () => {
                     event.preventDefault()
                     handleSavePlanner()
                 }}>
-                {plannerId ? "Save Planner" : "Create New Planner"}
+                {plannerId ? "Update Planner" : "Save New Planner"}
             </button>
             {/* update this stuff for planner */}
             {/* {+currentUserId === planner.workout.userId? <Button onClick={handleDelete}>Delete Planner</Button> : ""} */}
