@@ -14,6 +14,9 @@ export const PlannerCard = ({ planner }) => {
                         <Button variant="primary" href={`/workouts/detail/${planner.workoutId}`}>
                             View Workout
                         </Button>
+                        <Button variant="primary" href={`/planner/detail/${planner.id}`}>
+                            Edit
+                        </Button>
                     </Card.Body>
                 </Card>
             </>

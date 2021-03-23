@@ -39,7 +39,7 @@ export const PlannerList = () => {
     return (
         <>
             <Button onClick={() => history.push(`/planner/create`)}>
-                Plan Your Workouts
+                Plan New Workout
             </Button>
 
             <div className="planners--list">
