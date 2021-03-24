@@ -44,6 +44,7 @@ export const VideoSortExercise = () => {
         }
     }
 
+//TODO: add select option to create new workout and add current selection to it
     return (
         <>
             <DropdownButton id="dropdown-item-button" title="Exercise Types">

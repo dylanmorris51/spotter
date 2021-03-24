@@ -3,9 +3,7 @@ import { VideoContext } from "../videos/VideoProvider"
 import { useParams, useHistory } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
 import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
-import YoutubeEmbed from "../videos/YoutubeEmbed"
 import { WorkoutVideoCard } from "../workoutVideos/WorkoutVideoCard"
-import Button from "react-bootstrap/Button"
 
 
 export const WorkoutDetail = () => {

@@ -1,13 +1,12 @@
 import React, { useContext } from "react"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import { useHistory } from "react-router-dom"
-import { Link } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
 
 
 export const WorkoutCard = ({ workout }) => {
     
+    // context for delete button
     const { deleteWorkout } = useContext(WorkoutContext)
     
     

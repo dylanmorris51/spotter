@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// component found online => dynamically renders embedded youtube videos
 const YoutubeEmbed = ({ embedId }) => (
     <div className="video-responsive">
         <iframe

@@ -8,6 +8,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from "react-bootstrap/Dropdown"
 import Button from "react-bootstrap/Button"
 
+
 export const VideoSortPain = () => {
 
     const history = useHistory()
@@ -45,6 +46,7 @@ export const VideoSortPain = () => {
         }  
     }
 
+//TODO: add dropdown option for user to create a new workout and add current video to it
     return (
         <>
             <DropdownButton id="dropdown-item-button" title="Sort By Body Pain">
