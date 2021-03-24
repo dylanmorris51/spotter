@@ -39,7 +39,13 @@ export const NavBar = (props) => {
                     {/* <Nav.Link href="/collections">Collections</Nav.Link> */}
                     <Nav.Link className="nav-link" href="/planner">Planner</Nav.Link>    
                 </Nav>
-                <Navbar.Toggle />
+                <Nav className="ml-auto">
+                        <Nav.Link className="nav-link" variant="dark" href="/login" onClick={() => {
+                            sessionStorage.clear()}}>
+                                Logout
+                        </Nav.Link>
+                </Nav>
+                {/* <Navbar.Toggle />
                     <Navbar.Collapse  className="justify-content-end">
                         
                             <Nav.Link className="nav-link" variant="dark" href="/login" onClick={() => {
@@ -48,7 +54,7 @@ export const NavBar = (props) => {
                             </Nav.Link>
                                 
                         
-                    </Navbar.Collapse>
+                    </Navbar.Collapse> */}
             </Navbar>
         </>
     )
