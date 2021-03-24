@@ -1,5 +1,3 @@
-//! If none, prompt the user to create a workout
-
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
@@ -29,8 +27,8 @@ export const WorkoutList = () => {
                 Create New Workout
             </Button>
 
-            <h2>Workouts</h2>
 
+            {/* check if user has created workouts => prompt user to create workouts */}
             <div className="workouts--list">
                 {workouts.length === 0 ? "create a new workout!" : workouts.map(workout => {
                     return <WorkoutCard key={workout.id} workout={workout}/>

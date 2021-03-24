@@ -24,7 +24,7 @@ export const WorkoutForm = () => {
     
 
 
-    //check for edit or add
+    //check if user wants to edit or add
     useEffect(() => {
         getWorkouts()
             .then(() => {
