@@ -38,7 +38,7 @@ export const VideoDetail = () => {
     const [workoutId, setWorkoutId] = useState(0)
 
     // state variable to prevent duplicate data
-    const [conflictDialog, setConflictDialog] = useState(false)
+    const [duplicate, setDuplicate] = useState(false)
 
 
     // fetch video by params => set state
@@ -66,29 +66,12 @@ export const VideoDetail = () => {
     const handleSelect = (e) => {
         let parseIntify = +e
 
-        duplicateDataCheck()
-            .then((duplicateStatus) => {
-                if (duplicateStatus) {
-                    setConflictDialog(true)
-                } else {
-                    
-                    setWorkoutId(parseIntify)
-                }
-            })
-
-
+        setWorkoutId(parseIntify)
     }
 
     // Watch workoutId state variable for duplicate data => set duplicate state for rendering
     useEffect(() => {
 
-        
-
-    }, [workoutId])
-
-    // check for duplicate data in workouts table
-    const duplicateDataCheck = () => {
-        
         const workoutVideoObj = {
             workoutId: +workoutId,
             videoId: +videoId
@@ -106,17 +89,22 @@ export const VideoDetail = () => {
 
         if (duplicateContainer.length >= 1) {
             duplicateFound = true
-            return true
+            setDuplicate(duplicateFound)
+            console.log('duplicateContainer: ', duplicateContainer);
         } else {
-            return false
+            setDuplicate(duplicateFound)
+            console.log('duplicateContainer: ', duplicateContainer);
         }
-    }
+
+    }, [workoutId])
+
+    //console.log duplicate state change
+    useEffect(() => {
+        console.log("duplicate found:", duplicate)
+    }, [duplicate])
 
     // add workoutVideoObj
     const handleAddVideo = (e) => {
-        
-        e.preventDefault()
-
         const workoutVideoObj = {
             workoutId: +workoutId,
             videoId: +videoId
@@ -126,21 +114,52 @@ export const VideoDetail = () => {
     }
 
 
-    
+    const duplicateModal = () => {
+        return (
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                        </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                        </Button>
+                </Modal.Footer>
+            </Modal>
+        )
+
+    }
 
     //modal state
     const [show, setShow] = useState(false)
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false)
+        setDuplicate(false)
+        setWorkoutId(0)
+    }
 
 
     return (
         <>
-                <dialog className="dialog dialog--password" open={conflictDialog}>
-                    <div>This workout already contains this exercise</div>
-                    <button className="button--close" onClick={e => setConflictDialog(false)}>Close</button>
-                </dialog>
-
+            <Modal show={duplicate} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                        </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                        </Button>
+                </Modal.Footer>
+            </Modal>
             <Jumbotron fluid>
                 <Container>
                     <h4>{video.name}</h4>
