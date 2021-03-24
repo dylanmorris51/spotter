@@ -11,7 +11,6 @@ import DropdownButton from "react-bootstrap/DropdownButton"
 import Dropdown from "react-bootstrap/Dropdown"
 
 
-// Detail page
 export const VideoDetail = () => {
 
     //currentUserId, params, & history
@@ -34,13 +33,13 @@ export const VideoDetail = () => {
     const { addWorkoutVideo } = useContext(WorkoutVideoContext)
 
 
-    // gets workoutId from dropdown select
+    // state variable receives value from dropdown select
     const [workoutId, setWorkoutId] = useState(0)
 
 
 
 
-    // fetch video
+    // fetch video by params => set state
     useEffect(() => {
         getVideoById(videoId)
             .then((response) => {
@@ -49,7 +48,7 @@ export const VideoDetail = () => {
     }, [])
 
 
-    // fetch workouts
+    // fetch workouts by current user
     useEffect(() => {
         getWorkoutsByUserId(currentUserId)
     }, [])
@@ -57,7 +56,6 @@ export const VideoDetail = () => {
 
 
     //dropdown select handler
-    // handle dropdown option select
     const handleSelect = (e) => {
         let parseIntify = +e
         setWorkoutId(parseIntify)
@@ -79,11 +77,7 @@ export const VideoDetail = () => {
                 <Container>
                     <h4>{video.name}</h4>
                     <YoutubeEmbed embedId={video.embed} />
-                    {/* <Button onClick={() => {
-                        history.push(`/videos`)
-                    }}>
-                        All Videos
-                    </Button> */}
+
                     <Button onClick={() => {
                         history.goBack()
                     }}>

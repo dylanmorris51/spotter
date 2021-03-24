@@ -42,6 +42,7 @@ export const VideoProvider = (props) => {
         .then(getVideos)
     }
 
+    //update
     const updateVideo = video => {
         return fetch(`http://localhost:8088/videos/${video.id}`, {
             method: "PUT",
