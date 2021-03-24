@@ -128,7 +128,6 @@ export const PlannerForm = () => {
         }
     
 
-    //TODO: make the inputs dropdowns for Day and Workout rather than input fields
     return (
         <>
             <form className="plannerForm">
