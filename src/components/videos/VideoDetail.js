@@ -76,26 +76,32 @@ export const VideoDetail = () => {
             workoutId: +workoutId,
             videoId: +videoId
         }
-        
+
         let duplicateFound = false
-        
+
         let duplicateContainer = []
-        
+
         workoutVideos.forEach(obj => {
             if ((obj.workoutId === workoutVideoObj.workoutId) && (obj.videoId === workoutVideoObj.videoId)) {
                 duplicateContainer.push(obj)
             }
         })
-        
-        if (duplicateContainer.length !== 0) {
+
+        if (duplicateContainer.length >= 1) {
             duplicateFound = true
             setDuplicate(duplicateFound)
+            console.log('duplicateContainer: ', duplicateContainer);
         } else {
             setDuplicate(duplicateFound)
+            console.log('duplicateContainer: ', duplicateContainer);
         }
 
     }, [workoutId])
 
+    //console.log duplicate state change
+    useEffect(() => {
+        console.log("duplicate found:", duplicate)
+    }, [duplicate])
 
     // add workoutVideoObj
     const handleAddVideo = (e) => {
@@ -103,33 +109,53 @@ export const VideoDetail = () => {
             workoutId: +workoutId,
             videoId: +videoId
         }
-        
+
         addWorkoutVideo(workoutVideoObj).then(() => history.push(`/videos`))
     }
 
 
-    const duplicateHandler = () => {
-        return  <>
-                    <Modal.Dialog>
-                            <Modal.Header closeButton>
-                            <   Modal.Title>Modal title</Modal.Title>
-                            </Modal.Header>
+    const duplicateModal = () => {
+        return (
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                        </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                        </Button>
+                </Modal.Footer>
+            </Modal>
+        )
 
-                            <Modal.Body>
-                                <p>Modal body text goes here.</p>
-                            </Modal.Body>
-
-                            <Modal.Footer>
-                                <Button variant="secondary" href={`/videos/detail/${videoId}`}>Close</Button>
-                            </Modal.Footer>
-                        </Modal.Dialog>
-                </>
     }
 
-    //! check if duplicate ==== true, run the modal and reset it to false.
+    //modal state
+    const [show, setShow] = useState(false)
+
+    const handleClose = () => setShow(false);
+
+
     return (
         <>
-            {duplicate ? duplicateHandler() : ""}
+            {duplicate === true ? <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                        </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                        </Button>
+                </Modal.Footer>
+            </Modal> : ""}
             <Jumbotron fluid>
                 <Container>
                     <h4>{video.name}</h4>
@@ -156,7 +182,7 @@ export const VideoDetail = () => {
                         }
                     </DropdownButton>
                     {workoutId !== 0 ? <Button onClick={handleAddVideo}>Save</Button> : <div className="empty"></div>}
-                    
+
                 </Container>
             </Jumbotron>
 
