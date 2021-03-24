@@ -148,16 +148,13 @@ export const VideoDetail = () => {
         <>
             <Modal show={duplicate} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Select A Different Workout</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>The selected workout already contains this exercise video.</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
-                        </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                        </Button>
+                    </Button>
                 </Modal.Footer>
             </Modal>
             <Jumbotron fluid>
