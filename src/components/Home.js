@@ -9,10 +9,7 @@ import { Button } from "react-bootstrap"
 export const Home = () => {
     
     return  <>
-                {/* user logout */}
-                <Button variant="light"  href="/login" onClick={() => {
-                    sessionStorage.clear()}}>
-                        Logout
-                </Button>
+                
+                
             </>
 }

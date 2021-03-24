@@ -34,11 +34,21 @@ export const NavBar = (props) => {
                         alt="Spotter logo" />
                 </Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link href="/videos">Videos</Nav.Link>
-                    <Nav.Link href="/workouts">Workouts</Nav.Link>
+                    <Nav.Link className="nav-link" href="/videos">Videos</Nav.Link>
+                    <Nav.Link className="nav-link" href="/workouts">Workouts</Nav.Link>
                     {/* <Nav.Link href="/collections">Collections</Nav.Link> */}
-                    <Nav.Link href="/planner">Planner</Nav.Link>
+                    <Nav.Link className="nav-link" href="/planner">Planner</Nav.Link>    
                 </Nav>
+                <Navbar.Toggle />
+                    <Navbar.Collapse  className="justify-content-end">
+                        
+                            <Nav.Link className="nav-link" variant="dark" href="/login" onClick={() => {
+                            sessionStorage.clear()}}>
+                                Logout
+                            </Nav.Link>
+                                
+                        
+                    </Navbar.Collapse>
             </Navbar>
         </>
     )
