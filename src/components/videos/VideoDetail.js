@@ -49,7 +49,6 @@ export const VideoDetail = () => {
             })
     }, [])
 
-
     // fetch workouts by current user
     useEffect(() => {
         getWorkoutsByUserId(currentUserId)
@@ -62,6 +61,7 @@ export const VideoDetail = () => {
 
 
 
+
     //dropdown select handler
     const handleSelect = (e) => {
         let parseIntify = +e
@@ -69,7 +69,7 @@ export const VideoDetail = () => {
         setWorkoutId(parseIntify)
     }
 
-    // Watch workoutId state variable for duplicate data => set duplicate state for rendering
+    // Watch for duplicate data on dropdown via workoutId => set duplicate state for rendering modal
     useEffect(() => {
 
         const workoutVideoObj = {
@@ -78,7 +78,6 @@ export const VideoDetail = () => {
         }
 
         let duplicateFound = false
-
         let duplicateContainer = []
 
         workoutVideos.forEach(obj => {
@@ -90,19 +89,20 @@ export const VideoDetail = () => {
         if (duplicateContainer.length >= 1) {
             duplicateFound = true
             setDuplicate(duplicateFound)
-            console.log('duplicateContainer: ', duplicateContainer);
         } else {
             setDuplicate(duplicateFound)
-            console.log('duplicateContainer: ', duplicateContainer);
         }
 
     }, [workoutId])
 
-    //console.log duplicate state change
-    useEffect(() => {
-        console.log("duplicate found:", duplicate)
-    }, [duplicate])
+    // handle close for modal
+    const handleClose = () => {
+        
+        setDuplicate(false)
+        setWorkoutId(0)
+    }
 
+    
     // add workoutVideoObj
     const handleAddVideo = (e) => {
         const workoutVideoObj = {
@@ -114,34 +114,6 @@ export const VideoDetail = () => {
     }
 
 
-    const duplicateModal = () => {
-        return (
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                        </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                        </Button>
-                </Modal.Footer>
-            </Modal>
-        )
-
-    }
-
-    //modal state
-    const [show, setShow] = useState(false)
-
-    const handleClose = () => {
-        setShow(false)
-        setDuplicate(false)
-        setWorkoutId(0)
-    }
 
 
     return (
