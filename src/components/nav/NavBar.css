@@ -9,6 +9,6 @@
     list-style-type: none;
 }
 
-.nav-link {
-    color: #f8f7ff
+.navbar-dark .navbar-nav .nav-link {
+    color: #f8f7ff 
 }
