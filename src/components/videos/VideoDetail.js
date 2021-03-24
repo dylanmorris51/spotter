@@ -9,6 +9,7 @@ import { WorkoutContext } from "../workouts/WorkoutProvider"
 import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
 import DropdownButton from "react-bootstrap/DropdownButton"
 import Dropdown from "react-bootstrap/Dropdown"
+import Modal from "react-bootstrap/Modal"
 
 
 export const VideoDetail = () => {
@@ -17,26 +18,27 @@ export const VideoDetail = () => {
     const currentUserId = +sessionStorage.getItem("app_user_id")
     const { videoId } = useParams()
     const history = useHistory()
-    
-    
+
+
     //video context & state
     const { getVideoById } = useContext(VideoContext)
     const [video, setVideo] = useState([])
 
 
-    
+
     // workout context 
     const { workouts, getWorkoutsByUserId } = useContext(WorkoutContext)
-    
+
 
     //workoutVideo context
-    const { addWorkoutVideo } = useContext(WorkoutVideoContext)
+    const { workoutVideos, getWorkoutVideos, addWorkoutVideo } = useContext(WorkoutVideoContext)
 
 
     // state variable receives value from dropdown select
     const [workoutId, setWorkoutId] = useState(0)
 
-
+    // state variable to prevent duplicate data
+    const [duplicate, setDuplicate] = useState(false)
 
 
     // fetch video by params => set state
@@ -53,26 +55,81 @@ export const VideoDetail = () => {
         getWorkoutsByUserId(currentUserId)
     }, [])
 
+    //getWorkoutVideos to prevent duplicate data
+    useEffect(() => {
+        getWorkoutVideos()
+    }, [])
+
 
 
     //dropdown select handler
     const handleSelect = (e) => {
         let parseIntify = +e
+
         setWorkoutId(parseIntify)
     }
 
-     // add workoutVideoObj
+    // Watch workoutId state variable for duplicate data => set duplicate state for rendering
+    useEffect(() => {
+
+        const workoutVideoObj = {
+            workoutId: +workoutId,
+            videoId: +videoId
+        }
+        
+        let duplicateFound = false
+        
+        let duplicateContainer = []
+        
+        workoutVideos.forEach(obj => {
+            if ((obj.workoutId === workoutVideoObj.workoutId) && (obj.videoId === workoutVideoObj.videoId)) {
+                duplicateContainer.push(obj)
+            }
+        })
+        
+        if (duplicateContainer.length !== 0) {
+            duplicateFound = true
+            setDuplicate(duplicateFound)
+        } else {
+            setDuplicate(duplicateFound)
+        }
+
+    }, [workoutId])
+
+
+    // add workoutVideoObj
     const handleAddVideo = (e) => {
         const workoutVideoObj = {
             workoutId: +workoutId,
             videoId: +videoId
         }
         
-        addWorkoutVideo(workoutVideoObj)
+        addWorkoutVideo(workoutVideoObj).then(() => history.push(`/videos`))
     }
-    
+
+
+    const duplicateHandler = () => {
+        return  <>
+                    <Modal.Dialog>
+                            <Modal.Header closeButton>
+                            <   Modal.Title>Modal title</Modal.Title>
+                            </Modal.Header>
+
+                            <Modal.Body>
+                                <p>Modal body text goes here.</p>
+                            </Modal.Body>
+
+                            <Modal.Footer>
+                                <Button variant="secondary" href={`/videos/detail/${videoId}`}>Close</Button>
+                            </Modal.Footer>
+                        </Modal.Dialog>
+                </>
+    }
+
+    //! check if duplicate ==== true, run the modal and reset it to false.
     return (
         <>
+            {duplicate ? duplicateHandler() : ""}
             <Jumbotron fluid>
                 <Container>
                     <h4>{video.name}</h4>
@@ -84,28 +141,25 @@ export const VideoDetail = () => {
                         Back
                     </Button>
                     <DropdownButton
-                    alignRight
-                    title="Add to Workout..."
-                    id="dropdown-menu-align-right"
-                    onSelect={handleSelect}
+                        alignRight
+                        title="Add to Workout..."
+                        id="dropdown-menu-align-right"
+                        onSelect={handleSelect}
                     >
                         <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item>
-                    {
-                        workouts.map(workout => {
-                            
-                            return <Dropdown.Item eventKey={workout.id}>{workout.name}</Dropdown.Item>
+                        {
+                            workouts.map(workout => {
 
-                        })
-                    }
-                </DropdownButton>
-                {workoutId !== 0 ? <Button onClick={handleAddVideo} href={`/videos`}>Save</Button> : <div className="empty"></div>}
-                
-                
+                                return <Dropdown.Item eventKey={workout.id}>{workout.name}</Dropdown.Item>
 
-
-
+                            })
+                        }
+                    </DropdownButton>
+                    {workoutId !== 0 ? <Button onClick={handleAddVideo}>Save</Button> : <div className="empty"></div>}
+                    
                 </Container>
             </Jumbotron>
+
         </>
     )
 }
