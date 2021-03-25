@@ -48,18 +48,13 @@ export const WorkoutDetail = () => {
         setFilteredVideos(matchingVideos)
     }, [workoutVideos])
 
-    //modal state variable
+    //prompt user to add videos state variable
     const [show, setShow] = useState(false)
 
     useEffect(() => {
         filteredVideos.length >= 1 ? setShow(false) : setShow(true)
     }, [filteredVideos])
 
-    // handle close for modal
-    const handleClose = () => {
-        
-        setShow(false)
-    }
 
     
     return (
@@ -75,19 +70,6 @@ export const WorkoutDetail = () => {
                     </Button>
             </div> : ""}
             
-            {/* <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add Videos!</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>It looks like you haven't added any videos yet. Click Browse Videos to select videos to add to your workout. </Modal.Body>
-                <Modal.Footer>
-                    <Button onClick={() => {
-                        setShow(false)
-                        history.push(`/videos`)}
-                        }> Browse Videos
-                    </Button>
-                </Modal.Footer>
-            </Modal> */}
 
             <div className="workoutVideo--list">
                 {filteredVideos.map(video => {

@@ -24,7 +24,7 @@ export const WorkoutVideoCard = ({ workoutVideo }) => {
 
                 {/* view video in full screen */}
                 <Button href={`/videos/detail/${workoutVideo.video?.id}`}>
-                    Full Screen
+                    Watch Video
                 </Button>
                 
                 {/* delete button */}
