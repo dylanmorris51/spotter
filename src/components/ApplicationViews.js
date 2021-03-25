@@ -31,48 +31,66 @@ export const ApplicationViews = () => {
                         <ExerciseTypeProvider>
                             <PainTypeProvider>
                                 <VideoProvider>
+                                    
                                     {/* video list */}
                                     <Route exact path="/videos">
                                         <VideoList />
                                     </Route>
-
-                                    {/* video detail */}
+                                    
+                                    {/* view one single video, embed from youtube, add to workout */}
                                     <Route path="/videos/detail/:videoId(\d+)">
                                         <VideoDetail />
                                     </Route>
 
+                                    {/* sort videos by pain type */}
                                     <Route path="/videos/painTypes">
                                         <VideoSortPain />
                                     </Route>
 
+                                    {/* sort videos by exercise type */}
                                     <Route path="/videos/exerciseTypes">
                                         <VideoSortExercise />
                                     </Route>
-
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    {/* view all user created workouts */}
                                     <Route exact path="/workouts">
                                         <WorkoutList />
                                     </Route>
 
+                                    {/* create a new workout */}
                                     <Route path="/workouts/create">
                                         <WorkoutForm />
                                     </Route>
 
+                                    {/* edit an existing workout */}
                                     <Route path="/workouts/edit/:workoutId(\d+)">
                                         <WorkoutForm />
                                     </Route>
 
+                                    {/* view videos in a specific workout */}
                                     <Route path="/workouts/detail/:workoutId(\d+)">
                                         <WorkoutDetail />
                                     </Route>
 
+                                    
+                                    
+                                    
+                                                                        
+                                    {/* view all planned workouts */}
                                     <Route exact path="/planner">
                                         <PlannerList />
                                     </Route>
 
+                                    {/* add workouts to the planner */}
                                     <Route path ="/planner/create">
                                         <PlannerForm />
                                     </Route>
                                     
+                                    {/* edit existing plans */}
                                     <Route path="/planner/edit/:plannerId(\d+)">
                                         <PlannerForm />
                                     </Route>

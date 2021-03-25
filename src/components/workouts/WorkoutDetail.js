@@ -3,8 +3,8 @@ import { VideoContext } from "../videos/VideoProvider"
 import { useParams, useHistory } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
 import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
-import YoutubeEmbed from "../videos/YoutubeEmbed"
 import { WorkoutVideoCard } from "../workoutVideos/WorkoutVideoCard"
+import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Button"
 
 
@@ -48,16 +48,46 @@ export const WorkoutDetail = () => {
         setFilteredVideos(matchingVideos)
     }, [workoutVideos])
 
+    //prompt user to add videos state variable
+    const [show, setShow] = useState(false)
+
+    useEffect(() => {
+        filteredVideos.length >= 1 ? setShow(false) : setShow(true)
+    }, [filteredVideos])
+
+
     
     return (
         <>
-            <div className="workoutVideo--list">
-                {filteredVideos.map(video => {
-                    
-                    return <WorkoutVideoCard key={video.id} workoutVideo={video}/>
-                    
-                })}
-            </div>
+            <h2>{workout.name}</h2>
+
+            {show === true ? 
+                <div className="add--videos">
+                    <p>Add some videos to this workout! </p>
+                    <Button onClick={() => {
+                        setShow(false)
+                        history.push(`/videos`)}
+                        }> Browse Videos
+                    </Button>
+                </div> 
+                :
+                <div className="workoutVideo">
+                    <div className="workoutVideo--list">
+                        {filteredVideos.map(video => {
+                        
+                        return <WorkoutVideoCard key={video.id} workoutVideo={video}/>
+                        
+                        })}
+                    </div>
+                    <Button onClick={() => {
+                        setShow(false)
+                        history.push(`/videos`)}
+                        }> Add More Videos
+                    </Button>
+                </div>}
+            
+
+            
         </>
 
     )

@@ -7,24 +7,27 @@ import { WorkoutVideoContext } from "./WorkoutVideoProvider"
 
 export const WorkoutVideoCard = ({ workoutVideo }) => {
 
+    // context for delete button on card
     const { deleteWorkoutVideo } = useContext(WorkoutVideoContext)
 
 
     return <>
             <Card style={{ width: '18rem' }}>
                 
-                <Card.Header>{ workoutVideo.workout?.name }</Card.Header>
+                <Card.Header>{ workoutVideo.video?.name }</Card.Header>
 
                 <Card.Body>
-                    <Card.Title>{ workoutVideo.video?.name }</Card.Title>
                     <Card.Text>
                         <YoutubeEmbed embedId={ workoutVideo.video?.embed} />
                     </Card.Text>
                 </Card.Body>
 
+                {/* view video in full screen */}
                 <Button href={`/videos/detail/${workoutVideo.video?.id}`}>
-                    Full Screen
+                    Watch Video
                 </Button>
+                
+                {/* delete button */}
                 <Button onClick={() => (
                     deleteWorkoutVideo(workoutVideo.id)
                 )}>
