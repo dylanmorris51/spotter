@@ -28,36 +28,27 @@ export const WorkoutList = () => {
         workouts.length >= 1 ? setShow(false) : setShow(true)
     }, [workouts])
 
-    // handle close for modal
-    const handleClose = () => {
-        
-        setShow(false)
-    }
 
     return (
         <>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Create A Workout!</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>It looks like you haven't created any workouts yet. Click Create to get started. </Modal.Body>
-                <Modal.Footer>
-                    <Button onClick={() => {
+
+
+            <h2> Workouts </h2>
+
+            {show === true ? <div className="add--workouts">
+                <p>It looks like you haven't created any workouts yet. Click Create to get started! </p>
+                <Button onClick={() => {
                         setShow(false)
                         history.push(`/workouts/create`)}
                         }> Create
                     </Button>
-                </Modal.Footer>
-            </Modal>
-
-
-            <h2> Workouts </h2>
-            {/* check if user has created workouts => prompt user to create workouts */}
-            <div className="workouts--list">
-                {workouts.length === 0 ? "create a new workout!" : workouts.map(workout => {
+            </div> : <div className="workouts--list">
+                {workouts.map(workout => {
                     return <WorkoutCard key={workout.id} workout={workout}/>
                 })}
-            </div>
+            </div>}
+            {/* check if user has created workouts => prompt user to create workouts */}
+            
 
 
 
