@@ -17,9 +17,9 @@ export const PlannerForm = () => {
     
     
     // planner context
-    const{ planners, getPlanners, addPlanner, getPlannerById, updatePlanner, deletePlanner, getWorkoutById } = useContext(PlannerContext)
+    const{ planners, getPlanners, addPlanner, getPlannerById, updatePlanner, deletePlanner } = useContext(PlannerContext)
     // workout context 
-    const { workouts, getWorkoutsByUserId } = useContext(WorkoutContext)
+    const { workouts, getWorkoutsByUserId, getWorkoutById } = useContext(WorkoutContext)
 
     // workoutId state from selectedWorkout
     const [selectedWorkout, setSelectedWorkout] = useState({
@@ -61,6 +61,13 @@ export const PlannerForm = () => {
                         .then(res => {
                             setPlanner(res)
                             setIsLoading(false)
+                        })
+                        .then(() => {
+                            const currentWorkout = workouts.find(workout => {
+                                return workout.id === planner.workoutId
+                            })
+                            console.log('currentWorkout: ', currentWorkout);
+                            setWorkoutName(currentWorkout.name)
                         })
                 } else {setIsLoading(false)}
             })
