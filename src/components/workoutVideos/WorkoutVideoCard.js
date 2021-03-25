@@ -14,10 +14,9 @@ export const WorkoutVideoCard = ({ workoutVideo }) => {
     return <>
             <Card style={{ width: '18rem' }}>
                 
-                <Card.Header>{ workoutVideo.workout?.name }</Card.Header>
+                <Card.Header>{ workoutVideo.video?.name }</Card.Header>
 
                 <Card.Body>
-                    <Card.Title>{ workoutVideo.video?.name }</Card.Title>
                     <Card.Text>
                         <YoutubeEmbed embedId={ workoutVideo.video?.embed} />
                     </Card.Text>

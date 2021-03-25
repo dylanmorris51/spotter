@@ -4,6 +4,8 @@ import { useParams, useHistory } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
 import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
 import { WorkoutVideoCard } from "../workoutVideos/WorkoutVideoCard"
+import Modal from "react-bootstrap/Modal"
+import Button from "react-bootstrap/Button"
 
 
 export const WorkoutDetail = () => {
@@ -46,10 +48,38 @@ export const WorkoutDetail = () => {
         setFilteredVideos(matchingVideos)
     }, [workoutVideos])
 
+    //modal state variable
+    const [show, setShow] = useState(false)
+
+    useEffect(() => {
+        filteredVideos.length >= 1 ? setShow(false) : setShow(true)
+    }, [filteredVideos])
+
+    // handle close for modal
+    const handleClose = () => {
+        
+        setShow(false)
+    }
+
     
     return (
         <>
             <h2>{workout.name}</h2>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add Videos!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>It looks like you haven't added any videos yet. Click Browse Videos to select videos to add to your workout. </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={() => {
+                        setShow(false)
+                        history.push(`/videos`)}
+                        }> Browse Videos
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
             <div className="workoutVideo--list">
                 {filteredVideos.map(video => {
                     
