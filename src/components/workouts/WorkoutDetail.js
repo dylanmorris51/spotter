@@ -61,23 +61,33 @@ export const WorkoutDetail = () => {
         <>
             <h2>{workout.name}</h2>
 
-            {show === true ? <div className="add--videos">
-                <p>It looks like you haven't added any videos yet. Click Browse Videos to select videos to add to your workout! </p>
-                <Button onClick={() => {
+            {show === true ? 
+                <div className="add--videos">
+                    <p>It looks like you haven't added any videos yet. Click Browse Videos to find videos to add to your workout! </p>
+                    <Button onClick={() => {
                         setShow(false)
                         history.push(`/videos`)}
                         }> Browse Videos
                     </Button>
-            </div> : ""}
+                </div> 
+                :
+                <div className="workoutVideo">
+                    <div className="workoutVideo--list">
+                        {filteredVideos.map(video => {
+                        
+                        return <WorkoutVideoCard key={video.id} workoutVideo={video}/>
+                        
+                        })}
+                    </div>
+                    <Button onClick={() => {
+                        setShow(false)
+                        history.push(`/videos`)}
+                        }> Add More Videos
+                    </Button>
+                </div>}
             
 
-            <div className="workoutVideo--list">
-                {filteredVideos.map(video => {
-                    
-                    return <WorkoutVideoCard key={video.id} workoutVideo={video}/>
-                    
-                })}
-            </div>
+            
         </>
 
     )
