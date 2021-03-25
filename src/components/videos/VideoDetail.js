@@ -110,7 +110,8 @@ export const VideoDetail = () => {
             videoId: +videoId
         }
 
-        addWorkoutVideo(workoutVideoObj).then(() => history.push(`/videos`))
+        //TODO: get workoutId and push to that detail page
+        addWorkoutVideo(workoutVideoObj).then(() => history.push(`/workouts/detail/${workoutId}`))
     }
 
 

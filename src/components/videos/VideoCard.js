@@ -19,7 +19,7 @@ export const VideoCard = ({ video }) => (
             <Card.Text>
             </Card.Text>
             <Button variant="primary" href={`/videos/detail/${video.id}`}>
-                Add to Workout
+                Watch Video
             </Button>
         </Card.Body>
     </Card>
