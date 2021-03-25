@@ -66,12 +66,16 @@ export const WorkoutForm = () => {
                 id: workout.id,
                 name: workout.name,
                 userId: currentUserId
-            }).then(() => history.push(`/workouts`))
+            }).then(() => history.push(`/workouts/detail/${workoutId}`))
         } else {
             addWorkout({
                 name: workout.name,
                 userId: currentUserId
-            }).then(() => history.push("/workouts"))
+            })
+            .then(parsedRes => {
+                history.push(`/workouts/detail/${parsedRes.id}`)
+            })
+            // .then(() => history.push(`/workouts/`))
         }
     }
 

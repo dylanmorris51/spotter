@@ -7,7 +7,8 @@ import { WorkoutContext } from "./WorkoutProvider"
 export const WorkoutCard = ({ workout }) => {
     
     // context for delete button
-    const { deleteWorkout } = useContext(WorkoutContext)
+    const { deleteWorkout, getWorkoutsByUserId } = useContext(WorkoutContext)
+    const currentUserId = sessionStorage.getItem("app_user_id")
     
     
     return  <>
@@ -22,10 +23,14 @@ export const WorkoutCard = ({ workout }) => {
                         <Button variant="primary" href={`/workouts/edit/${workout.id}`}>
                             Edit Workout
                         </Button>
-                        <Button onClick={() => (
+                        <Button onClick={() => {
                             deleteWorkout(workout.id)
-                        )}>
-                            Delete Workout
+                                .then(() => {
+                                    getWorkoutsByUserId(currentUserId)
+                                })
+                            }
+                            }>
+                                Delete Workout
                         </Button>
                         <Button href={`/videos`}>
                             Add Videos

@@ -28,8 +28,7 @@ export const WorkoutProvider = (props) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(workoutObj)
-        })
-        .then(getWorkouts)
+        }).then(res => res.json())
     }
 
     //get by ID
@@ -50,7 +49,6 @@ export const WorkoutProvider = (props) => {
         return fetch (`http://localhost:8088/workouts/${workoutId}`, {
             method: "DELETE"
         })
-        .then(getWorkouts)
     }
 
     // update
@@ -62,7 +60,6 @@ export const WorkoutProvider = (props) => {
             },
             body: JSON.stringify(workout)
         })
-        .then(getWorkouts)
     }
 
     return (
