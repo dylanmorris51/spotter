@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom"
 import { WorkoutContext } from "./WorkoutProvider"
 import { WorkoutCard } from "./WorkoutCard"
 import  Button  from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal"
 
 export const WorkoutList = () => {
 
@@ -20,13 +21,34 @@ export const WorkoutList = () => {
         getWorkoutsByUserId(userId)
     }, [])
 
+    //modal state variable
+    const [show, setShow] = useState(false)
+
+    useEffect(() => {
+        workouts.length >= 1 ? setShow(false) : setShow(true)
+    }, [workouts])
+
+    // handle close for modal
+    const handleClose = () => {
+        
+        setShow(false)
+    }
 
     return (
         <>
-            <Button onClick={() => history.push(`/workouts/create`)}>
-                Create New Workout
-            </Button>
-
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Create A Workout!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>It looks like you haven't created any workouts yet. Click Create to get started. </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={() => {
+                        setShow(false)
+                        history.push(`/workouts/create`)}
+                        }> Create
+                    </Button>
+                </Modal.Footer>
+            </Modal>
 
             {/* check if user has created workouts => prompt user to create workouts */}
             <div className="workouts--list">
