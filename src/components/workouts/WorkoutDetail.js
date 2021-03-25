@@ -66,7 +66,16 @@ export const WorkoutDetail = () => {
         <>
             <h2>{workout.name}</h2>
 
-            <Modal show={show} onHide={handleClose}>
+            {show === true ? <div className="add--videos">
+                <p>It looks like you haven't added any videos yet. Click Browse Videos to select videos to add to your workout! </p>
+                <Button onClick={() => {
+                        setShow(false)
+                        history.push(`/videos`)}
+                        }> Browse Videos
+                    </Button>
+            </div> : ""}
+            
+            {/* <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Videos!</Modal.Title>
                 </Modal.Header>
@@ -78,7 +87,7 @@ export const WorkoutDetail = () => {
                         }> Browse Videos
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
 
             <div className="workoutVideo--list">
                 {filteredVideos.map(video => {
