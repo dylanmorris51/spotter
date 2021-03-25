@@ -38,6 +38,8 @@ export const VideoList = () => {
             </Button>
             
 
+            <h2>Videos</h2>
+
             {/*render videos*/}
             <div className="video--list">
                 {videos.map(video => {

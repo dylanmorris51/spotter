@@ -63,7 +63,7 @@ export const WorkoutDetail = () => {
 
             {show === true ? 
                 <div className="add--videos">
-                    <p>It looks like you haven't added any videos yet. Click Browse Videos to find videos to add to your workout! </p>
+                    <p>Add some videos to this workout! </p>
                     <Button onClick={() => {
                         setShow(false)
                         history.push(`/videos`)}
