@@ -17,7 +17,7 @@ export const PlannerForm = () => {
     
     
     // planner context
-    const{ planners, getPlanners, addPlanner, getPlannerById, updatePlanner, deletePlanner } = useContext(PlannerContext)
+    const{ planners, getPlanners, addPlanner, getPlannerById, updatePlanner, deletePlanner, getWorkoutById } = useContext(PlannerContext)
     // workout context 
     const { workouts, getWorkoutsByUserId } = useContext(WorkoutContext)
 
@@ -25,6 +25,14 @@ export const PlannerForm = () => {
     const [selectedWorkout, setSelectedWorkout] = useState({
         selectedWorkout: 0
     })
+
+    //workout name state variable
+    const [workoutName, setWorkoutName] = useState("")
+
+    // useEffect(() => {
+    //     getWorkoutById(+selectedWorkout)
+    //         .then(setWorkoutName())
+    // }, [selectedWorkout])
 
     //day state from selectedDay
     const [selectedDay, setSelectedDay] = useState({
@@ -72,17 +80,17 @@ export const PlannerForm = () => {
     ]
 
     // handle dropdown day select
-    const handleDaySelect = (e) => {
-        
-        
+    const handleDaySelect = (e) => { 
         setSelectedDay(e)
     }
     
     
     // handle dropdown workout select
-    const handleWorkoutSelect = (e) => {
-        
-        let parseIntify = +e
+    const handleWorkoutSelect = (e) => { 
+        let parseIntify = +e.split(",")[1]
+        console.log("e", e)
+
+        setWorkoutName(e.split(",")[0])
         setSelectedWorkout(parseIntify)
     }
     
@@ -96,7 +104,7 @@ export const PlannerForm = () => {
         setPlanner(newPlanner)
 
         
-    }, [ selectedDay, selectedWorkout])
+    }, [selectedDay, selectedWorkout])
 
 
 
@@ -128,6 +136,7 @@ export const PlannerForm = () => {
         }
     
 
+
     return (
         <>
             <form className="plannerForm">
@@ -135,7 +144,8 @@ export const PlannerForm = () => {
             <fieldset>
             <DropdownButton
                     alignRight
-                    title="Choose a Workout..."
+                    // title="Choose a Workout..."
+                    title={workoutName ? workoutName : "Choose A Workout!"}
                     id="dropdown-menu-workout"
                     onSelect={handleWorkoutSelect}
                     >
@@ -143,7 +153,7 @@ export const PlannerForm = () => {
                     {
                         workouts.map(workout => {
                             
-                            return <Dropdown.Item eventKey={workout.id}>{workout.name}</Dropdown.Item>
+                            return <Dropdown.Item eventKey={[workout.name, workout.id]}>{workout.name}</Dropdown.Item>
 
                         })
                     }
