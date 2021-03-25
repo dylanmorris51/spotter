@@ -5,55 +5,60 @@ import { WorkoutContext } from "../workouts/WorkoutProvider"
 import Button from "react-bootstrap/Button"
 import DropdownButton from "react-bootstrap/DropdownButton"
 import Dropdown from "react-bootstrap/Dropdown"
+import { DayContext } from "../days/DayProvider";
 
-//! Captured input values and set state variable, now check to see the add, save, delete, and edits work and the cards render
 export const PlannerForm = () => {
 
+    //disable save
+    const [isLoading, setIsLoading] = useState(true)
     // params, history, userId
     const { plannerId } = useParams()
     const history = useHistory()
     const currentUserId = +sessionStorage.getItem("app_user_id") 
 
-    
-    
+    //render context
+    //day context
+    const {days, getDays} = useContext(DayContext)
     // planner context
     const{ planners, getPlanners, addPlanner, getPlannerById, updatePlanner, deletePlanner } = useContext(PlannerContext)
     // workout context 
     const { workouts, getWorkoutsByUserId, getWorkoutById } = useContext(WorkoutContext)
 
-    // workoutId state from selectedWorkout
+    
+    //dropdown states
+    // workoutId state from dropdown selectedWorkout
     const [selectedWorkout, setSelectedWorkout] = useState({
         selectedWorkout: 0
     })
+    //day state variable from dropdown
+    const [selectedDay, setSelectedDay] = useState({
+        selectedDay: 0,
+    })
 
+
+    //Allow dropdown title to change based on user selection via state
     //workout name state variable
     const [workoutName, setWorkoutName] = useState("")
-
-    // useEffect(() => {
-    //     getWorkoutById(+selectedWorkout)
-    //         .then(setWorkoutName())
-    // }, [selectedWorkout])
-
-    //day state from selectedDay
-    const [selectedDay, setSelectedDay] = useState({
-        selectedDay: "",
-    })
+    //day name state variable
+    const [dayName, setDayName] = useState("")
 
 
     // planner state
     const [planner, setPlanner] = useState({
-        day: "",
+        dayId: 0,
         workoutId: 0
     })
 
-    //
+    
 
-    //enable save
-    const [isLoading, setIsLoading] = useState(true)
 
+    //TODO: add similar statement for day selected as workout selected
+    //TODO: add days to database instead of hard code
     //check for edit or add; fetch data
     useEffect(() => {
+        
         getWorkoutsByUserId(currentUserId)
+            .then(getDays)
             .then(getPlanners)
             .then(() => {
                 if (plannerId) {
@@ -66,8 +71,13 @@ export const PlannerForm = () => {
                             const currentWorkout = workouts.find(workout => {
                                 return workout.id === planner.workoutId
                             })
-                            console.log('currentWorkout: ', currentWorkout);
                             setWorkoutName(currentWorkout.name)
+                        })
+                        .then(() => {
+                            const chosenDay = days.find(day => {
+                                return day.id === planner.dayId
+                            })
+                            setDayName(chosenDay.name)
                         })
                 } else {setIsLoading(false)}
             })
@@ -75,27 +85,19 @@ export const PlannerForm = () => {
 
     
 
-    // days of week for dropdown
-    const daysOfWeek = [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-    ]
 
     // handle dropdown day select
     const handleDaySelect = (e) => { 
-        setSelectedDay(e)
+        let parseIntify = +e.split(",")[1]
+
+        setDayName(e.split(","[0]))
+        setSelectedDay(parseIntify)
     }
     
     
     // handle dropdown workout select
     const handleWorkoutSelect = (e) => { 
         let parseIntify = +e.split(",")[1]
-        console.log("e", e)
 
         setWorkoutName(e.split(",")[0])
         setSelectedWorkout(parseIntify)
@@ -104,7 +106,7 @@ export const PlannerForm = () => {
     // set captured inputs
     useEffect(() => {
         const newPlanner = {
-            day: selectedDay,
+            dayId: selectedDay,
             workoutId: selectedWorkout
         }
 
@@ -123,12 +125,12 @@ export const PlannerForm = () => {
         if(plannerId) {
             updatePlanner({
                 id: plannerId,
-                day: planner.day,
+                dayId: planner.dayId,
                 workoutId: planner.workoutId
             }).then(() => history.push(`/planner`))
         } else {
             addPlanner({
-                day: planner.day,
+                dayId: planner.dayId,
                 workoutId: planner.workoutId
             }).then(() => history.push("/planner"))
         }
@@ -175,9 +177,9 @@ export const PlannerForm = () => {
                     >
                         {/* <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item> */}
                     {
-                        daysOfWeek.map(day => {
+                        days.map(day => {
                             
-                            return <Dropdown.Item eventKey={day}>{day}</Dropdown.Item>
+                            return <Dropdown.Item eventKey={[day.name, day.id]}>{day.name}</Dropdown.Item>
                             
                         })
                     }
