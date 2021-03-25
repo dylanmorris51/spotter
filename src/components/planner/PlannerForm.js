@@ -52,8 +52,7 @@ export const PlannerForm = () => {
     
 
 
-    //TODO: add similar statement for day selected as workout selected
-    //TODO: add days to database instead of hard code
+    //!something still breaking here on page load for edit
     //check for edit or add; fetch data
     useEffect(() => {
         
@@ -67,30 +66,49 @@ export const PlannerForm = () => {
                             setPlanner(res)
                             setIsLoading(false)
                         })
-                        .then(() => {
-                            const currentWorkout = workouts.find(workout => {
-                                return workout.id === planner.workoutId
-                            })
-                            setWorkoutName(currentWorkout.name)
-                        })
-                        .then(() => {
-                            const chosenDay = days.find(day => {
-                                return day.id === planner.dayId
-                            })
-                            setDayName(chosenDay.name)
-                        })
+                        // .then(() => {
+                            
+                        //     const currentWorkout = workouts.find(workout => {
+                        //         return workout.id === planner.workoutId
+                        //     })
+                            
+                        //     const chosenDay = days.find(day => {
+                        //         return day.id === planner.dayId
+                        //     })
+                            
+                            
+                        //     setWorkoutName(currentWorkout.name)
+                        //     setDayName(chosenDay.name)
+                        // })
                 } else {setIsLoading(false)}
             })
     }, [])
 
-    
+    //get day/workout names for dropdowns if it's an edit form
+    useEffect(() => {
+        
+        const currentWorkout = workouts.find(workout => {
+            return workout.id === planner.workoutId
+        })
+        
+        const chosenDay = days.find(day => {
+            return day.id === planner.dayId
+        })
+        
+        console.log('chosenDay: ', chosenDay);
+        console.log('currentWorkout: ', currentWorkout);
+        
+        
+        setWorkoutName(currentWorkout.name)
+        setDayName(chosenDay.name)
+    }, [planner])
 
 
     // handle dropdown day select
     const handleDaySelect = (e) => { 
         let parseIntify = +e.split(",")[1]
 
-        setDayName(e.split(","[0]))
+        setDayName(e.split(",")[0])
         setSelectedDay(parseIntify)
     }
     
@@ -136,6 +154,7 @@ export const PlannerForm = () => {
         }
     }
 
+        //! Move this to the cards on the list page if possible
         // delete handler
         const handleDelete = () => {
             deletePlanner(plannerId)
@@ -154,7 +173,7 @@ export const PlannerForm = () => {
             <DropdownButton
                     alignRight
                     // title="Choose a Workout..."
-                    title={workoutName ? workoutName : "Choose A Workout!"}
+                    title={workoutName ? workoutName : "Choose A Workout"}
                     id="dropdown-menu-workout"
                     onSelect={handleWorkoutSelect}
                     >
@@ -171,7 +190,7 @@ export const PlannerForm = () => {
             <fieldset>
             <DropdownButton
                     alignRight
-                    title="Choose a Day..."
+                    title={dayName ? dayName : "Choose A Day"}
                     id="dropdown-menu-day"
                     onSelect={handleDaySelect}
                     >

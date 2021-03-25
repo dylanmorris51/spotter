@@ -8,7 +8,7 @@ export const PlannerCard = ({ planner }) => {
 
     return  <>
                 <Card style={{ width: '18rem' }}>
-                    <Card.Header>{ planner.day }</Card.Header>
+                    <Card.Header>{ planner.day?.name }</Card.Header>
                         
                     <Card.Body>
                     <Card.Title>{ planner.workout?.name }</Card.Title>
