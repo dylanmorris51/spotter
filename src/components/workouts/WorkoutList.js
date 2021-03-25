@@ -46,10 +46,19 @@ export const WorkoutList = () => {
                     </Button>
                 </div> 
                 : 
-                <div className="workouts--list">
-                    {workouts.map(workout => {
-                        return <WorkoutCard key={workout.id} workout={workout}/>
-                    })}
+                
+                <div className="workouts">
+                    <div className="workouts--list">
+                        {workouts.map(workout => {
+                            return <WorkoutCard key={workout.id} workout={workout}/>
+                        })}
+                    </div>
+                    <Button onClick={() => {
+                        setShow(false)
+                        history.push(`/workouts/create`)}
+                        }> Create Another Workout
+                    </Button>
+
                 </div>}
             
 
