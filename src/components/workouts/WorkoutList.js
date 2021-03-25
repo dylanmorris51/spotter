@@ -50,6 +50,8 @@ export const WorkoutList = () => {
                 </Modal.Footer>
             </Modal>
 
+
+            <h2> Workouts </h2>
             {/* check if user has created workouts => prompt user to create workouts */}
             <div className="workouts--list">
                 {workouts.length === 0 ? "create a new workout!" : workouts.map(workout => {

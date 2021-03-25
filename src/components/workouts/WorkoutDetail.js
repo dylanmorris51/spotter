@@ -49,6 +49,7 @@ export const WorkoutDetail = () => {
     
     return (
         <>
+            <h2>{workout.name}</h2>
             <div className="workoutVideo--list">
                 {filteredVideos.map(video => {
                     
