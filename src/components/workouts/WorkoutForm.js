@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button"
 export const WorkoutForm = () => {
 
     //context
-    const { getWorkouts, addWorkout, getWorkoutById, updateWorkout, deleteWorkout } = useContext(WorkoutContext)
+    const { getWorkouts, addWorkout, getWorkoutById, updateWorkout, deleteWorkout, getWorkoutsByUserId } = useContext(WorkoutContext)
 
     //state
     const [workout, setWorkout] = useState({
@@ -66,7 +66,11 @@ export const WorkoutForm = () => {
                 id: workout.id,
                 name: workout.name,
                 userId: currentUserId
-            }).then(() => history.push(`/workouts/detail/${workoutId}`))
+            })
+            .then(() => {
+                getWorkoutsByUserId(currentUserId)
+            })
+            .then(() => history.push(`/workouts/`))
         } else {
             addWorkout({
                 name: workout.name,
