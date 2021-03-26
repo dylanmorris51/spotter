@@ -37,3 +37,14 @@
     padding: 5px 10px;
     text-transform: uppercase;
 }
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #ffeedd;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.video {
+    display: flex
+}
