@@ -119,9 +119,9 @@ export const VideoDetail = () => {
 
     return (
         <>
-            <Modal show={duplicate} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Select A Different Workout</Modal.Title>
+            <Modal className="modal-detail" show={duplicate} onHide={handleClose}>
+                <Modal.Header className="modal-title" closeButton>
+                    <Modal.Title >Select A Different Workout</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>The selected workout already contains this exercise video.</Modal.Body>
                 <Modal.Footer>

@@ -47,27 +47,39 @@ export const VideoSortExercise = () => {
 //TODO: add select option to create new workout and add current selection to it
     return (
         <>
-            <DropdownButton id="dropdown-item-button" title="Exercise Types">
-                <Dropdown.Item id="1" onClick={e => {handleExerciseSort(e)}} as="button">Stretching & Mobility</Dropdown.Item>
-                <Dropdown.Item id="2" onClick={e => {handleExerciseSort(e)}} as="button">Core</Dropdown.Item>
-                <Dropdown.Item id="3" onClick={e => {handleExerciseSort(e)}} as="button">Lower Body</Dropdown.Item>
-                <Dropdown.Item id="4" onClick={e => {handleExerciseSort(e)}} as="button">Upper Body</Dropdown.Item>                
-                <Dropdown.Item id="0" onClick={e => {handleExerciseSort(e)}} as="button">View All</Dropdown.Item>                
-            </DropdownButton>
+            <div className="outer--container">
+                <div className="container">
+                    <div className="title--container">
+                        <h2 className="video--title">Videos</h2>
+                    </div>
 
-            {/* button return to all videos */}
-            <Button onClick={() => {
-                history.push(`/videos`)
-            }}>
-                Return To All Videos
-            </Button>
+                    <div className="sorting">
+                        <DropdownButton id="dropdown-item-button" title="Exercise Types">
+                            <Dropdown.Item id="1" onClick={e => {handleExerciseSort(e)}} as="button">Stretching & Mobility</Dropdown.Item>
+                            <Dropdown.Item id="2" onClick={e => {handleExerciseSort(e)}} as="button">Core</Dropdown.Item>
+                            <Dropdown.Item id="3" onClick={e => {handleExerciseSort(e)}} as="button">Lower Body</Dropdown.Item>
+                            <Dropdown.Item id="4" onClick={e => {handleExerciseSort(e)}} as="button">Upper Body</Dropdown.Item>                
+                            <Dropdown.Item id="0" onClick={e => {handleExerciseSort(e)}} as="button">View All</Dropdown.Item>                
+                        </DropdownButton>
 
-            {/*rendering component*/}
-            <div className="video--list">
-                {filteredVideos?.map(video => {
-                    return <VideoCard key={video.id} video={video} />
-                })}
-            </div>
+                        {/* button return to all videos */}
+                        <Button onClick={() => {
+                            history.push(`/videos`)
+                        }}>
+                            Return To All Videos
+                        </Button>
+                    </div>
+                
+                        {/*rendering component*/}
+                    <div className="video--list">
+                        {filteredVideos?.map(video => {
+                            return <VideoCard key={video.id} video={video} />
+                        })}
+                    </div>
+                </div>    
+            </div>        
+                    
+
             
         </>
     )
