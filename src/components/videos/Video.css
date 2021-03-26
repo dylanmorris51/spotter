@@ -12,13 +12,28 @@
 }
 
 .video--title {
-    text-align: center
+    text-align: center;
+    color: #9381ff
 }
 
 .sorting {
     text-align: center;
 }
 
+.outer--container {
+    background-color: #9381ff;
+}
+
 .container {
     background-color: #f8f7ff;
+    border-radius: 3px;
+}
+
+.btn {
+    background: #b8b8ff !important;
+    color: #ffeedd !important;
+    border-color: #ffeedd !important;
+    border-radius: 3px;
+    padding: 5px 10px;
+    text-transform: uppercase;
 }

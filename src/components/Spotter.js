@@ -6,6 +6,7 @@ import { NavBar } from "./nav/NavBar"
 import { Home } from "./Home"
 import { ApplicationViews } from "./ApplicationViews"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import "../index.css"
 
 export const Spotter = () => {
 
