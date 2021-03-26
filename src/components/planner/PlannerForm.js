@@ -76,38 +76,48 @@ export const PlannerForm = () => {
                         //         return day.id === planner.dayId
                         //     })
                             
+                        //     console.log('chosenDay: ', chosenDay);
+                        //     console.log('currentWorkout: ', currentWorkout);
                             
-                        //     setWorkoutName(currentWorkout.name)
-                        //     setDayName(chosenDay.name)
+                        //     // setWorkoutName(currentWorkout.name)
+                        //     // setDayName(chosenDay.name)
                         // })
                 } else {setIsLoading(false)}
             })
     }, [])
 
-    //get day/workout names for dropdowns if it's an edit form
-    useEffect(() => {
+    // get day/workout names for dropdowns if it's an edit form
+    // useEffect(() => {
         
-        const currentWorkout = workouts.find(workout => {
-            return workout.id === planner.workoutId
-        })
-        
-        const chosenDay = days.find(day => {
-            return day.id === planner.dayId
-        })
-        
-        console.log('chosenDay: ', chosenDay);
-        console.log('currentWorkout: ', currentWorkout);
-        
-        
-        setWorkoutName(currentWorkout.name)
-        setDayName(chosenDay.name)
-    }, [planner])
+    //     getWorkoutsByUserId(currentUserId)
+    //         .then(getDays)
+    //             .then(() => {
+    //                 const currentWorkout = workouts.find(workout => {
+    //                     return workout.id === planner.workoutId
+    //                 })
+                    
+    //                 const chosenDay = days.find(day => {
+    //                     return day.id === planner.dayId
+    //                 })
+                    
+    //                 console.log('chosenDay: ', chosenDay);
+    //                 console.log('currentWorkout: ', currentWorkout);
+
+    //                 console.log("work name", currentWorkout.name)
+    //                 console.log("day name", chosenDay.name)
+                    
+    //                 setWorkoutName(currentWorkout.name)
+    //                 setDayName(chosenDay.name)
+
+    //             })
+    // }, [planner])
 
 
     // handle dropdown day select
     const handleDaySelect = (e) => { 
         let parseIntify = +e.split(",")[1]
 
+        console.log("day select id", parseIntify)
         setDayName(e.split(",")[0])
         setSelectedDay(parseIntify)
     }
@@ -134,6 +144,10 @@ export const PlannerForm = () => {
     }, [selectedDay, selectedWorkout])
 
 
+    //!check planner
+    useEffect(() => {
+        console.log("planner", planner)
+    }, [planner])
 
     // save handler
     const handleSavePlanner = (event) => {
@@ -150,11 +164,10 @@ export const PlannerForm = () => {
             addPlanner({
                 dayId: planner.dayId,
                 workoutId: planner.workoutId
-            }).then(() => history.push("/planner"))
+            }).then(() => history.push(`/planner`))
         }
     }
 
-        //! Move this to the cards on the list page if possible
         // delete handler
         const handleDelete = () => {
             deletePlanner(plannerId)

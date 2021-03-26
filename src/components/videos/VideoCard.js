@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 
 
 export const VideoCard = ({ video }) => (
-    <Card style={{ width: '18rem' }}>
+    <Card className="video" style={{ width: '18rem' }}>
         <Card.Header>{ video.exerciseType?.type }</Card.Header>
             <Link to={`/videos/detail/${video.id}`}>
                 <Card.Img variant="top" src={video.img} />

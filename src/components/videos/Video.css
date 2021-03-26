@@ -1,12 +1,17 @@
-.videos {
+.video--list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .video {
-    flex-basis: 28%;
+    flex-basis: 20%;
     margin: 1em;
     padding: 1em;
-    border: 1px solid goldenrod;
+
 }
+
+.video--title {
+    text-align: center
+}
+

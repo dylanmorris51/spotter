@@ -24,21 +24,25 @@ export const VideoList = () => {
         <>
             
             {/* button sort by exercise */}
-            <Button onClick={() => {
-                history.push(`/videos/exerciseTypes`)
-            }}>
-                Sort By Exercise Types
-            </Button>
+            <div className="sorting">
+                <Button className="btn video--sort video--sort--ex" onClick={() => {
+                    history.push(`/videos/exerciseTypes`)
+                }}>
+                    Sort By Exercise Types
+                </Button>
+                
+                {/* button sort by pain */}
+                <Button className="btn video--sort video--sort--pain" onClick={() => {
+                    history.push(`/videos/painTypes`)
+                }}>
+                    Sort By Body Pain
+                </Button>
+            </div>
             
-            {/* button sort by pain */}
-            <Button onClick={() => {
-                history.push(`/videos/painTypes`)
-            }}>
-                Sort By Body Pain
-            </Button>
             
-
-            <h2>Videos</h2>
+            <div className="header">
+                <h2 className="video--title">Videos</h2>
+            </div>
 
             {/*render videos*/}
             <div className="video--list">
