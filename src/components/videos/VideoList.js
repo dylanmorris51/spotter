@@ -25,7 +25,7 @@ export const VideoList = () => {
             <div className="outer--container">
                 <div className="container">
                     
-                    <div className="header">
+                    <div className="title--container">
                         <h2 className="video--title">Videos</h2>
                     </div>
                     
