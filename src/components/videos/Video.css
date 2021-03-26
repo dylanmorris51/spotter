@@ -50,18 +50,20 @@
 
 .card-header {
     padding: .75rem 1.25rem;
-    margin-bottom: 0;
+    /* margin-bottom: 5px !important; */
     background-color: #ffeedd;
     border-bottom: 1px solid rgba(0,0,0,.125);
+    /* border-radius: 3px !important; */
+    background-color: #b8b8ff !important;
 }
 
 .video {
     display: flex;
+    text-align: center;
+    background-color: #ffeedd;
 }
 
-.card--body {
-    /* align-items: flex-end;
-    align-content: flex-end; */
+.card--body {   
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -75,14 +77,6 @@
 .card--img {
     height: 120px;
     object-fit: cover;
+    /* border-radius: 3px, 3px, 0, 0 !important; */
 }
 
-.card {
-    text-align: center;
-    background-color: #ffeedd;
-}
-
-.card--header {
-    background-color: #b8b8ff !important;
-
-}
