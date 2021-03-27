@@ -8,25 +8,71 @@
 }
 
 
-.jumbotron-fluid {
-    background-color: #f8f7ff !important;
-}
-
-.jumbo-header {
-    text-align: center;
-    margin-bottom: 40px;
-    margin-top: -20px;
-    color: #343A40
-}
-
 .btn-container {
     display: flex;
     justify-content: center;
 }
 
-.modal-detail {
-    text-align: center !important;
+
+.video--list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
+.video {
+    flex-basis: 20%;
+    margin: 1em;
+    padding: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 250px !important;
+    display: flex;
+    text-align: center;
+    background-color: #ffeedd;
+    color: #343A40;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.video--title {
+    text-align: center;
+    color: #9381ff;
+    padding-top: 25px;
+    padding-bottom: 25px;
 
+}
+
+.btn {
+    background: #9381ff !important;
+    color: white !important;
+    border-color: white !important;
+    border-radius: 3px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    /* margin-bottom: 5px !important; */
+    background-color: #ffeedd;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    /* border-radius: 3px !important; */
+    background-color: #b8b8ff !important;
+    /* min-height: 70px !important; */
+}
+
+/* .card--body {   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
+.card--button {
+    justify-self: flex-end;
+    margin-top: 10px;
+}
+
+.card--img {
+    height: 120px;
+    object-fit: cover;
+}

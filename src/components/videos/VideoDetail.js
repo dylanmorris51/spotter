@@ -145,7 +145,6 @@ export const VideoDetail = () => {
                                 <YoutubeEmbed embedId={video.embed} />
 
                                 <div className="btn-container">
-
                                     <Button onClick={() => {
                                         history.goBack()
                                     }}>

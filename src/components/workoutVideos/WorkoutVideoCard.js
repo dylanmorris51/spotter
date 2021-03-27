@@ -12,27 +12,31 @@ export const WorkoutVideoCard = ({ workoutVideo }) => {
 
 
     return <>
-            <Card style={{ width: '18rem' }}>
+            <Card className="video" style={{ width: '18rem' }}>
                 
                 <Card.Header>{ workoutVideo.video?.name }</Card.Header>
 
-                <Card.Body>
-                    <Card.Text>
+                <Card.Body className="card--body">
+                    <Card.Text className="card--img">
                         <YoutubeEmbed embedId={ workoutVideo.video?.embed} />
                     </Card.Text>
                 </Card.Body>
 
-                {/* view video in full screen */}
-                <Button href={`/videos/detail/${workoutVideo.video?.id}`}>
-                    Watch Video
-                </Button>
-                
-                {/* delete button */}
-                <Button onClick={() => (
-                    deleteWorkoutVideo(workoutVideo.id)
-                )}>
-                    Delete
-                </Button>
+                {/* <div className="buttons">
+
+                </div> */}
+                    
+                    {/* view video in full screen */}
+                    <Button href={`/videos/detail/${workoutVideo.video?.id}`}>
+                        Watch Video
+                    </Button>
+                    
+                    {/* delete button */}
+                    <Button onClick={() => (
+                        deleteWorkoutVideo(workoutVideo.id)
+                    )}>
+                        Delete
+                    </Button>
             </Card>
 
         </>

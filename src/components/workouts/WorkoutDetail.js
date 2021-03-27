@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button"
 import "./WorkoutDetail.css"
 
 
+
 export const WorkoutDetail = () => {
 
     //currentUserId, params, & history
@@ -65,7 +66,7 @@ export const WorkoutDetail = () => {
             <div className="outer--container">
                 <div className="container">
                     <div className="title--container">
-                        <h2>{workout.name}</h2>
+                        <h2 className="video--title">{workout.name}</h2>
 
                     </div>
 
@@ -81,7 +82,7 @@ export const WorkoutDetail = () => {
                 </div> 
                 :
                 <div className="workoutVideo">
-                    <div className="workoutVideo--list">
+                    <div className="video--list">
                         {filteredVideos.map(video => {
                         
                         return <WorkoutVideoCard key={video.id} workoutVideo={video}/>
