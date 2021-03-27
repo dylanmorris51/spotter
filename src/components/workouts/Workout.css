@@ -8,13 +8,13 @@
 }
 
 
-.video--list {
+.workouts--list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.video {
+.workout {
     flex-basis: 20%;
     margin: 1em;
     padding: 1em;

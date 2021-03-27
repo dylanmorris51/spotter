@@ -39,43 +39,37 @@ export const WorkoutList = () => {
                     </div>
 
                     {/* check if user has created workouts => prompt user to create workouts */}
-                    {show === true  ?
-                        <div className="add--workouts">
-                            <p>It looks like you haven't created any workouts yet. Click Create to get started! </p>
-                            <Button onClick={() => {
-                                setShow(false)
-                                history.push(`/workouts/create`)
-                            }
-                            }> Create
-                            </Button>
-                        </div>
-                                    :
-                        <div className="workouts">
-                            <div className="workouts--list">
-                                {workouts.map(workout => {
-                                    return <WorkoutCard key={workout.id} workout={workout} />
-                                })}
+                    <div className="workouts--container">
+                        {show === true ?
+                            <div className="add--workouts">
+                                <p>It looks like you haven't created any workouts yet. Click Create to get started! </p>
+                                <Button onClick={() => {
+                                    setShow(false)
+                                    history.push(`/workouts/create`)
+                                }
+                                }> Create
+                                </Button>
                             </div>
-                            
-                            <Button onClick={() => {
-                                setShow(false)
-                                history.push(`/workouts/create`)
-                            }
-                            }> Create Another Workout
-                            </Button>
+                            :
+                            <div className="workouts">
+                                <div className="workouts--list">
+                                    {workouts.map(workout => {
+                                        return <WorkoutCard key={workout.id} workout={workout} />
+                                    })}
+                                </div>
 
-                        </div>}
+                                <Button onClick={() => {
+                                    setShow(false)
+                                    history.push(`/workouts/create`)
+                                }
+                                }> Create Another Workout
+                                </Button>
+                            </div>}
 
+                    </div>
                 </div>
+
             </div>
-
-
-
-
-
-
-
-
         </>
     )
 }
