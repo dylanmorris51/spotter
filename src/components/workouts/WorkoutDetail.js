@@ -6,6 +6,7 @@ import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
 import { WorkoutVideoCard } from "../workoutVideos/WorkoutVideoCard"
 import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Button"
+import "./WorkoutDetail.css"
 
 
 export const WorkoutDetail = () => {
@@ -59,8 +60,16 @@ export const WorkoutDetail = () => {
     
     return (
         <>
-            <h2>{workout.name}</h2>
+            
+            
+            <div className="outer--container">
+                <div className="container">
+                    <div className="title--container">
+                        <h2>{workout.name}</h2>
 
+                    </div>
+
+                    <div className="video--container">
             {show === true ? 
                 <div className="add--videos">
                     <p>Add some videos to this workout! </p>
@@ -85,6 +94,20 @@ export const WorkoutDetail = () => {
                         }> Add More Videos
                     </Button>
                 </div>}
+                    </div>
+                
+                
+                </div>
+
+            </div>
+            
+            
+            
+            
+            
+            
+            
+
             
 
             

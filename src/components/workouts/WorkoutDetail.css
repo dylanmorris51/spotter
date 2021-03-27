@@ -1,0 +1,32 @@
+.outer--container {
+    background-color: #9381ff;
+}
+
+.container {
+    background-color: #f8f7ff;
+    border-radius: 3px;
+}
+
+
+.jumbotron-fluid {
+    background-color: #f8f7ff !important;
+}
+
+.jumbo-header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: -20px;
+    color: #343A40
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-detail {
+    text-align: center !important;
+}
+
+
+
