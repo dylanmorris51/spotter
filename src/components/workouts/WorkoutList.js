@@ -58,12 +58,15 @@ export const WorkoutList = () => {
                                     })}
                                 </div>
 
-                                <Button onClick={() => {
-                                    setShow(false)
-                                    history.push(`/workouts/create`)
-                                }
-                                }> Create Another Workout
-                                </Button>
+                                <div className="button--container">
+                                    <Button className="create--button" onClick={() => {
+                                        setShow(false)
+                                        history.push(`/workouts/create`)
+                                    }
+                                    }> Create Another Workout
+                                    </Button>
+                                </div>
+
                             </div>}
 
                     </div>
