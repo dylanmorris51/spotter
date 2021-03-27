@@ -35,7 +35,7 @@ export const WorkoutList = () => {
             <div className="outer--container">
                 <div className="container">
                     <div className="title--container">
-                        <h2 className="workout--title"> Workouts </h2>
+                        <h2 className="video--title"> Workouts </h2>
                     </div>
 
                     {/* check if user has created workouts => prompt user to create workouts */}
