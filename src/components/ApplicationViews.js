@@ -22,9 +22,6 @@ import { DayProvider } from "./days/DayProvider"
 export const ApplicationViews = () => {
     return (
         <>
-            <Route exact path="/">
-                <Home />
-            </Route>
 
             <DayProvider>
                 <PlannerProvider>
@@ -34,6 +31,9 @@ export const ApplicationViews = () => {
                                 <PainTypeProvider>
                                     <VideoProvider>
                                         
+            <Route exact path="/">
+                <Home />
+            </Route>
                                         {/* video list */}
                                         <Route exact path="/videos">
                                             <VideoList />

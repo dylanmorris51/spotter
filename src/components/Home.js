@@ -1,15 +1,22 @@
 import React from "react";
 import { Button } from "react-bootstrap"
+import "./videos/Video.css"
+import "./Home.css"
+import { VideoCard } from "./videos/VideoCard";
+import Card from "react-bootstrap/Card"
 
 
-//! Go through MVP code and add comments to every line. Be able to explain every line
 //! Create content for a landing page here. Buttons that go to components?
-//! Styling before stretch goals
-//! Add conditionals
 export const Home = () => {
     
     return  <>
-                
+                <div className="outer--container">
+                    <div className="container">
+                        <Card>
+                            <p> eets a card</p>
+                        </Card>
+                    </div>
+                </div>
                 
             </>
 }

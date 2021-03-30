@@ -1,5 +1,5 @@
 .outer--container {
-    background-color: #9381ff;
+    background-color: #9381ff, cover;
 }
 
 .container {

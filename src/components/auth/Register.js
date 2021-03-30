@@ -102,6 +102,7 @@ export const Register = () => {
                             </fieldset>
                         </form>
                     </main>
+                    
                 </div>
             </div>
             
