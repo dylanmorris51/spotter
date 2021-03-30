@@ -1,5 +1,5 @@
-.outer--container {
-    background-color: #9381ff, cover;
+.login--outer--container {
+    background-color: #f8f7ff ;
 }
 
 .container {
@@ -29,10 +29,10 @@
     padding-bottom: 5px;
 }
 
-.carousel {
+/* .carousel {
     padding-top: 25px;
     
-}
+} */
 
 .form--login {
     color: #343A40;
