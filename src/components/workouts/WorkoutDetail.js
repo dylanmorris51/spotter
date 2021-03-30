@@ -89,11 +89,14 @@ export const WorkoutDetail = () => {
                         
                         })}
                     </div>
-                    <Button onClick={() => {
-                        setShow(false)
-                        history.push(`/videos`)}
-                        }> Add More Videos
-                    </Button>
+                    
+                    <div className="btn-container">
+                        <Button onClick={() => {
+                            setShow(false)
+                            history.push(`/videos`)}
+                            }> Add More Videos
+                        </Button>
+                    </div>
                 </div>}
                     </div>
                 
