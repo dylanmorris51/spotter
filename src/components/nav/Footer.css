@@ -4,9 +4,8 @@
     left: 0;
     width: 100%;
     display: flex;
-    flex-grow: 1;
     justify-content: space-between;
-    background-color: #343a30;
+    background-color: #343A40;
     color: #FFFFFF80
 }
 
