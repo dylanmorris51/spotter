@@ -8,6 +8,12 @@
 }
 
 
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+
 .video--list {
     display: flex;
     flex-wrap: wrap;
@@ -23,9 +29,10 @@
     display: flex;
     text-align: center;
     background-color: #ffeedd;
-    color: #343A40
+    color: #343A40;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
 
 .video--title {
     text-align: center;
@@ -34,12 +41,6 @@
     padding-bottom: 25px;
 
 }
-
-.sorting {
-    text-align: center;
-    padding-bottom: 25px;
-}
-
 
 .btn {
     background: #9381ff !important;
@@ -57,13 +58,14 @@
     border-bottom: 1px solid rgba(0,0,0,.125);
     /* border-radius: 3px !important; */
     background-color: #b8b8ff !important;
+    /* min-height: 70px !important; */
 }
 
-.card--body {   
+/* .card--body {   
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
+} */
 
 .card--button {
     justify-self: flex-end;
@@ -74,4 +76,3 @@
     height: 120px;
     object-fit: cover;
 }
-

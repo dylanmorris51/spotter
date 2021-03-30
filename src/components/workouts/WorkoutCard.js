@@ -12,18 +12,19 @@ export const WorkoutCard = ({ workout }) => {
     
     
     return  <>
-                <Card style={{ width: '18rem' }}>
+                <Card className="workout" style={{ width: '18rem' }}>
                     <Card.Header>{ workout.name }</Card.Header>
-                        
+                    <Card.Img className="card--img" variant="top" src={`https://i.imgur.com/4bqorlt.png`} />
+    
 
-                    <Card.Body>
-                        <Button variant="primary" href={`/workouts/detail/${workout.id}`}>
+                    <Card.Body className="card--body">
+                        <Button className="card--button" variant="primary" href={`/workouts/detail/${workout.id}`}>
                             View Workout
                         </Button>
-                        <Button variant="primary" href={`/workouts/edit/${workout.id}`}>
+                        <Button className="card--button" variant="primary" href={`/workouts/edit/${workout.id}`}>
                             Edit Workout
                         </Button>
-                        <Button onClick={() => {
+                        <Button className="card--button" onClick={() => {
                             deleteWorkout(workout.id)
                                 .then(() => {
                                     getWorkoutsByUserId(currentUserId)
@@ -32,7 +33,7 @@ export const WorkoutCard = ({ workout }) => {
                             }>
                                 Delete Workout
                         </Button>
-                        <Button href={`/videos`}>
+                        <Button className="card--button" href={`/videos`}>
                             Add Videos
                         </Button>
                     </Card.Body>

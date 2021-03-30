@@ -1,0 +1,39 @@
+.outer--container {
+    background-color: #9381ff, cover;
+}
+
+.container {
+    background-color: #f8f7ff;
+    border-radius: 3px;
+}
+
+.video--title {
+    text-align: center;
+    color: #9381ff;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+}
+.register--title {
+    text-align: center;
+    color: #343a40;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+}
+
+.btn--container {
+    display: flex !important;
+    justify-content: center !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.carousel {
+    padding-top: 25px;
+    
+}
+
+.form--login {
+    color: #343A40;
+}

@@ -1,0 +1,50 @@
+.outer--container {
+    background-color: #9381ff;
+}
+
+.container {
+    background-color: #f8f7ff;
+    border-radius: 3px;
+}
+
+
+.workouts--list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.workout {
+    flex-basis: 20%;
+    margin: 1em;
+    padding: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 250px !important;
+    display: flex;
+    text-align: center;
+    background-color: #ffeedd;
+    color: #343A40
+}
+
+
+.video--title {
+    text-align: center;
+    color: #9381ff;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+}
+
+.title--container {
+    text-align: center;
+    color: #9381ff;
+}
+
+.button--container {
+    display: flex;
+    justify-content: center;
+}
+
+.create--button {
+    text-align: center;
+}

@@ -10,7 +10,7 @@ import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
 import DropdownButton from "react-bootstrap/DropdownButton"
 import Dropdown from "react-bootstrap/Dropdown"
 import Modal from "react-bootstrap/Modal"
-
+import "./VideoDetail.css"
 
 export const VideoDetail = () => {
 
@@ -97,12 +97,12 @@ export const VideoDetail = () => {
 
     // handle close for modal
     const handleClose = () => {
-        
+
         setDuplicate(false)
         setWorkoutId(0)
     }
 
-    
+
     // add workoutVideoObj
     const handleAddVideo = (e) => {
         const workoutVideoObj = {
@@ -110,7 +110,6 @@ export const VideoDetail = () => {
             videoId: +videoId
         }
 
-        //TODO: get workoutId and push to that detail page
         addWorkoutVideo(workoutVideoObj).then(() => history.push(`/workouts/detail/${workoutId}`))
     }
 
@@ -119,9 +118,9 @@ export const VideoDetail = () => {
 
     return (
         <>
-            <Modal show={duplicate} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Select A Different Workout</Modal.Title>
+            <Modal className="modal-detail" show={duplicate} onHide={handleClose}>
+                <Modal.Header className="modal-title" closeButton>
+                    <Modal.Title >Select A Different Workout</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>The selected workout already contains this exercise video.</Modal.Body>
                 <Modal.Footer>
@@ -130,35 +129,50 @@ export const VideoDetail = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <Jumbotron fluid>
-                <Container>
-                    <h4>{video.name}</h4>
-                    <YoutubeEmbed embedId={video.embed} />
 
-                    <Button onClick={() => {
-                        history.goBack()
-                    }}>
-                        Back
-                    </Button>
-                    <DropdownButton
-                        alignRight
-                        title="Add to Workout..."
-                        id="dropdown-menu-align-right"
-                        onSelect={handleSelect}
-                    >
-                        <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item>
-                        {
-                            workouts.map(workout => {
+            <div className="outer--container">
+                <div className="container">
+                    <div className="title--container">
 
-                                return <Dropdown.Item eventKey={workout.id}>{workout.name}</Dropdown.Item>
+                    </div>
+                    <div className="video--container">
+                        <Jumbotron fluid>
+                            <Container>
+                                <div className="jumbo-header">
+                                    <h4>{video.name}</h4>
+                                </div>
+                                <YoutubeEmbed embedId={video.embed} />
 
-                            })
-                        }
-                    </DropdownButton>
-                    {workoutId !== 0 ? <Button onClick={handleAddVideo}>Save</Button> : <div className="empty"></div>}
+                                <div className="btn-container">
+                                    <Button onClick={() => {
+                                        history.goBack()
+                                    }}>
+                                        Back
+                                    </Button>
+                                    <DropdownButton
+                                        alignRight
+                                        title="Add to Workout..."
+                                        id="dropdown-menu-align-right"
+                                        onSelect={handleSelect}
+                                    >
+                                        <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item>
+                                        {
+                                            workouts.map(workout => {
 
-                </Container>
-            </Jumbotron>
+                                                return <Dropdown.Item eventKey={workout.id}>{workout.name}</Dropdown.Item>
+
+                                            })
+                                        }
+                                    </DropdownButton>
+                                    {workoutId !== 0 ? <Button onClick={handleAddVideo}>Save</Button> : <div className="empty"></div>}
+                                </div>
+
+                            </Container>
+                        </Jumbotron>
+                    </div>
+                </div>
+            </div>
+
 
         </>
     )

@@ -6,6 +6,8 @@ import { WorkoutVideoContext } from "../workoutVideos/WorkoutVideoProvider"
 import { WorkoutVideoCard } from "../workoutVideos/WorkoutVideoCard"
 import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Button"
+import "./WorkoutDetail.css"
+
 
 
 export const WorkoutDetail = () => {
@@ -59,8 +61,16 @@ export const WorkoutDetail = () => {
     
     return (
         <>
-            <h2>{workout.name}</h2>
+            
+            
+            <div className="outer--container">
+                <div className="container">
+                    <div className="title--container">
+                        <h2 className="video--title">{workout.name}</h2>
 
+                    </div>
+
+                    <div className="video--container">
             {show === true ? 
                 <div className="add--videos">
                     <p>Add some videos to this workout! </p>
@@ -72,19 +82,36 @@ export const WorkoutDetail = () => {
                 </div> 
                 :
                 <div className="workoutVideo">
-                    <div className="workoutVideo--list">
+                    <div className="video--list">
                         {filteredVideos.map(video => {
                         
                         return <WorkoutVideoCard key={video.id} workoutVideo={video}/>
                         
                         })}
                     </div>
-                    <Button onClick={() => {
-                        setShow(false)
-                        history.push(`/videos`)}
-                        }> Add More Videos
-                    </Button>
+                    
+                    <div className="btn-container">
+                        <Button onClick={() => {
+                            setShow(false)
+                            history.push(`/videos`)}
+                            }> Add More Videos
+                        </Button>
+                    </div>
                 </div>}
+                    </div>
+                
+                
+                </div>
+
+            </div>
+            
+            
+            
+            
+            
+            
+            
+
             
 
             

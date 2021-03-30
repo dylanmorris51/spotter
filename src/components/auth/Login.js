@@ -44,7 +44,6 @@ export const Login = () => {
 
     return (
         <>
-            
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="/">
                     <img
@@ -55,90 +54,101 @@ export const Login = () => {
                         alt="Spotter logo" />
                 </Navbar.Brand>
             </Navbar>
-            
-            
-            
-            <Carousel fade>
-                <Carousel.Item interval={4000}>
-                    <img
-                        className="d-block w-100"
-                        src="https://i.imgur.com/OgJw4Ux.jpg/800x400?text=First slide&bg=373940"
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>Welcome!</h3>
-                        <p>Your fitness resource on the go - just like you.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={4000}>
-                    <img
-                        className="d-block w-100"
-                        src="https://i.imgur.com/1WPMllM.jpg/800x400?text=Second slide&bg=282c34"
-                        alt="Second slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>Safety</h3>
-                        <p>We help you train safely so you can stay moving.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={4000}>
-                    <img
-                        className="d-block w-100"
-                        src="https://i.imgur.com/4ekzUMy.jpg/800x400?text=Third slide&bg=20232a"
-                        alt="Third slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>Curated Library</h3>
-                        <p>Browse our hand-picked instructional videos to find what works for you.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={4000}>
-                    <img
-                        className="d-block w-100"
-                        src="https://i.imgur.com/wiPS7X3.jpg/800x400?text=Fourth slide&bg=20232a"
-                        alt="Third slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>Get Started</h3>
-                        <p>Register to start building your personalized workouts</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
 
-            <main className="container--login">
-                <dialog className="dialog dialog--auth" open={existDialog}>
-                    <div>User does not exist</div>
-                    <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
-                </dialog>
-                <section>
-                    <form className="form--login" onSubmit={handleLogin}>
-                        <h1>Spotter</h1>
-                        <h2>Please sign in</h2>
-                        <fieldset>
-                            <label htmlFor="inputEmail"> Email address </label>
-                            <input type="email"
-                                id="email"
-                                className="form-control"
-                                placeholder="Email address"
-                                required autoFocus
-                                value={loginUser.email}
-                                onChange={handleInputChange} />
-                        </fieldset>
-                        <fieldset>
-                            <Button type="submit">
-                                Sign in
-                            </Button>
-                        </fieldset>
-                    </form>
-                </section>
-                <section className="link--register">
-                    <Link to="/register">
-                        <Button>
-                            Register for an account
-                        </Button>
-                    </Link>
-                </section>
-            </main>
+            <div className="outer--container">
+                <div className="container">
+
+
+
+                    <Carousel className="carousel" fade>
+                        <Carousel.Item interval={4000}>
+                            <img
+                                className="d-block w-100"
+                                src="https://i.imgur.com/OgJw4Ux.jpg/800x400?text=First slide&bg=373940"
+                                alt="First slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>Welcome!</h3>
+                                <p>Your fitness resource on the go - just like you.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item interval={4000}>
+                            <img
+                                className="d-block w-100"
+                                src="https://i.imgur.com/1WPMllM.jpg/800x400?text=Second slide&bg=282c34"
+                                alt="Second slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>Safety</h3>
+                                <p>We help you train safely so you can stay moving.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item interval={4000}>
+                            <img
+                                className="d-block w-100"
+                                src="https://i.imgur.com/4ekzUMy.jpg/800x400?text=Third slide&bg=20232a"
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>Curated Library</h3>
+                                <p>Browse our hand-picked instructional videos to find what works for you.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item interval={4000}>
+                            <img
+                                className="d-block w-100"
+                                src="https://i.imgur.com/wiPS7X3.jpg/800x400?text=Fourth slide&bg=20232a"
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>Get Started</h3>
+                                <p>Register to start building your personalized workouts</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    </Carousel>
+
+                    <main className="container--login">
+                        <dialog className="dialog dialog--auth" open={existDialog}>
+                            <div>User does not exist</div>
+                            <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
+                        </dialog>
+                        <section>
+                            <form className="form--login" onSubmit={handleLogin}>
+                                <div className="video--title">
+                                    {/* <h1>Welcome</h1> */}
+                                    <h2>Please sign in</h2>
+                                </div>
+                                <fieldset>
+                                    <label htmlFor="inputEmail"> Email address </label>
+                                    <input type="email"
+                                        id="email"
+                                        className="form-control"
+                                        placeholder="Email address"
+                                        required autoFocus
+                                        value={loginUser.email}
+                                        onChange={handleInputChange} />
+                                </fieldset>
+                            <section className="link--register">
+                                <div className="btn--container">
+                                    <fieldset>
+                                        <Button type="submit">
+                                            Sign in
+                                        </Button>
+                                    </fieldset>
+                                    <Link to="/register">
+                                        <Button>
+                                            Register for an account
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </section>
+                            </form>
+                        </section>
+                    </main>
+
+                </div>
+            </div>
+
 
 
         </>
