@@ -7,20 +7,18 @@ import { Link } from "react-router-dom"
 
 
 export const VideoCard = ({ video }) => (
-    <Card className="video" style={{ width: '18rem' }}>
-        <Card.Header className="card--header">{ video.exerciseType?.type }</Card.Header>
+    <Card style={{ width: '18rem' }}>
+        <Card.Header>{ video.exerciseType?.type }</Card.Header>
             <Link to={`/videos/detail/${video.id}`}>
-                <Card.Img className="card--img" variant="top" src={video.img} />
+                <Card.Img variant="top" src={video.img} />
             </Link>
 
-        <Card.Body className="card--body">
-            <div>
-                <Card.Title>{ video.name }</Card.Title>
-                <Card.Subtitle>{ `Helps with ${video.painType?.type} pain` } </Card.Subtitle>
-                <Card.Text>
-                </Card.Text>
-            </div>
-            <Button className="card--button" variant="primary" href={`/videos/detail/${video.id}`}>
+        <Card.Body>
+            <Card.Title>{ video.name }</Card.Title>
+            <Card.Subtitle>{ `Helps with ${video.painType?.type} pain` } </Card.Subtitle>
+            <Card.Text>
+            </Card.Text>
+            <Button variant="primary" href={`/videos/detail/${video.id}`}>
                 Watch Video
             </Button>
         </Card.Body>
