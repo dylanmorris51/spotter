@@ -7,17 +7,12 @@ import { Home } from "./Home"
 import { ApplicationViews } from "./ApplicationViews"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "../index.css"
+import { Footer } from "./nav/Footer"
 
 
 export const Spotter = () => {
 
-    //! Add NavBar Styling
     return  <>
-                {/* <div className="outer--container">
-                                    <div className="container">
-
-                                    </div>
-                </div>     */}
                 
                 <Route render={() => {
                     if (sessionStorage.getItem(userStorageKey)) {
@@ -25,7 +20,7 @@ export const Spotter = () => {
                             <>
                                 <NavBar />
                                 <ApplicationViews />
-                                {/* add footer */}
+                                <Footer />
                             </>
                         )
                     } else {
