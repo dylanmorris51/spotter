@@ -23,7 +23,7 @@
     display: flex;
     text-align: center;
     background-color: #ffeedd;
-    color: #343A40
+    /* color: #343A40 */
 }
 
 
@@ -50,11 +50,10 @@
     text-transform: uppercase;
 }
 
-.card-header {
+.card--header {
     padding: .75rem 1.25rem;
-    background-color: #ffeedd;
     border-bottom: 1px solid rgba(0,0,0,.125);
-    background-color: #b8b8ff !important;
+    background-color: #343A40 !important;
 }
 
 .card--body {   
