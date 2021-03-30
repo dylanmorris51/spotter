@@ -128,21 +128,21 @@ export const Login = () => {
                                         value={loginUser.email}
                                         onChange={handleInputChange} />
                                 </fieldset>
+                            <section className="link--register">
+                                <div className="btn--container">
+                                    <fieldset>
+                                        <Button type="submit">
+                                            Sign in
+                                        </Button>
+                                    </fieldset>
+                                    <Link to="/register">
+                                        <Button>
+                                            Register for an account
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </section>
                             </form>
-                        </section>
-                        <section className="link--register">
-                            <div className="btn--container">
-                                <fieldset>
-                                    <Button type="submit">
-                                        Sign in
-                                    </Button>
-                                </fieldset>
-                                <Link to="/register">
-                                    <Button>
-                                        Register for an account
-                                    </Button>
-                                </Link>
-                            </div>
                         </section>
                     </main>
 

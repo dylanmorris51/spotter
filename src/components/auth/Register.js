@@ -82,8 +82,8 @@ export const Register = () => {
                         </dialog>
 
                         <form className="form--login" onSubmit={handleRegister}>
-                            <div className="video--title">
-                                <h1 className="h3 mb-3 font-weight-normal">Please Register for Application Name</h1>
+                            <div className="register--title">
+                                <h1 className="h3 mb-3 font-weight-normal">Please Register an Account</h1>
                             </div>
                             <fieldset>
                                 <label htmlFor="firstName"> First Name </label>
@@ -94,7 +94,7 @@ export const Register = () => {
                                 <input type="text" name="lastName" id="lastName" className="form-control" placeholder="Last name" required value={registerUser.lastName} onChange={handleInputChange} />
                             </fieldset>
                             <fieldset>
-                                <label htmlFor="inputEmail"> Email address </label>
+                                <label htmlFor="inputEmail"> Email Address</label>
                                 <input type="email" name="email" id="email" className="form-control" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
                             </fieldset>
                             <fieldset>
