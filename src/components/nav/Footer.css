@@ -1,0 +1,16 @@
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    background-color: #343a30;
+    color: #FFFFFF80
+}
+
+.github {
+    position: relative;
+    left: 30px;
+}
