@@ -24,7 +24,7 @@ export const PlannerList = () => {
     const [currentDay, setCurrentDay] = useState(8)
 
     //day name state variable
-    const [plannerDay, setPlannerDay] = useState("")
+    const [currentDayName, setCurrentDayName] = useState("")
 
     //scheduled workout state variable
     const [scheduledWorkouts, setScheduledWorkouts] = useState()
@@ -59,16 +59,23 @@ export const PlannerList = () => {
         setCurrentDay(today)
     }, [])
 
-    // //get days on render
-    // useEffect(() => {
-    //     getDays()
-    // }, [])
+    //get days on render
+    useEffect(() => {
+        getDays()
+    }, [])
 
-    // //find matching day from database
-    // useEffect(() => {
-    //     const matchingDay = days.find(day => day?.id === (currentDay + 1))
-    //     setPlannerDay(matchingDay)
-    // }, [currentDay])
+    //find matching day from database
+    useEffect(() => {
+        const matchingDay = days.find(day => day?.id === currentDay)
+        setCurrentDayName(matchingDay)
+    }, [currentDay])
+
+    useEffect(() => {
+        console.log("current day name", currentDayName)
+    }, [currentDayName])
+    useEffect(() => {
+        console.log("current day", currentDay)
+    }, [currentDay])
 
     // Find workouts for today from user's schedule
     useEffect(() => {
@@ -89,14 +96,18 @@ export const PlannerList = () => {
             
             
             
+            
             {/* <div className="planners--list">
                 {filteredPlanners.length === 0 ? "Plan your workouts!" : filteredPlanners.map(planner => {
                     return <PlannerCard key={planner.id} planner={planner} />
                 })}
             </div> */}
 
+            <div className="planners--today">
+                <h4>{`Workouts For Today`}</h4>
+            </div>
             <div className="planners--list">
-                {scheduledWorkouts.length === 0 ? "No workouts scheduled today" : scheduledWorkouts.map(item => {
+                {scheduledWorkouts?.length === 0 ? "No workouts scheduled today" : scheduledWorkouts?.map(item => {
                     return <PlannerCard key={item.id} planner={item} />
                 })}
             </div>
