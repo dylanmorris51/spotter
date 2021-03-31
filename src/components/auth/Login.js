@@ -54,12 +54,8 @@ export const Login = () => {
                         alt="Spotter logo" />
                 </Navbar.Brand>
             </Navbar>
-
-            <div className="outer--container">
-                <div className="container">
-
-
-
+                    
+                    
                     <Carousel className="carousel" fade>
                         <Carousel.Item interval={4000}>
                             <img
@@ -106,6 +102,12 @@ export const Login = () => {
                             </Carousel.Caption>
                         </Carousel.Item>
                     </Carousel>
+
+            <div className="login--outer--container">
+                <div className="container">
+
+
+
 
                     <main className="container--login">
                         <dialog className="dialog dialog--auth" open={existDialog}>

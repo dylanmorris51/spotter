@@ -26,7 +26,7 @@ export const Spotter = () => {
                     } else {
                         return <Redirect to="/login" />;
                     }
-                }} />
+                                    }} />
 
                 <Route path="/login">
                     <Login />

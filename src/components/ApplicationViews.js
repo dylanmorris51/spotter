@@ -18,6 +18,7 @@ import { PlannerProvider } from "./planner/PlannerProvider"
 import { PlannerList } from "./planner/PlannerList"
 import { PlannerForm } from "./planner/PlannerForm"
 import { DayProvider } from "./days/DayProvider"
+import { PlannerListAll } from "./planner/PlannerListAll"
 
 export const ApplicationViews = () => {
     return (
@@ -85,6 +86,10 @@ export const ApplicationViews = () => {
                                         {/* view all planned workouts */}
                                         <Route exact path="/planner">
                                             <PlannerList />
+                                        </Route>
+                                        
+                                        <Route path="/planner/all">
+                                            <PlannerListAll />
                                         </Route>
 
                                         {/* add workouts to the planner */}

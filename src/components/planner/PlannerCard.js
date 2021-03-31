@@ -7,9 +7,10 @@ export const PlannerCard = ({ planner }) => {
 
 
     return  <>
-                <Card style={{ width: '18rem' }}>
+                <Card className="workout" style={{ width: '18rem' }}>
                     <Card.Header>{ planner.day?.name }</Card.Header>
-                        
+                    <Card.Img className="card--img" variant="top" src={`https://i.imgur.com/4bqorlt.png`} />
+    
                     <Card.Body>
                     <Card.Title>{ planner.workout?.name }</Card.Title>
                         <Button variant="primary" href={`/workouts/detail/${planner.workoutId}`}>
