@@ -94,21 +94,13 @@ export const PlannerForm = () => {
     // handle dropdown workout select
     const handleWorkoutSelect = (e) => {
         let parseIntify = +e.split(",")[1]
-        console.log('parseIntify: ', parseIntify);
         
         let name = e.split(",")[0]
-        console.log('name: ', name);
         
         setWorkoutName(name)
         setSelectedWorkout(parseIntify)
     }
 
-    useEffect(() => {
-        console.log("selected workout", selectedWorkout)
-    }, [selectedWorkout])
-    useEffect(() => {
-        console.log("workout name", workoutName)
-    }, [workoutName])
 
     // set captured inputs
     useEffect(() => {
@@ -121,15 +113,8 @@ export const PlannerForm = () => {
 
 
     }, [selectedDay, selectedWorkout])
-
-    useEffect(() => {
-        console.log("planner ID state", planner)
-    }, [plannerId])
-    useEffect(() => {
-        console.log("planner dropdown state", planner)
-    }, [planner])
     
-    //! Broken fetch to update
+    
     // save handler
     const handleSavePlanner = (event) => {
 
