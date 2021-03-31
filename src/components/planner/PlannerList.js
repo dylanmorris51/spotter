@@ -93,7 +93,9 @@ export const PlannerList = () => {
                 Plan New Workout
             </Button>
 
-            
+            <Button href={`/planner/all`}>
+                View All Planned Workouts
+            </Button>
             
             
             
