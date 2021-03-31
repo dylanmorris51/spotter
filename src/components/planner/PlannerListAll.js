@@ -43,10 +43,6 @@ export const PlannerListAll = () => {
         setFilteredPlanners(matchingPlanners)
     }, [workouts, planners])
 
-    //filtered console check
-    useEffect(() => {
-        console.log("filtered", filteredPlanners)
-    }, [filteredPlanners])
 
     return (
         <>
