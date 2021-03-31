@@ -11,11 +11,11 @@ This application serves as my font-end capstone project for my cohort at Nashvil
 
 ![logo](./images/logo-antique-white.png)
 
-![demo](./images/spotter-demo)
+![demo](./images/spotter-demo.png)
 
 ![ERD](./images/spotter-ERD.png)
 
-![Wireframe](./images/spotter-wireframe/png)
+![Wireframe](./images/spotter-wireframe.png)
 
 ![Dependency](./images/spotter-dependency.png)
 
@@ -32,3 +32,11 @@ Styled with **CSS** and **React Bootstrap**
 **Planner** for scheduling user-created workouts for the coming week. The planner displays any workout the user has saved for the current day, as well as providing an option to view all planned workouts 
 
 **User Specific** data for workouts and planner, but the video library is provided equally to all users
+
+## Accessibility
+
+![image](./images/spotter-accessibility.png)
+
+## API
+Spotter uses a custom-built API to render it's data. The API can be found [here](https://github.com/dylanmorris51/spotter-api)
+
