@@ -5,6 +5,9 @@ import Button from "react-bootstrap/Button"
 import { PlannerCard } from "./PlannerCard"
 import { WorkoutContext } from "../workouts/WorkoutProvider"
 import { DayContext } from "../days/DayProvider"
+import "../workouts/Workout.css"
+import Jumbotron from "react-bootstrap/Jumbotron"
+import Container from "react-bootstrap/Container"
 
 export const PlannerList = () => {
 
@@ -14,8 +17,8 @@ export const PlannerList = () => {
 
     // context for planners & workouts & days
     const { planners, getPlanners } = useContext(PlannerContext)
-    const { workouts, getWorkoutsByUserId} = useContext(WorkoutContext)
-    const { days, getDays} = useContext(DayContext)
+    const { workouts, getWorkoutsByUserId } = useContext(WorkoutContext)
+    const { days, getDays } = useContext(DayContext)
 
     // current user planners state variable
     const [filteredPlanners, setFilteredPlanners] = useState([])
@@ -28,26 +31,26 @@ export const PlannerList = () => {
 
     //scheduled workout state variable
     const [scheduledWorkouts, setScheduledWorkouts] = useState()
-    
+
     // fetch data on page load
     useEffect(() => {
         getPlanners()
             .then(getWorkoutsByUserId(currentUserId))
-        
+
     }, [])
 
     // filter planners => set state for current user
     useEffect(() => {
-        const matchingPlanners = [] 
-        
+        const matchingPlanners = []
+
         workouts.map(workout => {
-            
+
             planners.filter(planner => {
                 if (planner.workoutId === workout.id) {
                     matchingPlanners.push(planner)
                 }
             })
-        }) 
+        })
 
         setFilteredPlanners(matchingPlanners)
     }, [workouts, planners])
@@ -79,40 +82,72 @@ export const PlannerList = () => {
 
     // Find workouts for today from user's schedule
     useEffect(() => {
-        
+
         const dailyWorkout = filteredPlanners.filter(item => item.day?.id === currentDay)
-        
+
         setScheduledWorkouts(dailyWorkout)
 
     }, [filteredPlanners])
 
+    const restDayMessage = () => {
+        return (
+            <div className="rest">
+                <h6>Nothing scheduled for today yet. Enjoy your rest day!</h6>
+            </div>
+        )
+    }
 
     return (
         <>
-            <Button onClick={() => history.push(`/planner/create`)}>
-                Plan New Workout
-            </Button>
+            <div className="outer--container">
+                <div className="container">
 
-            <Button href={`/planner/all`}>
-                View All Planned Workouts
-            </Button>
-            
-            
-            
-            {/* <div className="planners--list">
-                {filteredPlanners.length === 0 ? "Plan your workouts!" : filteredPlanners.map(planner => {
-                    return <PlannerCard key={planner.id} planner={planner} />
-                })}
-            </div> */}
+                    <div className="video--title">
+                        <h2>Scheduled for Today</h2>
+                    </div>
 
-            <div className="planners--today">
-                <h4>Scheduled for Today</h4>
+                    <div className="button--container">
+                        <Button onClick={() => history.push(`/planner/create`)}>
+                            Plan New Workout
+                        </Button>
+
+                        <Button href={`/planner/all`}>
+                            View All Planned Workouts
+                        </Button>
+                    </div>
+
+                    <div className="workouts--list">
+                        {scheduledWorkouts?.length === 0 ? 
+                        <>
+                            <div className="spacer">
+
+                            </div>
+                            <Jumbotron className="rest" fluid>
+                                <Container>
+                                    <h3>Rest Day!</h3>
+                                    <p>
+                                    Nothing scheduled for today yet. Enjoy your rest day!
+                                    </p>
+                                </Container>
+                            </Jumbotron> 
+                            <div className="spacer">
+
+                            </div>
+                        </>    
+                        : 
+                        scheduledWorkouts?.map(item => {
+                            return <PlannerCard key={item.id} planner={item} />
+                        })}
+                    </div>
+
+                </div>
+
             </div>
-            <div className="planners--list">
-                {scheduledWorkouts?.length === 0 ? "No workouts scheduled today" : scheduledWorkouts?.map(item => {
-                    return <PlannerCard key={item.id} planner={item} />
-                })}
-            </div>
+
+
+
+
+
 
         </>
     )
