@@ -106,7 +106,7 @@ export const PlannerList = () => {
             </div> */}
 
             <div className="planners--today">
-                <h4>{`Workouts For Today`}</h4>
+                <h4>Scheduled for Today</h4>
             </div>
             <div className="planners--list">
                 {scheduledWorkouts?.length === 0 ? "No workouts scheduled today" : scheduledWorkouts?.map(item => {

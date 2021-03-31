@@ -47,6 +47,10 @@ export const PlannerListAll = () => {
                 Plan New Workout
             </Button>
 
+            <Button href={`/planner/`}>
+                View Today's Workouts
+            </Button>
+
             <div className="planners--list">
                 {filteredPlanners.length === 0 ? "Plan your workouts!" : filteredPlanners.map(planner => {
                     return <PlannerCard key={planner.id} planner={planner}/>
