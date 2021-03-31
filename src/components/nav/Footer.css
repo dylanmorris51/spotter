@@ -6,7 +6,8 @@
     display: flex;
     justify-content: space-between;
     background-color: #343A40;
-    color: #FFFFFF80
+    color: #FFFFFF80;
+    margin-top: 10em;
 }
 
 .github {
