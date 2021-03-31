@@ -36,10 +36,17 @@ export const PlannerListAll = () => {
                     matchingPlanners.push(planner)
                 }
             })
-        }) 
+        })
+        
+        matchingPlanners.sort((a, b) => a.dayId - b.dayId)
 
         setFilteredPlanners(matchingPlanners)
     }, [workouts, planners])
+
+    //filtered console check
+    useEffect(() => {
+        console.log("filtered", filteredPlanners)
+    }, [filteredPlanners])
 
     return (
         <>
