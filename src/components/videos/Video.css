@@ -5,7 +5,7 @@
 .container {
     background-color: #f8f7ff;
     border-radius: 3px;
-    padding-bottom: 8em;
+    padding-bottom: 3em;
 }
 
 
@@ -30,7 +30,7 @@
 
 .video--title {
     text-align: center;
-    color: #9381ff;
+    color: #343A40;
     padding-top: 25px;
     padding-bottom: 25px;
 
