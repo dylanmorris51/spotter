@@ -10,7 +10,7 @@ export const ExerciseTypeProvider = (props) => {
 
     //fetch
     const getExerciseTypes = () => {
-        return fetch("http://localhost:8088/exerciseTypes")
+        return fetch("https://git.heroku.com/spotter-nss-api.git/exerciseTypes")
             .then(res => res.json())
             .then(setExerciseTypes)
     }

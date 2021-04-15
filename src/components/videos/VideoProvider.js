@@ -11,14 +11,14 @@ export const VideoProvider = (props) => {
 
     //fetch
     const getVideos = () => {
-        return fetch("http://localhost:8088/videos?_expand=exerciseType&_expand=painType")
+        return fetch("https://git.heroku.com/spotter-nss-api.git/videos?_expand=exerciseType&_expand=painType")
             .then(res => res.json())
             .then(setVideos)
     }
 
     //add
     const addVideo = videoObj => {
-        return fetch("http://localhost:8088/videos", {
+        return fetch("https://git.heroku.com/spotter-nss-api.git/videos", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,13 +30,13 @@ export const VideoProvider = (props) => {
 
     //get by ID
     const getVideoById = (id) => {
-        return fetch(`http://localhost:8088/videos/${id}`)
+        return fetch(`https://git.heroku.com/spotter-nss-api.git/videos/${id}`)
             .then(res => res.json())
     }
 
     //delete
     const deleteVideo = videoId => {
-        return fetch (`http://localhost:8088/videos/${videoId}`, {
+        return fetch (`https://git.heroku.com/spotter-nss-api.git/videos/${videoId}`, {
             method: "DELETE"
         })
         .then(getVideos)
@@ -44,7 +44,7 @@ export const VideoProvider = (props) => {
 
     //update
     const updateVideo = video => {
-        return fetch(`http://localhost:8088/videos/${video.id}`, {
+        return fetch(`https://git.heroku.com/spotter-nss-api.git/videos/${video.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
