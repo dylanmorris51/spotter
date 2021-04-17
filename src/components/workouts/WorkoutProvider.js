@@ -15,14 +15,14 @@ export const WorkoutProvider = (props) => {
 
     //fetch
     const getWorkouts = () => {
-        return fetch("http://localhost:8088/workouts")
+        return fetch("https://git.heroku.com/spotter-nss-api.git/workouts")
             .then(_ => _.json())
             .then(setWorkouts)
     }
 
     //add
     const addWorkout = workoutObj => {
-        return fetch("http://localhost:8088/workouts", {
+        return fetch("https://git.heroku.com/spotter-nss-api.git/workouts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,27 +33,27 @@ export const WorkoutProvider = (props) => {
 
     //get by ID
     const getWorkoutById = (id) => {
-        return fetch(`http://localhost:8088/workouts/${id}`)
+        return fetch(`https://git.heroku.com/spotter-nss-api.git/workouts/${id}`)
             .then(res => res.json())
     }
 
     //get by userId
     const getWorkoutsByUserId = (userId) => {
-        return fetch(`http://localhost:8088/workouts?userId=${userId}`)
+        return fetch(`https://git.heroku.com/spotter-nss-api.git/workouts?userId=${userId}`)
         .then(res => res.json())
         .then(setWorkouts)
     }
 
     //delete
     const deleteWorkout = workoutId => {
-        return fetch (`http://localhost:8088/workouts/${workoutId}`, {
+        return fetch (`https://git.heroku.com/spotter-nss-api.git/workouts/${workoutId}`, {
             method: "DELETE"
         })
     }
 
     // update
     const updateWorkout = workout => {
-        return fetch(`http://localhost:8088/workouts/${workout.id}`, {
+        return fetch(`https://git.heroku.com/spotter-nss-api.git/workouts/${workout.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

@@ -15,14 +15,14 @@ export const WorkoutVideoProvider = (props) => {
 
     //fetch
     const getWorkoutVideos = () => {
-        return fetch("http://localhost:8088/workoutVideos?_expand=video&_expand=workout")
+        return fetch("https://git.heroku.com/spotter-nss-api.git/workoutVideos?_expand=video&_expand=workout")
             .then(_ => _.json())
             .then(setWorkoutVideos)
     }
 
     //add
     const addWorkoutVideo = workoutVideoObj => {
-        return fetch("http://localhost:8088/workoutVideos", {
+        return fetch("https://git.heroku.com/spotter-nss-api.git/workoutVideos", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -34,13 +34,13 @@ export const WorkoutVideoProvider = (props) => {
 
     //get by ID
     const getWorkoutVideoById = (id) => {
-        return fetch(`http://localhost:8088/workoutVideos/${id}`)
+        return fetch(`https://git.heroku.com/spotter-nss-api.git/workoutVideos/${id}`)
             .then(res => res.json())
     }
 
     //delete
     const deleteWorkoutVideo = workoutVideoId => {
-        return fetch (`http://localhost:8088/workoutVideos/${workoutVideoId}`, {
+        return fetch (`https://git.heroku.com/spotter-nss-api.git/workoutVideos/${workoutVideoId}`, {
             method: "DELETE"
         })
         .then(getWorkoutVideos)
@@ -48,7 +48,7 @@ export const WorkoutVideoProvider = (props) => {
 
     // update
     const updateWorkoutVideo = workoutVideo => {
-        return fetch(`http://localhost:8088/videos/${workoutVideo.id}`, {
+        return fetch(`https://git.heroku.com/spotter-nss-api.git/videos/${workoutVideo.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
