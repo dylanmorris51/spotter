@@ -11,7 +11,7 @@ export const DayProvider = (props) => {
 
     //fetch
     const getDays = () => {
-        return fetch(`https://git.heroku.com/spotter-nss-api.git/days`)
+        return fetch(`https://spotter-nss-api.herokuapp.com/days`)
             .then(res => res.json())
             .then(setDays)
     }

@@ -10,7 +10,7 @@ export const PainTypeProvider = (props) => {
 
     //fetch
     const getPainTypes = () => {
-        return fetch("https://git.heroku.com/spotter-nss-api.git/painTypes")
+        return fetch("https://spotter-nss-api.herokuapp.com/painTypes")
             .then(res => res.json())
             .then(setPainTypes)
     }

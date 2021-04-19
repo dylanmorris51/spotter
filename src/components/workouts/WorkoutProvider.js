@@ -15,14 +15,14 @@ export const WorkoutProvider = (props) => {
 
     //fetch
     const getWorkouts = () => {
-        return fetch("https://git.heroku.com/spotter-nss-api.git/workouts")
+        return fetch("https://spotter-nss-api.herokuapp.com/workouts")
             .then(_ => _.json())
             .then(setWorkouts)
     }
 
     //add
     const addWorkout = workoutObj => {
-        return fetch("https://git.heroku.com/spotter-nss-api.git/workouts", {
+        return fetch("https://spotter-nss-api.herokuapp.com/workouts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,27 +33,27 @@ export const WorkoutProvider = (props) => {
 
     //get by ID
     const getWorkoutById = (id) => {
-        return fetch(`https://git.heroku.com/spotter-nss-api.git/workouts/${id}`)
+        return fetch(`https://spotter-nss-api.herokuapp.com/workouts/${id}`)
             .then(res => res.json())
     }
 
     //get by userId
     const getWorkoutsByUserId = (userId) => {
-        return fetch(`https://git.heroku.com/spotter-nss-api.git/workouts?userId=${userId}`)
+        return fetch(`https://spotter-nss-api.herokuapp.com/workouts?userId=${userId}`)
         .then(res => res.json())
         .then(setWorkouts)
     }
 
     //delete
     const deleteWorkout = workoutId => {
-        return fetch (`https://git.heroku.com/spotter-nss-api.git/workouts/${workoutId}`, {
+        return fetch (`https://spotter-nss-api.herokuapp.com/workouts/${workoutId}`, {
             method: "DELETE"
         })
     }
 
     // update
     const updateWorkout = workout => {
-        return fetch(`https://git.heroku.com/spotter-nss-api.git/workouts/${workout.id}`, {
+        return fetch(`https://spotter-nss-api.herokuapp.com/workouts/${workout.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

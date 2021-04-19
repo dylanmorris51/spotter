@@ -1,6 +1,6 @@
 // If your json-server API URL or endpoint is different, please change it below!
 export const authApi = {
-  localApiBaseUrl: "https://git.heroku.com/spotter-nss-api.git",
+  localApiBaseUrl: "https://spotter-nss-api.herokuapp.com/",
   endpoint: "users"
 }
 
