@@ -61,12 +61,6 @@
     color: #f8f7ff;
 }
 
-/* .card--body {   
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
-
 .card--button {
     justify-self: flex-end;
     margin-top: 10px;

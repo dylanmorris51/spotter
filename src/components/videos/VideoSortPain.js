@@ -46,7 +46,6 @@ export const VideoSortPain = () => {
         }
     }
 
-    //TODO: add dropdown option for user to create a new workout and add current video to it
     return (
         <>
             <div className="outer--container">
