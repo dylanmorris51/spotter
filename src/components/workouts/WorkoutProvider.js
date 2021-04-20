@@ -48,7 +48,7 @@ export const WorkoutProvider = (props) => {
     const deleteWorkout = workoutId => {
         return fetch (`https://spotter-nss-api.herokuapp.com/workouts/${workoutId}`, {
             method: "DELETE"
-        })
+        }).then(getWorkouts)
     }
 
     // update

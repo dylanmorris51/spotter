@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { WorkoutContext } from "./WorkoutProvider"
 import Button from "react-bootstrap/Button"
+import "./WorkoutDetail.css"
 
 export const WorkoutForm = () => {
 
@@ -93,29 +94,32 @@ export const WorkoutForm = () => {
     }
 
     return (
-        <form className="workoutForm">
-            <h2 className="workoutFormTitle">{workoutId ? "Edit Workout" : "Add Workout"}</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="title">Name Your Workout:</label>
-                    <input type="name" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="workout name?" value={workout.name} />
-                </div>
-            </fieldset>
-            <fieldset>
-            </fieldset>
-            <button className="btn btn-primary"
-                disabled={isLoading}
-                onClick={event => {
-                    event.preventDefault()
-                    handleSaveWorkout()
-                }}>
-                {workoutId ? "Save Workout" : "Create New Workout"}
-            </button>
-            {+currentUserId === workout.userId? <Button onClick={handleDelete}>Delete Workout</Button> : ""}
-            <button className="btn btn-primary" onClick={() => history.push(`/workouts`)}>
-                Cancel
-            </button>
-        </form>
+        <div className="container">
+            <form className="workoutForm">
+                <h2 className="workoutFormTitle">{workoutId ? "Edit Workout" : "Add Workout"}</h2>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="title">Name Your Workout:</label>
+                        <input type="name" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="workout name?" value={workout.name} />
+                    </div>
+                </fieldset>
+                <fieldset>
+                </fieldset>
+                <button className="btn btn-primary"
+                    disabled={isLoading}
+                    onClick={event => {
+                        event.preventDefault()
+                        handleSaveWorkout()
+                    }}>
+                    {workoutId ? "Save Workout" : "Create New Workout"}
+                </button>
+                {+currentUserId === workout.userId? <Button onClick={handleDelete}>Delete Workout</Button> : ""}
+                <button className="btn btn-primary" onClick={() => history.push(`/workouts`)}>
+                    Cancel
+                </button>
+            </form>
+        </div>
+        
     )
 
 

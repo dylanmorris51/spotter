@@ -1,10 +1,11 @@
-.outer--container {
-    background-color: #9381ff;
+.body {
+    background-color: #9381ff !important;
 }
 
 .container {
     background-color: #f8f7ff;
     border-radius: 3px;
+    height: 100% !important;
 }
 
 .content {
@@ -21,8 +22,6 @@
 }
 
 .home--img {
-    /* width: 208px !important; */
-    /* height: 156px !important; */
     width: 100% !important;
     object-fit: fill !important;
 }
