@@ -1,11 +1,12 @@
-.outer--container {
-    background-color: #9381ff;
+.body {
+    background-color: #9381ff !important;
 }
 
 .container {
     background-color: #f8f7ff;
     border-radius: 3px;
     padding-bottom: 3em;
+    height: 100% !important;
 }
 
 

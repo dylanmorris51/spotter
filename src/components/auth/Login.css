@@ -1,10 +1,11 @@
-.login--outer--container {
+.body {
     background-color: #f8f7ff ;
 }
 
 .container {
     background-color: #f8f7ff;
     border-radius: 3px;
+    height: 100%;
 }
 
 .video--title {

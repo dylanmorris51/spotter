@@ -11,14 +11,14 @@ export const PlannerProvider = (props) => {
 
     //fetch
     const getPlanners = () => {
-        return fetch("https://spotter-nss-api.herokuapp.com/planners?_expand=workout&_expand=day")
+        return fetch("http://localhost:8088/planners?_expand=workout&_expand=day")
             .then(_ => _.json())
             .then(setPlanners)
     }
 
     //add
     const addPlanner = plannerObj => {
-        return fetch("https://spotter-nss-api.herokuapp.com/planners", {
+        return fetch("http://localhost:8088/planners", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -30,20 +30,20 @@ export const PlannerProvider = (props) => {
 
     //get by ID
     const getPlannerById = (id) => {
-        return fetch(`https://spotter-nss-api.herokuapp.com/planners/${id}`)
+        return fetch(`http://localhost:8088/planners/${id}`)
             .then(res => res.json())
     }
 
     //get by userId
     const getPlannersByUserId = (userId) => {
-        return fetch(`https://spotter-nss-api.herokuapp.com/planners?userId=${userId}`)
+        return fetch(`http://localhost:8088/planners?userId=${userId}`)
         .then(res => res.json())
         .then(setPlanners)
     }
 
     //delete
     const deletePlanner = plannerId => {
-        return fetch (`https://spotter-nss-api.herokuapp.com/planners/${plannerId}`, {
+        return fetch (`http://localhost:8088/planners/${plannerId}`, {
             method: "DELETE"
         })
         .then(getPlanners)
@@ -51,7 +51,7 @@ export const PlannerProvider = (props) => {
 
     // update
     const updatePlanner = planner => {
-        return fetch(`https://spotter-nss-api.herokuapp.com/planners/${planner.id}`, {
+        return fetch(`http://localhost:8088/planners/${planner.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

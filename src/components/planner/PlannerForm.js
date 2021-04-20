@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button"
 import DropdownButton from "react-bootstrap/DropdownButton"
 import Dropdown from "react-bootstrap/Dropdown"
 import { DayContext } from "../days/DayProvider";
+import "../workouts/WorkoutDetail.css"
 
 export const PlannerForm = () => {
 
@@ -146,56 +147,59 @@ export const PlannerForm = () => {
 
     return (
         <>
-            <form className="plannerForm">
-                <h2 className="plannerFormTitle">{plannerId ? "Edit Planner" : "Add Planner"}</h2>
-                <fieldset>
-                    <DropdownButton
-                        alignRight
-                        // title="Choose a Workout..."
-                        title={workoutName ? workoutName : "Choose A Workout"}
-                        id="dropdown-menu-workout"
-                        onSelect={handleWorkoutSelect}
-                    >
-                        {/* <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item> */}
-                        {
-                            workouts.map(workout => {
+            <div className="container">
+                <form className="plannerForm">
+                    <h2 className="plannerFormTitle">{plannerId ? "Edit Planner" : "Add Planner"}</h2>
+                    <fieldset>
+                        <DropdownButton
+                            alignRight
+                            // title="Choose a Workout..."
+                            title={workoutName ? workoutName : "Choose A Workout"}
+                            id="dropdown-menu-workout"
+                            onSelect={handleWorkoutSelect}
+                        >
+                            {/* <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item> */}
+                            {
+                                workouts.map(workout => {
 
-                                return <Dropdown.Item eventKey={[workout.name, workout.id]}>{workout.name}</Dropdown.Item>
+                                    return <Dropdown.Item eventKey={[workout.name, workout.id]}>{workout.name}</Dropdown.Item>
 
-                            })
-                        }
-                    </DropdownButton>
-                </fieldset>
-                <fieldset>
-                    <DropdownButton
-                        alignRight
-                        title={dayName ? dayName : "Choose A Day"}
-                        id="dropdown-menu-day"
-                        onSelect={handleDaySelect}
-                    >
-                        {/* <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item> */}
-                        {
-                            days.map(day => {
+                                })
+                            }
+                        </DropdownButton>
+                    </fieldset>
+                    <fieldset>
+                        <DropdownButton
+                            alignRight
+                            title={dayName ? dayName : "Choose A Day"}
+                            id="dropdown-menu-day"
+                            onSelect={handleDaySelect}
+                        >
+                            {/* <Dropdown.Item eventKey="0">Select a workout...</Dropdown.Item> */}
+                            {
+                                days.map(day => {
 
-                                return <Dropdown.Item eventKey={[day.name, day.id]}>{day.name}</Dropdown.Item>
+                                    return <Dropdown.Item eventKey={[day.name, day.id]}>{day.name}</Dropdown.Item>
 
-                            })
-                        }
-                    </DropdownButton>
-                </fieldset>
-                <button className="btn btn-primary"
-                    disabled={isLoading}
-                    onClick={event => {
-                        event.preventDefault()
-                        handleSavePlanner()
-                    }}>
-                    {plannerId ? "Update Planner" : "Save New Planner"}
+                                })
+                            }
+                        </DropdownButton>
+                    </fieldset>
+                    <button className="btn btn-primary"
+                        disabled={isLoading}
+                        onClick={event => {
+                            event.preventDefault()
+                            handleSavePlanner()
+                        }}>
+                        {plannerId ? "Update Planner" : "Save New Planner"}
+                    </button>
+                    <Button onClick={handleDelete}>Delete Planner</Button>
+                    <button className="btn btn-primary" onClick={() => history.push(`/planner`)}>
+                        Cancel
                 </button>
-                <Button onClick={handleDelete}>Delete Planner</Button>
-                <button className="btn btn-primary" onClick={() => history.push(`/planner`)}>
-                    Cancel
-            </button>
-            </form>
+                </form>
+            </div>
+
 
         </>
     )
